@@ -576,7 +576,7 @@ def _standalone_purchase_row(rng: random.Random, i: int) -> dict[str, str]:
     row["PricingQuantity"] = "1"
     row["PricingUnit"] = "Units"
     # ConsumedQuantity/Unit stay null (not a Usage charge).
-    _set_currency(row, "USD", amount, amount, amount)
+    _set_currency(row, "USD", amount, amount, Decimal("0"))
     return row
 
 

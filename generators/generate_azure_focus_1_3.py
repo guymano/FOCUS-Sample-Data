@@ -559,7 +559,7 @@ def _standalone_purchase_row(rng: random.Random, i: int) -> dict[str, str]:
     row["ContractedUnitPrice"] = _s(amount)
     row["PricingQuantity"] = "1"
     row["PricingUnit"] = "Units"
-    _set_currency(row, "USD", amount, amount, amount)
+    _set_currency(row, "USD", amount, amount, Decimal("0"))
     return row
 
 
