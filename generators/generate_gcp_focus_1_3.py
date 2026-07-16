@@ -363,16 +363,16 @@ def _contract_applied(
     commit_id: str, contract_id: str, applied_cost: str, applied_qty: str, applied_unit: str
 ) -> str:
     """FOCUS 1.3 ContractApplied JSON object: an Elements array linking the row to the
-    Contract Commitment dataset via ``ContractCommitmentId`` plus the applied amount."""
+    Contract Commitment dataset via ``ContractCommitmentID`` plus the applied amount."""
     return json.dumps(
         {
             "Elements": [
                 {
-                    "ContractCommitmentId": commit_id,
-                    "ContractId": contract_id,
-                    "AppliedCost": applied_cost,
-                    "AppliedQuantity": applied_qty,
-                    "AppliedUnit": applied_unit,
+                    "ContractID": contract_id,
+                    "ContractCommitmentID": commit_id,
+                    "ContractCommitmentAppliedCost": float(applied_cost),
+                    "ContractCommitmentAppliedQuantity": float(applied_qty),
+                    "ContractCommitmentAppliedUnit": applied_unit,
                 }
             ]
         },
@@ -523,9 +523,9 @@ def _split_allocation_row(rng: random.Random, i: int) -> dict[str, str]:
     # FOCUS 1.3 split allocation details: an Elements array, each entry exposing the
     # allocated ratio and the usage that drove the split (plus x_ method metadata).
     element = {
-        "AllocatedRatio": _s(quantity),
+        "AllocatedRatio": 1.0,
         "UsageUnit": spec.pricing_unit,
-        "UsageQuantity": _s(quantity),
+        "UsageQuantity": float(quantity),
         **method_details,
     }
     row["AllocatedMethodDetails"] = json.dumps({"Elements": [element]}, separators=(",", ":"))
