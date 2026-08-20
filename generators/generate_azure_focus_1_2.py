@@ -124,6 +124,20 @@ FOCUS_SKU_PRICE_KEYS: frozenset[str] = frozenset(
     }
 )
 
+# Every row of a commitment group repeats the commitment's full billing identity, not
+# just the account ids: BillingAccountName and InvoiceId are derived from the account,
+# so copying the ids alone leaves a row claiming one account while carrying another's
+# name and invoice.
+_BILLING_IDENTITY_KEYS: tuple[str, ...] = (
+    "BillingAccountId",
+    "BillingAccountName",
+    "BillingAccountType",
+    "SubAccountId",
+    "SubAccountName",
+    "SubAccountType",
+    "InvoiceId",
+)
+
 DEFAULT_ROWS = 1000
 DEFAULT_SEED = 1202
 DEFAULT_OUT = Path("FOCUS-1.2/focus_sample_costandusage_azure_1000.csv")
@@ -261,6 +275,26 @@ def _s(value: Decimal) -> str:
     return format(value, "f")
 
 
+def _trim(value: Decimal) -> Decimal:
+    """Drop trailing zeros without falling back to exponent notation."""
+    trimmed = value.normalize()
+    if trimmed == 0:
+        return Decimal(0)
+    _, _, exponent = trimmed.as_tuple()
+    return trimmed.quantize(Decimal(1)) if exponent > 0 else trimmed
+
+
+def _s_cost(value: Decimal) -> str:
+    """Serialise a cost column.
+
+    FOCUS 1.2 requires the product of ListUnitPrice and PricingQuantity to match
+    ListCost (same for ContractedCost), with no rounding tolerance outside
+    corrections, so derived costs are exact products that are never re-quantised.
+    Only trailing zeros are dropped.
+    """
+    return format(_trim(value), "f")
+
+
 def _iso(dt: datetime) -> str:
     return dt.strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -341,7 +375,7 @@ def _set_currency(row: dict[str, str], pricing_currency: str, list_unit: Decimal
     fx = _EUR_PER_USD if pricing_currency == "EUR" else Decimal("1")
     row["PricingCurrencyListUnitPrice"] = _s(_q(list_unit * fx, _PRICE_Q))
     row["PricingCurrencyContractedUnitPrice"] = _s(_q(contracted_unit * fx, _PRICE_Q))
-    row["PricingCurrencyEffectiveCost"] = _s(_q(effective_cost * fx, _COST_Q))
+    row["PricingCurrencyEffectiveCost"] = _s_cost(effective_cost * fx)
 
 
 def _usage_row(rng: random.Random, i: int) -> dict[str, str]:
@@ -359,17 +393,19 @@ def _usage_row(rng: random.Random, i: int) -> dict[str, str]:
     jitter = Decimal(rng.uniform(0.97, 1.03))
     list_unit = _q(spec.unit_price_usd * jitter, _PRICE_Q)
     contracted_unit = _q(list_unit * _PRIVATE_RATE, _PRICE_Q)
-    list_cost = _q(list_unit * quantity, _COST_Q)
-    contracted_cost = _q(contracted_unit * quantity, _COST_Q)
+    # Exact products: FOCUS requires ListCost == ListUnitPrice x PricingQuantity
+    # and ContractedCost == ContractedUnitPrice x PricingQuantity.
+    list_cost = list_unit * quantity
+    contracted_cost = contracted_unit * quantity
 
     row["ChargeCategory"] = "Usage"
     row["ChargeFrequency"] = "Usage-Based"
     row["ChargeDescription"] = spec.description
     row["PricingCategory"] = "Standard"
-    row["BilledCost"] = _s(contracted_cost)
-    row["EffectiveCost"] = _s(contracted_cost)
-    row["ListCost"] = _s(list_cost)
-    row["ContractedCost"] = _s(contracted_cost)
+    row["BilledCost"] = _s_cost(contracted_cost)
+    row["EffectiveCost"] = _s_cost(contracted_cost)
+    row["ListCost"] = _s_cost(list_cost)
+    row["ContractedCost"] = _s_cost(contracted_cost)
     row["ListUnitPrice"] = _s(list_unit)
     row["ContractedUnitPrice"] = _s(contracted_unit)
     row["PricingQuantity"] = _s(quantity)
@@ -438,108 +474,174 @@ def _credit_row(rng: random.Random, i: int) -> dict[str, str]:
     return row
 
 
-def _commitment_group(rng: random.Random, i0: int, remaining: int) -> list[dict[str, str]]:
+def _commitment_group(
+    rng: random.Random, i0: int, remaining: int
+) -> list[dict[str, str]]:
+    """One commitment discount, modelled over the charge periods the fixture holds.
+
+    FOCUS amortises a commitment discount evenly over each charge period of its term,
+    use-it-or-lose-it: what a period does not consume is wasted rather than carried
+    forward. A fixture covering a slice of the term therefore carries, for each period
+    it holds, the recurring purchase row and either the usage that drew the commitment
+    down (``Used``) or the amount that went to waste (``Unused``). Both per period and
+    over the group, ``sum(EffectiveCost where Usage) == sum(BilledCost where Purchase)``.
+    """
     spec = _VM
     region_id, region_name, azs = rng.choice(_REGIONS)
-    az = rng.choice(azs)
+    zone = rng.choice(azs)
     spend_based = rng.random() < 0.6
     commit_kind = "savingsPlans" if spend_based else "reservations"
     commit_type = "Savings Plan" if spend_based else "Reservation"
+    commit_name = (
+        "AzureSavingsPlan-1yr-NoUpfront" if spend_based else "AzureReservation-1yr-NoUpfront"
+    )
     commit_category = "Spend" if spend_based else "Usage"
     commit_unit = "USD" if spend_based else "Hours"
-    commit_name = (
-        "AzureSavingsPlan-1yr-AllUpfront" if spend_based else "AzureReservation-1yr-AllUpfront"
-    )
 
+    # Three distinct prices, and they must stay distinct: FOCUS defines
+    # ContractedUnitPrice as inclusive of negotiated discounts but *excluding*
+    # commitment discounts, so the commitment's saving shows up in EffectiveCost alone.
     list_unit = _q(spec.unit_price_usd, _PRICE_Q)
-    commit_unit_price = _q(list_unit * _COMMIT_RATE, _PRICE_Q)
-    upfront = _q(commit_unit_price * _COMMIT_TERM_HOURS, _COST_Q)
-    commit_total_qty = _s(upfront) if spend_based else _s(_COMMIT_TERM_HOURS)
+    contracted_unit = _q(list_unit * _PRIVATE_RATE, _PRICE_Q)
+    commit_rate = _q(list_unit * _COMMIT_RATE, _PRICE_Q)
 
-    purchase, ctx = _base_row(rng)
+    n_usage = rng.randint(5, 9)
+    n_unused = rng.randint(1, 3)
+    n_periods = n_usage + n_unused
+
+    first, ctx = _base_row(rng)
     commit_id = (
         f"/subscriptions/{ctx['sub_id']}/providers/Microsoft.BillingBenefits"
         f"/{commit_kind}/{_hexid(rng, 12)}"
     )
-    purchase["ChargePeriodStart"] = _iso(_BILLING_START)
-    purchase["ChargePeriodEnd"] = _iso(_BILLING_START + timedelta(hours=1))
-    _set_service(purchase, spec)
-    purchase["ResourceId"] = commit_id
-    purchase["ResourceName"] = f"{commit_kind}-{_hexid(rng, 10)}"
-    purchase["ResourceType"] = commit_type
-    purchase["RegionId"] = region_id
-    purchase["RegionName"] = region_name
-    purchase["SkuId"] = f"AZ-COMMIT-{_hexid(rng, 6)}"
-    purchase["SkuMeter"] = "Commitment"
-    purchase["SkuPriceId"] = f"AZSP-{_hexid(rng, 8)}"
-    purchase["SkuPriceDetails"] = json.dumps(
-        {"x_Term": "P1Y", "x_PaymentOption": "AllUpfront"}, separators=(",", ":")
+    commit_resource_name = f"{commit_kind}-{_hexid(rng, 10)}"
+    commit_sku_id = f"AZ-COMMIT-{_hexid(rng, 6)}"
+    commit_sku_price_id = f"AZSP-{_hexid(rng, 8)}"
+    commit_sku_details = json.dumps(
+        {"x_Term": "P1Y", "x_PaymentOption": "NoUpfront"}, separators=(",", ":")
     )
-    purchase["ChargeCategory"] = "Purchase"
-    purchase["ChargeFrequency"] = "One-Time"
-    purchase["ChargeDescription"] = f"{commit_type} commitment purchase (all upfront)"
-    purchase["PricingCategory"] = "Standard"
-    purchase["BilledCost"] = _s(upfront)
-    purchase["EffectiveCost"] = "0.000000"
-    purchase["ListCost"] = _s(upfront)
-    purchase["ContractedCost"] = _s(upfront)
-    purchase["ListUnitPrice"] = _s(upfront)
-    purchase["ContractedUnitPrice"] = _s(upfront)
-    purchase["PricingQuantity"] = "1"
-    purchase["PricingUnit"] = "Units"
-    purchase["CommitmentDiscountId"] = commit_id
-    purchase["CommitmentDiscountName"] = commit_name
-    purchase["CommitmentDiscountCategory"] = commit_category
-    purchase["CommitmentDiscountType"] = commit_type
-    purchase["CommitmentDiscountQuantity"] = commit_total_qty
-    purchase["CommitmentDiscountUnit"] = commit_unit
-    _set_currency(purchase, "USD", upfront, upfront, Decimal("0"))
 
-    rows = [purchase]
-    n_usage = min(remaining - 1, rng.randint(5, 9))
-    for k in range(n_usage):
+    # A spend-based commitment is drawn down in currency, a usage-based one in the
+    # commitment's own unit. That branching drives PricingQuantity/PricingUnit on every
+    # row that prices the commitment itself, and CommitmentDiscountQuantity everywhere.
+    if spend_based:
+        commit_price_unit = Decimal("1")
+        commit_pricing_qty = commit_rate
+        commit_pricing_unit = "USD"
+        commit_drawdown = _s_cost(commit_rate)
+    else:
+        commit_price_unit = commit_rate
+        commit_pricing_qty = Decimal("1")
+        commit_pricing_unit = "Hours"
+        commit_drawdown = "1"
+
+    # Full billing identity of the commitment, reused verbatim by every row of the group
+    # so account, invoice and reconciliation stay consistent within it.
+    billing_identity = {key: first[key] for key in _BILLING_IDENTITY_KEYS}
+
+    def _commitment_columns(row: dict[str, str], status: str | None) -> None:
+        row["CommitmentDiscountId"] = commit_id
+        row["CommitmentDiscountName"] = commit_name
+        row["CommitmentDiscountCategory"] = commit_category
+        row["CommitmentDiscountType"] = commit_type
+        row["CommitmentDiscountQuantity"] = commit_drawdown
+        row["CommitmentDiscountUnit"] = commit_unit
+        if status is not None:
+            row["CommitmentDiscountStatus"] = status
+
+    def _commitment_resource(row: dict[str, str]) -> None:
+        # The charge is related to the commitment discount itself, so ResourceId carries
+        # the commitment's id -- as FOCUS shows for both purchases and unused portions.
+        row["ResourceId"] = commit_id
+        row["ResourceName"] = commit_resource_name
+        row["ResourceType"] = commit_type
+        row["RegionId"] = region_id
+        row["RegionName"] = region_name
+        row["SkuId"] = commit_sku_id
+        row["SkuMeter"] = "Commitment"
+        row["SkuPriceId"] = commit_sku_price_id
+        row["SkuPriceDetails"] = commit_sku_details
+
+    rows: list[dict[str, str]] = []
+    for k in range(n_periods):
+        start, end = _period(i0 + k, "hourly")
+
+        # The recurring purchase of this charge period's slice of the commitment. No
+        # commitment discount applies to buying a commitment, hence PricingCategory
+        # "Standard" and a contracted price equal to the list price of the commitment.
+        purchase = first if k == 0 else _base_row(rng)[0]
+        purchase.update(billing_identity)
+        purchase["ChargePeriodStart"], purchase["ChargePeriodEnd"] = start, end
+        _set_service(purchase, spec)
+        _commitment_resource(purchase)
+        purchase["ChargeCategory"] = "Purchase"
+        purchase["ChargeFrequency"] = "Recurring"
+        purchase["ChargeDescription"] = f"{commit_type} commitment, amortised for the charge period"
+        purchase["PricingCategory"] = "Standard"
+        purchase["BilledCost"] = _s_cost(commit_rate)
+        purchase["EffectiveCost"] = "0"  # covers future eligible charges
+        purchase["ListCost"] = _s_cost(commit_rate)
+        purchase["ContractedCost"] = _s_cost(commit_rate)
+        purchase["ListUnitPrice"] = _s(commit_price_unit)
+        purchase["ContractedUnitPrice"] = _s(commit_price_unit)
+        purchase["PricingQuantity"] = _s_cost(commit_pricing_qty)
+        purchase["PricingUnit"] = commit_pricing_unit
+        _commitment_columns(purchase, None)
+        _set_currency(purchase, "USD", commit_price_unit, commit_price_unit, Decimal("0"))
+        rows.append(purchase)
+
         usage, _ = _base_row(rng)
-        usage["BillingAccountId"] = ctx["billing_id"]
-        usage["SubAccountId"] = ctx["sub_id"]
-        usage["SubAccountName"] = ctx["sub_name"]
-        usage["ChargePeriodStart"], usage["ChargePeriodEnd"] = _period(i0 + 1 + k, "hourly")
+        usage.update(billing_identity)
+        usage["ChargePeriodStart"], usage["ChargePeriodEnd"] = start, end
         _set_service(usage, spec)
-        resource_name = f"{spec.name_prefix}{k:04d}{_hexid(rng, 6)}"
-        usage["ResourceId"] = _arm_id(spec, ctx["sub_id"], ctx["sub_name"], resource_name)
-        usage["ResourceName"] = resource_name
-        usage["ResourceType"] = spec.resource_type
-        usage["RegionId"] = region_id
-        usage["RegionName"] = region_name
-        usage["AvailabilityZone"] = az
-        usage["SkuId"] = f"AZ-{spec.name[:4].upper().strip()}-{_hexid(rng, 6)}"
-        usage["SkuMeter"] = spec.sku_meter
-        usage["SkuPriceId"] = f"AZSP-{_hexid(rng, 8)}"
-        usage["SkuPriceDetails"] = json.dumps(spec.sku_details, separators=(",", ":"))
-        list_cost = _q(list_unit, _COST_Q)
-        effective = _q(commit_unit_price, _COST_Q)
         usage["ChargeCategory"] = "Usage"
         usage["ChargeFrequency"] = "Usage-Based"
-        usage["ChargeDescription"] = f"{spec.name} committed usage"
         usage["PricingCategory"] = "Committed"
-        usage["BilledCost"] = "0.000000"
-        usage["EffectiveCost"] = _s(effective)
-        usage["ListCost"] = _s(list_cost)
-        usage["ContractedCost"] = _s(effective)
-        usage["ListUnitPrice"] = _s(list_unit)
-        usage["ContractedUnitPrice"] = _s(commit_unit_price)
-        usage["PricingQuantity"] = "1.0000"
-        usage["PricingUnit"] = "Hours"
-        usage["ConsumedQuantity"] = "1.0000"
-        usage["ConsumedUnit"] = "Hours"
-        usage["CommitmentDiscountId"] = commit_id
-        usage["CommitmentDiscountName"] = commit_name
-        usage["CommitmentDiscountCategory"] = commit_category
-        usage["CommitmentDiscountType"] = commit_type
-        usage["CommitmentDiscountStatus"] = "Used"
-        usage["CommitmentDiscountQuantity"] = _s(effective) if spend_based else "1.0000"
-        usage["CommitmentDiscountUnit"] = commit_unit
-        _set_currency(usage, "USD", list_unit, commit_unit_price, effective)
+        usage["BilledCost"] = "0"  # covered by the recurring purchase above
+
+        if k < n_usage:
+            # An eligible resource ran for the period and drew the commitment down.
+            used_qty = Decimal("1")
+            resource_name = f"{spec.name_prefix}{k:04d}{_hexid(rng, 6)}"
+            usage["ResourceId"] = _arm_id(spec, ctx["sub_id"], ctx["sub_name"], resource_name)
+            usage["ResourceName"] = resource_name
+            usage["ResourceType"] = spec.resource_type
+            usage["RegionId"] = region_id
+            usage["RegionName"] = region_name
+            usage["AvailabilityZone"] = zone
+            usage["SkuId"] = f"AZ-{spec.name[:4].upper().strip()}-{_hexid(rng, 6)}"
+            usage["SkuMeter"] = spec.sku_meter
+            usage["SkuPriceId"] = f"AZSP-{_hexid(rng, 8)}"
+            usage["SkuPriceDetails"] = json.dumps(spec.sku_details, separators=(",", ":"))
+            usage["ChargeDescription"] = f"{spec.name} committed usage"
+            usage["EffectiveCost"] = _s_cost(commit_rate * used_qty)
+            usage["ListCost"] = _s_cost(list_unit * used_qty)
+            usage["ContractedCost"] = _s_cost(contracted_unit * used_qty)
+            usage["ListUnitPrice"] = _s(list_unit)
+            usage["ContractedUnitPrice"] = _s(contracted_unit)
+            usage["PricingQuantity"] = _s_cost(used_qty)
+            usage["PricingUnit"] = "Hours"
+            usage["ConsumedQuantity"] = _s_cost(used_qty)
+            usage["ConsumedUnit"] = "Hours"
+            _commitment_columns(usage, "Used")
+            _set_currency(usage, "USD", list_unit, contracted_unit, commit_rate * used_qty)
+        else:
+            # Nothing eligible ran: the period's allocation is wasted. ConsumedQuantity
+            # and ConsumedUnit MUST be null here, and the charge prices the commitment
+            # itself rather than any resource.
+            _commitment_resource(usage)
+            usage["ChargeDescription"] = f"{commit_type} unused commitment"
+            usage["EffectiveCost"] = _s_cost(commit_rate)
+            usage["ListCost"] = _s_cost(commit_rate)
+            usage["ContractedCost"] = _s_cost(commit_rate)
+            usage["ListUnitPrice"] = _s(commit_price_unit)
+            usage["ContractedUnitPrice"] = _s(commit_price_unit)
+            usage["PricingQuantity"] = _s_cost(commit_pricing_qty)
+            usage["PricingUnit"] = commit_pricing_unit
+            _commitment_columns(usage, "Unused")
+            _set_currency(usage, "USD", commit_price_unit, commit_price_unit, commit_rate)
         rows.append(usage)
+
     return rows
 
 
@@ -564,7 +666,7 @@ def generate_rows(
             out.append(_tax_row(rng, i))
         elif roll < 0.20:
             out.append(_standalone_purchase_row(rng, i))
-        elif roll < 0.45 and remaining >= 6:
+        elif roll < 0.23 and remaining >= 24:
             out.extend(_commitment_group(rng, i, remaining))
         else:
             out.append(_usage_row(rng, i))
