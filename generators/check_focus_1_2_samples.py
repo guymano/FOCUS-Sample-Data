@@ -12,7 +12,9 @@ into CI.
 from __future__ import annotations
 
 import csv
+import re
 import importlib.util
+import json
 import sys
 from collections import defaultdict
 from decimal import Decimal
@@ -63,11 +65,199 @@ class Checker:
             self.failures.append(label)
 
 
+EXPECTED_COLUMNS = ('ProviderName',
+ 'PublisherName',
+ 'InvoiceIssuerName',
+ 'InvoiceId',
+ 'BillingAccountId',
+ 'BillingAccountName',
+ 'BillingAccountType',
+ 'SubAccountId',
+ 'SubAccountName',
+ 'SubAccountType',
+ 'BillingPeriodStart',
+ 'BillingPeriodEnd',
+ 'ChargePeriodStart',
+ 'ChargePeriodEnd',
+ 'ChargeCategory',
+ 'ChargeClass',
+ 'ChargeDescription',
+ 'ChargeFrequency',
+ 'BilledCost',
+ 'EffectiveCost',
+ 'ListCost',
+ 'ContractedCost',
+ 'ListUnitPrice',
+ 'ContractedUnitPrice',
+ 'PricingCategory',
+ 'PricingQuantity',
+ 'PricingUnit',
+ 'PricingCurrency',
+ 'PricingCurrencyContractedUnitPrice',
+ 'PricingCurrencyEffectiveCost',
+ 'PricingCurrencyListUnitPrice',
+ 'BillingCurrency',
+ 'ConsumedQuantity',
+ 'ConsumedUnit',
+ 'ServiceName',
+ 'ServiceCategory',
+ 'ServiceSubcategory',
+ 'SkuId',
+ 'SkuMeter',
+ 'SkuPriceId',
+ 'SkuPriceDetails',
+ 'ResourceId',
+ 'ResourceName',
+ 'ResourceType',
+ 'RegionId',
+ 'RegionName',
+ 'AvailabilityZone',
+ 'CommitmentDiscountId',
+ 'CommitmentDiscountName',
+ 'CommitmentDiscountCategory',
+ 'CommitmentDiscountType',
+ 'CommitmentDiscountStatus',
+ 'CommitmentDiscountQuantity',
+ 'CommitmentDiscountUnit',
+ 'CapacityReservationId',
+ 'CapacityReservationStatus',
+ 'Tags')
+
+# These checks read the exported data, independently of the generator helpers.
+NEVER_NULL = (
+    "ProviderName", "PublisherName", "InvoiceIssuerName", "BilledCost", "EffectiveCost",
+    "ListCost", "ContractedCost", "BillingAccountId", "BillingPeriodStart", "BillingPeriodEnd",
+    "ChargePeriodStart", "ChargePeriodEnd", "ChargeCategory", "ChargeFrequency", "BillingCurrency",
+    "PricingCurrency", "PricingCurrencyEffectiveCost", "ServiceName", "ServiceCategory", "ServiceSubcategory",
+)
+SKU_PROPERTIES = {
+    "StorageClass", "Redundancy", "CoreCount", "MemorySize", "InstanceType", "InstanceSeries",
+    "OperatingSystem", "DiskType", "DiskSpace", "DiskMaxIops", "GpuCount", "NetworkMaxIops",
+    "NetworkMaxThroughput",
+}
+COSTS = ("BilledCost", "EffectiveCost", "ListCost", "ContractedCost", "PricingCurrencyEffectiveCost")
+AWS_NAMESPACES = {
+    "AmazonEC2": "ec2", "AmazonS3": "s3", "AmazonRDS": "rds", "AWSLambda": "lambda",
+    "AmazonVPC": "ec2", "AmazonCloudWatch": "cloudwatch", "AmazonDynamoDB": "dynamodb", "AWSGlue": "glue",
+}
+
+
+def sku_errors(rows: list[dict[str, str]]) -> list[str]:
+    errors = []
+    offers, ids, prices, price_ids = {}, {}, {}, {}
+    for number, row in enumerate(rows, 1):
+        if row["ChargeCategory"] not in ("Usage", "Purchase"):
+            continue
+        try:
+            details = json.loads(row["SkuPriceDetails"])
+            if not isinstance(details, dict):
+                raise ValueError("SKU properties must be an object")
+            if any((key.startswith("x_") and key[2:] in SKU_PROPERTIES)
+                   or (not key.startswith("x_") and key not in SKU_PROPERTIES) for key in details):
+                errors.append(f"sku: record {number} misnames a SKU property")
+            offer = (row["ProviderName"], row["ServiceName"], row["RegionId"], row["SkuMeter"],
+                     row["PricingUnit"], json.dumps(details, sort_keys=True))
+            price = (row["SkuId"], row["BillingCurrency"], row["PricingCurrency"],
+                     Decimal(row["ListUnitPrice"]), Decimal(row["PricingCurrencyListUnitPrice"]))
+            for mapping, key, value in (
+                (offers, offer, row["SkuId"]), (ids, row["SkuId"], offer),
+                (prices, price, row["SkuPriceId"]), (price_ids, row["SkuPriceId"], price),
+            ):
+                if not row["SkuId"] or not row["SkuPriceId"] or mapping.setdefault(key, value) != value:
+                    errors.append(f"sku: record {number} has an unstable or conflicting SKU/price identity")
+        except (ValueError, TypeError, KeyError, ArithmeticError) as exc:
+            errors.append(f"sku: record {number}: {exc}")
+    return errors
+
+
+def audit_rows(rows: list[dict[str, str]], provider: str) -> list[str]:
+    """Fixture invariants for arbitrary sizes/seeds; no scenario-presence assumption."""
+    errors = []
+    periods = defaultdict(list)
+    balances = defaultdict(Decimal)
+    taxed_sources = set()
+    for number, row in enumerate(rows, 1):
+        if tuple(row) != EXPECTED_COLUMNS:
+            errors.append(f"required: record {number} has the wrong column names/order")
+            continue
+        for name in NEVER_NULL:
+            if not row[name]:
+                errors.append(f"required: record {number} has empty {name}")
+        try:
+            if any(not Decimal(row[name]).is_finite() for name in COSTS):
+                errors.append(f"cost: record {number} has a non-finite cost")
+                continue
+            category = row["ChargeCategory"]
+            if category in ("Usage", "Purchase"):
+                for cost, price in (("ListCost", "ListUnitPrice"), ("ContractedCost", "ContractedUnitPrice")):
+                    if Decimal(row[cost]) != Decimal(row[price]) * Decimal(row["PricingQuantity"]):
+                        errors.append(f"cost: record {number} has incorrect {cost}")
+            if category == "Purchase" and not row["CommitmentDiscountId"]:
+                if Decimal(row["EffectiveCost"]) != Decimal(row["BilledCost"]):
+                    errors.append(f"cost: record {number} loses its period subscription cost")
+            if category == "Credit" and not all(Decimal(row[name]) < 0 for name in COSTS):
+                errors.append(f"cost: record {number} has an invalid credit sign")
+            fx = {"USD": Decimal(1), "EUR": Decimal("0.92")}[row["PricingCurrency"]]
+            if Decimal(row["PricingCurrencyEffectiveCost"]) != Decimal(row["EffectiveCost"]) * fx:
+                errors.append(f"cost: record {number} has incorrect pricing-currency effective cost")
+            balance_key = tuple(row[name] for name in (
+                "BillingAccountId", "SubAccountId", "BillingPeriodStart", "BillingPeriodEnd", "BillingCurrency"))
+            balances[balance_key] += Decimal(row["BilledCost"]) - Decimal(row["EffectiveCost"])
+            if row["CommitmentDiscountId"]:
+                key = tuple(row[name] for name in ("CommitmentDiscountId", "ChargePeriodStart", "ChargePeriodEnd"))
+                periods[key].append(row)
+            if category == "Tax":
+                match = re.fullmatch(r"Synthetic tax 10% on usage record (\d+): (.+)", row["ChargeDescription"])
+                if not match:
+                    raise ValueError("tax source reference missing")
+                source_number = int(match[1])
+                if not 1 <= source_number < number or source_number in taxed_sources:
+                    raise ValueError("invalid or duplicate tax source")
+                taxed_sources.add(source_number)
+                source = rows[source_number - 1]
+                if source["ChargeCategory"] != "Usage" or source["PricingCategory"] != "Standard":
+                    raise ValueError("tax source must be standard usage")
+                identity = (*BILLING_IDENTITY, "BillingPeriodStart", "BillingPeriodEnd", "ServiceName",
+                            "ChargePeriodStart", "ChargePeriodEnd", "BillingCurrency", "PricingCurrency")
+                if any(row[name] != source[name] for name in identity) or match[2] != source["ServiceName"]:
+                    errors.append(f"tax: record {number} has the wrong source identity")
+                if any(Decimal(row[name]) != Decimal(source[name]) * Decimal("0.1") for name in COSTS):
+                    errors.append(f"tax: record {number} is not 10% of its source costs")
+                if any(row[name] for name in ("PricingCategory", "SkuId", "SkuPriceId", "ResourceId",
+                       "ResourceType", "PricingQuantity", "PricingUnit", "ListUnitPrice", "ContractedUnitPrice",
+                       "PricingCurrencyListUnitPrice", "PricingCurrencyContractedUnitPrice")):
+                    errors.append(f"tax: record {number} populates inapplicable fields")
+            if provider == "aws" and row["ResourceId"] and row["ResourceId"] != row["CommitmentDiscountId"]:
+                arn = row["ResourceId"].split(":", 5)
+                if len(arn) != 6 or arn[2] != AWS_NAMESPACES[row["ServiceName"]] or arn[4] != row["SubAccountId"]:
+                    errors.append(f"resource: record {number} has the wrong AWS namespace/owner")
+        except (ValueError, TypeError, KeyError, ArithmeticError, IndexError) as exc:
+            label = "tax" if row["ChargeCategory"] == "Tax" else "cost"
+            errors.append(f"{label}: record {number}: {exc}")
+    for key, group in periods.items():
+        purchases = [r for r in group if r["ChargeCategory"] == "Purchase"]
+        usage = [r for r in group if r["ChargeCategory"] == "Usage"]
+        if len(purchases) != 1 or len(usage) != 1:
+            errors.append(f"commitment: {key} is not a complete purchase/usage pair")
+        elif (Decimal(purchases[0]["BilledCost"]) != Decimal(usage[0]["EffectiveCost"])
+              or Decimal(purchases[0]["EffectiveCost"]) != 0 or Decimal(usage[0]["BilledCost"]) != 0):
+            errors.append(f"commitment: {key} does not reconcile exactly")
+    if any(balances.values()):
+        errors.append("cost: billed and effective totals do not reconcile per account/period/currency [fixture invariant]")
+    errors.extend(sku_errors(rows))
+    return errors
+
+
 def check_provider(provider: str, checker: Checker) -> None:
     print(f"\n{provider.upper()}")
     module = _load(provider)
     path = ROOT / "FOCUS-1.2" / f"focus_sample_costandusage_{provider}_1000.csv"
     rows = _rows(path)
+
+    failures = audit_rows(rows, provider)
+    for category in ("required", "cost", "tax", "sku", "resource", "commitment"):
+        found = [error for error in failures if error.startswith(category + ":")]
+        checker.check(not found, f"independent {category} invariants", "; ".join(found[:5]))
 
     checker.check(
         module.generate_csv_bytes(1000, 1202) == path.read_bytes(),
@@ -88,7 +278,7 @@ def check_provider(provider: str, checker: Checker) -> None:
         ]
         checker.check(
             not bad,
-            f"{cost_col} == {price_col} x PricingQuantity on every row",
+            f"{cost_col} == {price_col} x PricingQuantity where unit pricing applies",
             f"{len(bad)} rows differ",
         )
 

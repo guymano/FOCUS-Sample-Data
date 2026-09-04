@@ -1,0 +1,42 @@
+{
+  "before": {
+    "focus_sample_costandusage_aws_1000": {
+      "total": 578,
+      "passed": 351,
+      "failed": 17,
+      "skipped": 210
+    },
+    "focus_sample_costandusage_azure_1000": {
+      "total": 578,
+      "passed": 355,
+      "failed": 13,
+      "skipped": 210
+    },
+    "focus_sample_costandusage_gcp_1000": {
+      "total": 578,
+      "passed": 355,
+      "failed": 13,
+      "skipped": 210
+    }
+  },
+  "after": {
+    "focus_sample_costandusage_aws_1000": {
+      "total": 578,
+      "passed": 353,
+      "failed": 15,
+      "skipped": 210
+    },
+    "focus_sample_costandusage_azure_1000": {
+      "total": 578,
+      "passed": 357,
+      "failed": 11,
+      "skipped": 210
+    },
+    "focus_sample_costandusage_gcp_1000": {
+      "total": 578,
+      "passed": 357,
+      "failed": 11,
+      "skipped": 210
+    }
+  }
+}

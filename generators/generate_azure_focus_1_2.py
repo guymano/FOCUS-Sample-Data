@@ -2,10 +2,10 @@
 
 FOCUS 1.2 (https://focus.finops.org/focus-specification/v1-2/) defines exactly
 57 columns; FOCUS is a *normalised* spec, so the column set is identical across
-providers — only the values differ. This module emits conformant, realistic
+providers — only the values differ. This module emits synthetic, provider-shaped
 Microsoft Azure cost-and-usage rows, grounded in the FOCUS spec sample data.
 
-Realism + conformance (verified against the FOCUS v1.2 spec source)
+Selected FOCUS v1.2 scenarios (see the README for validation limits)
 ------------------------------------------------------------------
 * FOCUS Column IDs (`ProviderName`/`PublisherName`/`InvoiceIssuerName`,
   `RegionId`/`RegionName`).
@@ -36,6 +36,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import io
 import json
 import random
@@ -110,6 +111,8 @@ assert len(set(COLUMNS)) == 57, "FOCUS 1.2 column names must be unique"
 PRICING_CATEGORIES: tuple[str, ...] = ("Standard", "Dynamic", "Committed", "Other")
 FOCUS_SKU_PRICE_KEYS: frozenset[str] = frozenset(
     {
+        "StorageClass",
+        "Redundancy",
         "CoreCount",
         "MemorySize",
         "InstanceType",
@@ -195,7 +198,7 @@ _SERVICES: tuple[_ServiceSpec, ...] = (
         "Microsoft.Storage/storageAccounts", "Storage", "GB-Months",
         "Hot LRS data stored", Decimal("0.0184"), Decimal("50"), Decimal("8000"),
         "stor", "monthly", False, False,
-        {"x_StorageClass": "Hot", "x_Redundancy": "LRS"},
+        {"StorageClass": "Hot", "Redundancy": "Local"},
     ),
     _ServiceSpec(
         "Azure SQL Database", "Databases", "Relational Databases", "SQL Database",
@@ -363,10 +366,38 @@ def _set_resource_sku(
     row["ResourceId"] = _arm_id(spec, ctx["sub_id"], ctx["sub_name"], resource_name)
     row["ResourceName"] = resource_name
     row["ResourceType"] = spec.resource_type
-    row["SkuId"] = f"AZ-{spec.name[:4].upper().strip()}-{_hexid(rng, 6)}"
     row["SkuMeter"] = spec.sku_meter
-    row["SkuPriceId"] = f"AZSP-{_hexid(rng, 8)}"
     row["SkuPriceDetails"] = json.dumps(spec.sku_details, separators=(",", ":"))
+
+
+def _stable_id(prefix: str, values: object) -> str:
+    payload = json.dumps(values, sort_keys=True, separators=(",", ":"))
+    return prefix + hashlib.sha256(payload.encode("utf-8")).hexdigest()[:24]
+
+
+def _set_sku_ids(row: dict[str, str]) -> None:
+    """Identify an offer and its list price, never a row, account or contract."""
+    details = json.loads(row["SkuPriceDetails"])
+    for key in details:
+        if key.startswith("x_") and key[2:] in FOCUS_SKU_PRICE_KEYS:
+            raise ValueError(f"Use the FOCUS-defined SKU property {key[2:]}")
+        if not key.startswith("x_") and key not in FOCUS_SKU_PRICE_KEYS:
+            raise ValueError(f"Custom SKU property requires x_ prefix: {key}")
+    row["SkuId"] = _stable_id("SKU-", [
+        PROVIDER_NAME, row["ServiceName"], row["SkuMeter"], row["RegionId"],
+        row["PricingUnit"], details,
+    ])
+    row["SkuPriceId"] = _stable_id("SPRICE-", [
+        row["SkuId"], row["BillingCurrency"], row["PricingCurrency"],
+        _s_cost(Decimal(row["ListUnitPrice"])),
+        _s_cost(Decimal(row["PricingCurrencyListUnitPrice"])),
+    ])
+
+
+def _subscription_price(spec: _ServiceSpec, region_id: str) -> Decimal:
+    """A fixed synthetic fee per provider/service/region, between USD 20 and 800."""
+    key = _stable_id("", [PROVIDER_NAME, spec.name, region_id, "subscription"])
+    return Decimal(2000 + int(key[:8], 16) % 78001) / Decimal(100)
 
 
 def _set_currency(row: dict[str, str], pricing_currency: str, list_unit: Decimal,
@@ -376,6 +407,7 @@ def _set_currency(row: dict[str, str], pricing_currency: str, list_unit: Decimal
     row["PricingCurrencyListUnitPrice"] = _s(_q(list_unit * fx, _PRICE_Q))
     row["PricingCurrencyContractedUnitPrice"] = _s(_q(contracted_unit * fx, _PRICE_Q))
     row["PricingCurrencyEffectiveCost"] = _s_cost(effective_cost * fx)
+    _set_sku_ids(row)
 
 
 def _usage_row(rng: random.Random, i: int) -> dict[str, str]:
@@ -390,8 +422,7 @@ def _usage_row(rng: random.Random, i: int) -> dict[str, str]:
         row["AvailabilityZone"] = rng.choice(azs)
 
     quantity = _q(Decimal(rng.uniform(float(spec.qty_low), float(spec.qty_high))), _QTY_Q)
-    jitter = Decimal(rng.uniform(0.97, 1.03))
-    list_unit = _q(spec.unit_price_usd * jitter, _PRICE_Q)
+    list_unit = _q(spec.unit_price_usd, _PRICE_Q)
     contracted_unit = _q(list_unit * _PRIVATE_RATE, _PRICE_Q)
     # Exact products: FOCUS requires ListCost == ListUnitPrice x PricingQuantity
     # and ContractedCost == ContractedUnitPrice x PricingQuantity.
@@ -425,36 +456,50 @@ def _standalone_purchase_row(rng: random.Random, i: int) -> dict[str, str]:
     _set_service(row, spec)
     resource_name = f"{spec.name_prefix}{_hexid(rng, 8)}"
     _set_resource_sku(rng, row, spec, ctx, region_id, region_name, resource_name)
-    amount = _q(Decimal(rng.uniform(20.0, 800.0)), _COST_Q)
+    amount = _subscription_price(spec, region_id)
+    row["SkuMeter"] = "Subscription"
+    row["SkuPriceDetails"] = json.dumps({"x_ChargeType": "SubscriptionFee"})
     row["ChargeCategory"] = "Purchase"
     row["ChargeFrequency"] = "Recurring"
     row["ChargeDescription"] = f"{spec.name} subscription fee"
     row["PricingCategory"] = "Standard"
     row["BilledCost"] = _s(amount)
-    row["EffectiveCost"] = "0"  # purchase covers future eligible charges
+    row["EffectiveCost"] = _s_cost(amount)  # consumed in this charge period
     row["ListCost"] = _s(amount)
     row["ContractedCost"] = _s(amount)
     row["ListUnitPrice"] = _s(amount)
     row["ContractedUnitPrice"] = _s(amount)
     row["PricingQuantity"] = "1"
     row["PricingUnit"] = "Units"
-    _set_currency(row, "USD", amount, amount, Decimal("0"))
+    _set_currency(row, "USD", amount, amount, amount)
     return row
 
 
-def _tax_row(rng: random.Random, i: int) -> dict[str, str]:
-    spec = rng.choice(_SERVICES)
-    row, _ = _base_row(rng)
-    row["ChargePeriodStart"], row["ChargePeriodEnd"] = _period(i, "daily")
-    _set_service(row, spec)
-    amount = _q(Decimal(rng.uniform(0.5, 50.0)), _COST_Q)
+def _tax_row(source: dict[str, str], source_number: int) -> dict[str, str]:
+    """Synthetic 10% tax on one previously emitted, otherwise untaxed usage row.
+
+    source_number counts data records from one (excluding the CSV header).
+    This pedagogical rate does not represent any jurisdiction's tax rules.
+    """
+    row = {name: "" for name in COLUMNS}
+    for name in (
+        *_BILLING_IDENTITY_KEYS, "BillingPeriodStart", "BillingPeriodEnd",
+        "ChargePeriodStart", "ChargePeriodEnd", "BillingCurrency", "PricingCurrency",
+        "ProviderName", "PublisherName", "InvoiceIssuerName", "ServiceName",
+        "ServiceCategory", "ServiceSubcategory", "Tags",
+        "ServiceProviderName", "HostProviderName",
+    ):
+        if name in row:
+            row[name] = source[name]
     row["ChargeCategory"] = "Tax"
     row["ChargeFrequency"] = "One-Time"
-    row["ChargeDescription"] = f"Tax for {spec.name}"
-    row["BilledCost"] = _s(amount)
-    row["EffectiveCost"] = _s(amount)
-    row["ListCost"] = _s(amount)
-    row["ContractedCost"] = _s(amount)
+    row["ChargeDescription"] = (
+        f"Synthetic tax 10% on usage record {source_number}: {source['ServiceName']}"
+    )
+    for name in ("BilledCost", "EffectiveCost", "ListCost", "ContractedCost",
+                 "PricingCurrencyEffectiveCost"):
+        row[name] = _s_cost(Decimal(source[name]) * Decimal("0.1"))
+    # Resource, SKU, quantity and unit-price columns are inapplicable to Tax.
     return row
 
 
@@ -471,6 +516,8 @@ def _credit_row(rng: random.Random, i: int) -> dict[str, str]:
     row["EffectiveCost"] = negative
     row["ListCost"] = negative
     row["ContractedCost"] = negative
+    row["PricingCurrency"] = "USD"
+    row["PricingCurrencyEffectiveCost"] = negative
     return row
 
 
@@ -508,6 +555,8 @@ def _commitment_group(
     n_usage = rng.randint(5, 9)
     n_unused = rng.randint(1, 3)
     n_periods = n_usage + n_unused
+    if 2 * n_periods > remaining:
+        return []  # no partial group, and no registry side effect
 
     first, ctx = _base_row(rng)
     commit_id = (
@@ -515,8 +564,6 @@ def _commitment_group(
         f"/{commit_kind}/{_hexid(rng, 12)}"
     )
     commit_resource_name = f"{commit_kind}-{_hexid(rng, 10)}"
-    commit_sku_id = f"AZ-COMMIT-{_hexid(rng, 6)}"
-    commit_sku_price_id = f"AZSP-{_hexid(rng, 8)}"
     commit_sku_details = json.dumps(
         {"x_Term": "P1Y", "x_PaymentOption": "NoUpfront"}, separators=(",", ":")
     )
@@ -557,9 +604,7 @@ def _commitment_group(
         row["ResourceType"] = commit_type
         row["RegionId"] = region_id
         row["RegionName"] = region_name
-        row["SkuId"] = commit_sku_id
         row["SkuMeter"] = "Commitment"
-        row["SkuPriceId"] = commit_sku_price_id
         row["SkuPriceDetails"] = commit_sku_details
 
     rows: list[dict[str, str]] = []
@@ -609,9 +654,7 @@ def _commitment_group(
             usage["RegionId"] = region_id
             usage["RegionName"] = region_name
             usage["AvailabilityZone"] = zone
-            usage["SkuId"] = f"AZ-{spec.name[:4].upper().strip()}-{_hexid(rng, 6)}"
             usage["SkuMeter"] = spec.sku_meter
-            usage["SkuPriceId"] = f"AZSP-{_hexid(rng, 8)}"
             usage["SkuPriceDetails"] = json.dumps(spec.sku_details, separators=(",", ":"))
             usage["ChargeDescription"] = f"{spec.name} committed usage"
             usage["EffectiveCost"] = _s_cost(commit_rate * used_qty)
@@ -642,6 +685,8 @@ def _commitment_group(
             _set_currency(usage, "USD", commit_price_unit, commit_price_unit, commit_rate)
         rows.append(usage)
 
+    if len(rows) > remaining:
+        raise ValueError("commitment group exceeded its row budget")
     return rows
 
 
@@ -656,6 +701,7 @@ def generate_rows(
         raise ValueError("rows must be >= 1")
     rng = random.Random(seed)
     out: list[dict[str, str]] = []
+    untaxed: list[int] = []
     while len(out) < rows:
         i = len(out)
         remaining = rows - i
@@ -663,14 +709,23 @@ def generate_rows(
         if include_credits and roll < 0.05:
             out.append(_credit_row(rng, i))
         elif roll < 0.12:
-            out.append(_tax_row(rng, i))
+            if untaxed:
+                source_index = untaxed.pop(rng.randrange(len(untaxed)))
+                out.append(_tax_row(out[source_index], source_index + 1))
+            else:
+                out.append(_usage_row(rng, i))
         elif roll < 0.20:
             out.append(_standalone_purchase_row(rng, i))
-        elif roll < 0.23 and remaining >= 24:
-            out.extend(_commitment_group(rng, i, remaining))
+        elif roll < 0.23:
+            group = _commitment_group(rng, i, remaining)
+            out.extend(group or [_usage_row(rng, i)])
         else:
             out.append(_usage_row(rng, i))
-    return out[:rows]
+        untaxed.extend(index for index in range(i, len(out))
+                       if out[index]["ChargeCategory"] == "Usage"
+                       and out[index]["PricingCategory"] == "Standard")
+    assert len(out) == rows, "generator exceeded the row budget"
+    return out
 
 
 def generate_csv_bytes(

@@ -1,0 +1,130 @@
+"""Regression proofs, including deliberate corruptions and generation boundaries.
+
+Run: python -m unittest discover -s generators -p 'test_focus_1_2_regressions.py'
+"""
+import copy
+from decimal import Decimal
+import json
+import random
+import unittest
+from unittest.mock import patch
+
+import check_focus_1_2_samples as audit
+
+
+class RegressionTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.modules = {p: audit._load(p) for p in audit.PROVIDERS}
+        cls.samples = {p: m.generate_rows(1000, m.DEFAULT_SEED) for p, m in cls.modules.items()}
+
+    def test_size_seed_credit_matrix(self):
+        for provider, module in self.modules.items():
+            for size in (1, 2, 11, 12, 23, 24, 25, 1000, 1001):
+                for seed in (0, 1, 42, module.DEFAULT_SEED):
+                    for credits in (False, True):
+                        with self.subTest(provider=provider, size=size, seed=seed, credits=credits):
+                            rows = module.generate_rows(size, seed, include_credits=credits)
+                            self.assertEqual(len(rows), size)
+                            self.assertEqual(list(rows[0]), list(audit.EXPECTED_COLUMNS))
+                            self.assertEqual(audit.audit_rows(rows, provider), [])
+                            first = module.generate_csv_bytes(size, seed, include_credits=credits)
+                            self.assertEqual(first, module.generate_csv_bytes(size, seed, include_credits=credits))
+                            self.assertNotIn(b"\r\n", first)
+            with self.assertRaises(ValueError):
+                module.generate_rows(0)
+            with self.assertRaises(ValueError):
+                module.generate_rows(-1)
+
+    def test_stable_skus_across_seeds_accounts_and_categories(self):
+        for provider, module in self.modules.items():
+            with self.subTest(provider=provider):
+                rows = self.samples[provider] + module.generate_rows(1000, 42)
+                self.assertEqual(audit.sku_errors(rows), [])
+                by_sku = {}
+                for row in rows:
+                    if row["SkuId"]:
+                        by_sku.setdefault(row["SkuId"], []).append(row)
+                self.assertTrue(any({r["PricingCategory"] for r in group} == {"Standard", "Committed"}
+                                    and all(r["SkuMeter"] != "Commitment" for r in group)
+                                    for group in by_sku.values()))
+                self.assertTrue(any(len({r["BillingAccountId"] for r in group}) > 1 for group in by_sku.values()))
+
+    def test_tax_oracle_and_duplicate_source_rejection(self):
+        for provider, module in self.modules.items():
+            source = next(r for r in self.samples[provider] if r["ChargeCategory"] == "Usage"
+                          and r["PricingCategory"] == "Standard")
+            source = copy.deepcopy(source)
+            source.update(BilledCost="2.34", EffectiveCost="2.34", ListCost="3.45", ContractedCost="2.34",
+                          PricingCurrency="EUR", PricingCurrencyEffectiveCost="2.1528")
+            tax = module._tax_row(source, 1)
+            self.assertEqual([Decimal(tax[k]) for k in audit.COSTS],
+                             list(map(Decimal, (".234", ".234", ".345", ".234", ".21528"))))
+            rows = copy.deepcopy(self.samples[provider])
+            first_tax = next(r for r in rows if r["ChargeCategory"] == "Tax")
+            rows.append(copy.deepcopy(first_tax))
+            self.assertTrue(any(e.startswith("tax:") for e in audit.audit_rows(rows, provider)))
+
+    def test_complete_groups_at_exact_budget(self):
+        for provider, module in self.modules.items():
+            for usage, unused in ((5, 1), (9, 3), (10, 4)):
+                needed = 2 * (usage + unused)
+                for budget in (needed - 1, needed, needed + 1):
+                    with self.subTest(provider=provider, needed=needed, budget=budget):
+                        rng = random.Random(7)
+                        args = [rng, 0, budget]
+                        registry = module._ContractRegistry() if hasattr(module, "_ContractRegistry") else None
+                        if registry:
+                            args.append(registry)
+                            previous = list(registry.commitments)
+                        with patch.object(rng, "randint", side_effect=[usage, unused]):
+                            group = module._commitment_group(*args)
+                        self.assertEqual(len(group), 0 if budget < needed else needed)
+                        self.assertEqual(audit.audit_rows(group, provider), [])
+                        if registry:
+                            self.assertEqual(len(registry.commitments), len(previous) + bool(group))
+
+    def test_corruptions_are_detected(self):
+        for provider, original in self.samples.items():
+            mutations = {
+                "required:": lambda rows: rows[0].update(PricingCurrency=""),
+                "cost:": lambda rows: next(r for r in rows if r["ChargeCategory"] == "Purchase"
+                                          and not r["CommitmentDiscountId"]).update(EffectiveCost="0"),
+                "tax:": lambda rows: next(r for r in rows if r["ChargeCategory"] == "Tax").update(ListCost="999"),
+                "sku:": lambda rows: next(r for r in rows if r["SkuId"]).update(SkuId="different-row-id"),
+                "commitment:": lambda rows: rows.remove(next(r for r in rows if r["CommitmentDiscountId"])),
+            }
+            if provider == "aws":
+                mutations["resource:"] = lambda rows: next(r for r in rows if r["ResourceId"]
+                    and not r["CommitmentDiscountId"]).update(ResourceId="arn:aws:bda:us-east-1:100000000001:function/test")
+            for label, mutate in mutations.items():
+                with self.subTest(provider=provider, corruption=label):
+                    rows = copy.deepcopy(original)
+                    mutate(rows)
+                    self.assertTrue(any(e.startswith(label) for e in audit.audit_rows(rows, provider)))
+
+    def test_standard_properties_and_prices_cannot_drift(self):
+        for provider, original in self.samples.items():
+            rows = copy.deepcopy(original)
+            row = next(r for r in rows if '"StorageClass"' in r["SkuPriceDetails"])
+            row["SkuPriceDetails"] = row["SkuPriceDetails"].replace('"StorageClass"', '"x_StorageClass"')
+            self.assertTrue(audit.sku_errors(rows))
+            rows = copy.deepcopy(original)
+            row = next(r for r in rows if r["SkuPriceId"])
+            row["ListUnitPrice"] = "999"
+            self.assertTrue(audit.sku_errors(rows))
+
+
+
+    def test_validator_report_cannot_hide_new_failures(self):
+        import validate_focus_1_2_samples as validator
+        expected = {"failures": {"Known-C-001-M": 2}, "skipped_rules": []}
+        text = "Total: 2 | Pass: 1 | Fail: 1 | Skipped: 0\nX Known-C-001-M: FAIL  (violations=2)"
+        self.assertEqual(validator.check_report(text, expected), [])
+        self.assertTrue(validator.check_report(text.replace("Known-", "Unknown-"), expected))
+        self.assertTrue(validator.check_report(text.replace("violations=2", "violations=3"), expected))
+        self.assertTrue(validator.check_report("Traceback (most recent call last)", expected))
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -1,0 +1,98 @@
+
+AWS
+  PASS  independent required invariants
+  PASS  independent cost invariants
+  PASS  independent tax invariants
+  PASS  independent sku invariants
+  PASS  independent resource invariants
+  PASS  independent commitment invariants
+  PASS  the committed file is byte-reproducible
+  PASS  57 columns
+  PASS  ListCost == ListUnitPrice x PricingQuantity where unit pricing applies
+  PASS  ContractedCost == ContractedUnitPrice x PricingQuantity where unit pricing applies
+  PASS  sum(Usage EffectiveCost) == sum(Purchase BilledCost) per commitment [normative]
+  PASS  the same holds per charge period [fixture invariant]
+  PASS  usage EffectiveCost splits into Used + Unused, and nothing else
+  PASS  the dataset contains commitment purchase rows
+  PASS  commitment purchases: Recurring, Standard, ResourceId is the commitment, EffectiveCost 0
+  PASS  the dataset exercises CommitmentDiscountStatus Unused
+  PASS  Unused rows: Usage / Usage-Based / Committed, ResourceId is the commitment, BilledCost 0
+  PASS  ConsumedQuantity/ConsumedUnit are null on Unused rows
+  PASS  PricingQuantity, PricingUnit and Sku ids are populated on Unused rows
+  PASS  Used rows name a consuming resource and carry ConsumedQuantity/Unit
+  PASS  ContractedCost differs from EffectiveCost on Used rows (the commitment discount is not folded into the contracted price)
+  PASS  EffectiveCost < ContractedCost <= ListCost on Used rows
+  PASS  CommitmentDiscountQuantity/Unit populated on every commitment Usage/Purchase row
+  PASS  CommitmentDiscountUnit is USD exactly when the category is Spend
+  PASS  PricingUnit is null if and only if PricingQuantity is
+  PASS  PricingQuantity populated on every Usage/Purchase row
+  PASS  PricingQuantity is null on Tax rows
+  PASS  each BillingAccountId maps to one BillingAccountName and one InvoiceId
+  PASS  every row of a commitment group shares one billing identity
+  PASS  no Credit rows (they live behind --include-credits and are not committed)
+
+AZURE
+  PASS  independent required invariants
+  PASS  independent cost invariants
+  PASS  independent tax invariants
+  PASS  independent sku invariants
+  PASS  independent resource invariants
+  PASS  independent commitment invariants
+  PASS  the committed file is byte-reproducible
+  PASS  57 columns
+  PASS  ListCost == ListUnitPrice x PricingQuantity where unit pricing applies
+  PASS  ContractedCost == ContractedUnitPrice x PricingQuantity where unit pricing applies
+  PASS  sum(Usage EffectiveCost) == sum(Purchase BilledCost) per commitment [normative]
+  PASS  the same holds per charge period [fixture invariant]
+  PASS  usage EffectiveCost splits into Used + Unused, and nothing else
+  PASS  the dataset contains commitment purchase rows
+  PASS  commitment purchases: Recurring, Standard, ResourceId is the commitment, EffectiveCost 0
+  PASS  the dataset exercises CommitmentDiscountStatus Unused
+  PASS  Unused rows: Usage / Usage-Based / Committed, ResourceId is the commitment, BilledCost 0
+  PASS  ConsumedQuantity/ConsumedUnit are null on Unused rows
+  PASS  PricingQuantity, PricingUnit and Sku ids are populated on Unused rows
+  PASS  Used rows name a consuming resource and carry ConsumedQuantity/Unit
+  PASS  ContractedCost differs from EffectiveCost on Used rows (the commitment discount is not folded into the contracted price)
+  PASS  EffectiveCost < ContractedCost <= ListCost on Used rows
+  PASS  CommitmentDiscountQuantity/Unit populated on every commitment Usage/Purchase row
+  PASS  CommitmentDiscountUnit is USD exactly when the category is Spend
+  PASS  PricingUnit is null if and only if PricingQuantity is
+  PASS  PricingQuantity populated on every Usage/Purchase row
+  PASS  PricingQuantity is null on Tax rows
+  PASS  each BillingAccountId maps to one BillingAccountName and one InvoiceId
+  PASS  every row of a commitment group shares one billing identity
+  PASS  no Credit rows (they live behind --include-credits and are not committed)
+
+GCP
+  PASS  independent required invariants
+  PASS  independent cost invariants
+  PASS  independent tax invariants
+  PASS  independent sku invariants
+  PASS  independent resource invariants
+  PASS  independent commitment invariants
+  PASS  the committed file is byte-reproducible
+  PASS  57 columns
+  PASS  ListCost == ListUnitPrice x PricingQuantity where unit pricing applies
+  PASS  ContractedCost == ContractedUnitPrice x PricingQuantity where unit pricing applies
+  PASS  sum(Usage EffectiveCost) == sum(Purchase BilledCost) per commitment [normative]
+  PASS  the same holds per charge period [fixture invariant]
+  PASS  usage EffectiveCost splits into Used + Unused, and nothing else
+  PASS  the dataset contains commitment purchase rows
+  PASS  commitment purchases: Recurring, Standard, ResourceId is the commitment, EffectiveCost 0
+  PASS  the dataset exercises CommitmentDiscountStatus Unused
+  PASS  Unused rows: Usage / Usage-Based / Committed, ResourceId is the commitment, BilledCost 0
+  PASS  ConsumedQuantity/ConsumedUnit are null on Unused rows
+  PASS  PricingQuantity, PricingUnit and Sku ids are populated on Unused rows
+  PASS  Used rows name a consuming resource and carry ConsumedQuantity/Unit
+  PASS  ContractedCost differs from EffectiveCost on Used rows (the commitment discount is not folded into the contracted price)
+  PASS  EffectiveCost < ContractedCost <= ListCost on Used rows
+  PASS  CommitmentDiscountQuantity/Unit populated on every commitment Usage/Purchase row
+  PASS  CommitmentDiscountUnit is USD exactly when the category is Spend
+  PASS  PricingUnit is null if and only if PricingQuantity is
+  PASS  PricingQuantity populated on every Usage/Purchase row
+  PASS  PricingQuantity is null on Tax rows
+  PASS  each BillingAccountId maps to one BillingAccountName and one InvoiceId
+  PASS  every row of a commitment group shares one billing identity
+  PASS  no Credit rows (they live behind --include-credits and are not committed)
+
+all checks passed
