@@ -18,6 +18,27 @@ class RegressionTests(unittest.TestCase):
         cls.modules = {p: audit._load(p) for p in audit.PROVIDERS}
         cls.samples = {p: m.generate_rows(1000, m.DEFAULT_SEED) for p, m in cls.modules.items()}
 
+    def test_validator_coexists_with_generic_sample_files(self):
+        import contextlib
+        import io
+        import shutil
+        import tempfile
+        from pathlib import Path
+        import validate_focus_1_2_samples as validator
+        with tempfile.TemporaryDirectory() as directory:
+            data = Path(directory)
+            sources = validator.sample_paths()
+            for source in sources:
+                shutil.copyfile(source, data / source.name)
+            for name in ("focus_sample.csv", "focus_sample_costandusage.csv", "focus_sample_contractcommitment.csv"):
+                (data / name).write_text("generic sample handled by its own workflow\n", encoding="utf-8")
+            with patch.object(validator, "DATA", data), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(3, len(validator.sample_paths()))
+                self.assertEqual(0, validator.main(["--check-existing"]))
+                (data / sources[0].name).unlink()
+                with self.assertRaises(FileNotFoundError):
+                    validator.main(["--check-existing"])
+
     def test_size_seed_credit_matrix(self):
         for provider, module in self.modules.items():
             for size in (1, 2, 11, 12, 23, 24, 25, 1000, 1001):

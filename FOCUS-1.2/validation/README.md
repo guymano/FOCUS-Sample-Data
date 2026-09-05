@@ -24,6 +24,9 @@ and verify its runtime.json hash before installing it in focus_validator/rules.
 The wrapper runs the unmodified package from its site-packages parent because 2.2.1
 resolves currency_codes.csv relative to that directory. No validator source is patched.
 
+The wrapper selects the explicit provider filenames; generic samples supplied by other
+workflows are outside this suite. Every expected provider file remains mandatory.
+
 Default/check-existing mode verifies data and generator hashes, model-resource hashes,
 the complete rule inventory and states (PASS included), duplicate/missing rules,
 totals and violation counts. It runs the independent data audit first. The official

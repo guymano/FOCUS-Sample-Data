@@ -112,6 +112,12 @@ def failure_examples(rows, failures):
     return examples
 
 
+def sample_paths():
+    """Validate this provider suite even when other sample families coexist."""
+    names = [f"focus_sample_costandusage_{p}_1000.csv" for p in audit.PROVIDERS]
+    return [DATA / name for name in sorted(names)]
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group()
@@ -120,6 +126,8 @@ def main(argv=None):
     parser.add_argument("--output-dir", type=Path, default=EVIDENCE / "local")
     args = parser.parse_args(argv)
     expected = json.loads((EVIDENCE / "expected.json").read_text(encoding="utf-8"))
+    if set(expected) != {p.name for p in sample_paths()}:
+        raise ValueError("reviewed evidence must cover every provider file exactly")
     runtime = json.loads((EVIDENCE / "runtime.json").read_text(encoding="utf-8"))
     metrics, samples, examples = {}, {}, {}
     for provider in audit.PROVIDERS:
@@ -149,7 +157,7 @@ def main(argv=None):
             raise ValueError("Record candidates separately; inspect before promoting")
         output.mkdir(parents=True, exist_ok=True)
     recorded, manifests, failed_files = {}, {}, 0
-    for source in sorted(DATA.glob("*.csv")):
+    for source in sample_paths():
         provider = re.search(r"_(aws|azure|gcp)(?:_1000)?$", source.stem)[1]
         snapshot = expected.get(source.name)
         if not args.record:
