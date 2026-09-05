@@ -1,0 +1,61 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14",
+  "checks": [
+    {
+      "command": "python generators/check_focus_1_2_samples.py",
+      "exit_code": 0,
+      "log": "1_2-acceptance.log",
+      "sha256": "b9bf879943371c6fc6ba5368208d6282f2424f8dda6206a2f09d865eb52b80b9"
+    },
+    {
+      "command": "python -m unittest discover -s generators -p test_focus_1_2_regressions.py",
+      "exit_code": 0,
+      "log": "1_2-regressions.log",
+      "sha256": "dc0cd8fee2c269e1c5456fdb0704995486866aefd7de817d818e1ba00e44c8f5"
+    },
+    {
+      "command": "python generators/describe_focus_1_2_samples.py",
+      "exit_code": 0,
+      "log": "1_2-statistics.log",
+      "sha256": "f7f7d9cb0b8bbce1ad450b4ea1d5e5fc091e3c78f89a81b99156a9f3595d161c"
+    },
+    {
+      "command": "python generators/validate_focus_1_2_samples.py --check-existing",
+      "exit_code": 0,
+      "log": "1_2-evidence.log",
+      "sha256": "743c6ab1456544e22105b9fd7b756f0a508e3f6bd89a683f337ec9cc1ce22458"
+    },
+    {
+      "command": "python generators/check_focus_1_3_samples.py",
+      "exit_code": 0,
+      "log": "1_3-acceptance.log",
+      "sha256": "cbf1f43490c448b515a52281ff1eccbba558845663841dc38e2f8730b31cba37"
+    },
+    {
+      "command": "python -m unittest discover -s generators -p test_focus_1_3_regressions.py",
+      "exit_code": 0,
+      "log": "1_3-regressions.log",
+      "sha256": "467cae25cdd85719050333ed95910129dd3a0bd306c394178d8fa048a7083acb"
+    },
+    {
+      "command": "python generators/describe_focus_1_3_samples.py",
+      "exit_code": 0,
+      "log": "1_3-statistics.log",
+      "sha256": "f7f7d9cb0b8bbce1ad450b4ea1d5e5fc091e3c78f89a81b99156a9f3595d161c"
+    },
+    {
+      "command": "python generators/validate_focus_1_3_samples.py --check-existing",
+      "exit_code": 0,
+      "log": "1_3-evidence.log",
+      "sha256": "baf58fa1ce37f25065f4d1297742bd3b77d503044cef7cb73e1af8d49806b3ff"
+    },
+    {
+      "command": "python -m unittest discover -s generators -p test_focus_shared.py",
+      "exit_code": 0,
+      "log": "shared.log",
+      "sha256": "84c642ab0cf9fa2c6b305e6df38a884e4b665614403ccbaa044ada69458edc90"
+    }
+  ],
+  "scope": "Both corrected versions on the same shared core."
+}

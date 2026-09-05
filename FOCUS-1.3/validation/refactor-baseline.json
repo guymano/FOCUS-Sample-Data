@@ -1,0 +1,2503 @@
+{
+  "revision": "743dd9b01ac74594b5370340460209adfb1a1ee6",
+  "cases": [
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 0,
+      "credits": false,
+      "sha256": "12fd4534aac084595feaabe35465da7865114ef6b3ab30015227058fc6a4e00a"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 0,
+      "credits": true,
+      "sha256": "12fd4534aac084595feaabe35465da7865114ef6b3ab30015227058fc6a4e00a"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 1,
+      "seed": 0,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 1,
+      "credits": false,
+      "sha256": "a8982584cf7be1440b32589843550c7aaa061bb3c0a6b67309135760e6d38af0"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 1,
+      "credits": true,
+      "sha256": "a8982584cf7be1440b32589843550c7aaa061bb3c0a6b67309135760e6d38af0"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 1,
+      "seed": 1,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 42,
+      "credits": false,
+      "sha256": "229155303999fb643bdb3e2c9a209b94d3dce4b710f6382a2f7863e6e10ef76e"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 42,
+      "credits": true,
+      "sha256": "229155303999fb643bdb3e2c9a209b94d3dce4b710f6382a2f7863e6e10ef76e"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 1,
+      "seed": 42,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "fe111f66959ba19b7c3b2d5c6a0465108c64e32378656f8eb5e0ae129f7cc9ec"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "fe111f66959ba19b7c3b2d5c6a0465108c64e32378656f8eb5e0ae129f7cc9ec"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 1,
+      "seed": 1302,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 0,
+      "credits": false,
+      "sha256": "ba1c37eb590f8e26e544dd747d022d0db89cf3299bff398b8c3a9409069d05b0"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 0,
+      "credits": true,
+      "sha256": "ba1c37eb590f8e26e544dd747d022d0db89cf3299bff398b8c3a9409069d05b0"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 2,
+      "seed": 0,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 1,
+      "credits": false,
+      "sha256": "ab4813874a26d1e2d1e4bad66e77bc95211546fd65ca02fbafcc257f1a94ad54"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 1,
+      "credits": true,
+      "sha256": "ab4813874a26d1e2d1e4bad66e77bc95211546fd65ca02fbafcc257f1a94ad54"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 2,
+      "seed": 1,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 42,
+      "credits": false,
+      "sha256": "f5e464c734abb0547dff5121d26afb0279577348fa919fe8342c21712077d9d8"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 42,
+      "credits": true,
+      "sha256": "f5e464c734abb0547dff5121d26afb0279577348fa919fe8342c21712077d9d8"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 2,
+      "seed": 42,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "048a59ca911e17f4a5eafd852db0dfd7330846ec86134fc07535b12fe0c9ee4a"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "048a59ca911e17f4a5eafd852db0dfd7330846ec86134fc07535b12fe0c9ee4a"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 2,
+      "seed": 1302,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 0,
+      "credits": false,
+      "sha256": "c57709be5596bc578f051334fb0521d5acd500c51eec810d2aebb39c8d05b1b3"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 0,
+      "credits": true,
+      "sha256": "c57709be5596bc578f051334fb0521d5acd500c51eec810d2aebb39c8d05b1b3"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 11,
+      "seed": 0,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 1,
+      "credits": false,
+      "sha256": "b3761c62ba8521d0bbbbddfd66d57ddeb05ca74343c3ab6cd324c3c8ba6cc761"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 1,
+      "credits": true,
+      "sha256": "b3761c62ba8521d0bbbbddfd66d57ddeb05ca74343c3ab6cd324c3c8ba6cc761"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 11,
+      "seed": 1,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 42,
+      "credits": false,
+      "sha256": "cf4471e3981b609c7a19cf3e9efb72f0eab85ab30c37ef6250b93a8d420a677a"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 42,
+      "credits": true,
+      "sha256": "96192d30e63acd7e9351485531371097bef7565ca8fea3cef575d0178b786182"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 11,
+      "seed": 42,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "33b8ce6554ef0e3c8f5e2b8a9b0d1feed115d44e35a9a8fc2d641003b2efb7a0"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "33b8ce6554ef0e3c8f5e2b8a9b0d1feed115d44e35a9a8fc2d641003b2efb7a0"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 11,
+      "seed": 1302,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 0,
+      "credits": false,
+      "sha256": "773d30ba082a9604797340804b403c7d18fff91c9ffbe4f5e06acc114affc2d7"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 0,
+      "credits": true,
+      "sha256": "8f6136eabe107ff3d3467831febc02927cea6dcfcb991774a990d9b27ae7a731"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 12,
+      "seed": 0,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 1,
+      "credits": false,
+      "sha256": "83aca10c3cdb03f67e117695cf1f9a8c1f30fac553333986fe30b61af3717d8c"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 1,
+      "credits": true,
+      "sha256": "83aca10c3cdb03f67e117695cf1f9a8c1f30fac553333986fe30b61af3717d8c"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 12,
+      "seed": 1,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 42,
+      "credits": false,
+      "sha256": "de9f30b4bfaa9e3805c27038c8429d4fd1eb1339cab416ce457abdb5e5fb9d16"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 42,
+      "credits": true,
+      "sha256": "47554a2611b09166c7829c891e6bcfc91e9391b003d28fc5d6af0a6544169b52"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 12,
+      "seed": 42,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "0d8200d2ef7bdd135498ac1bab9c8f70760d32e5ed15dc516c15628aea35a3bf"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "9c317542a650a93cd3938fad98372ce37da1e3b0998476932c001b76d375096f"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 12,
+      "seed": 1302,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 0,
+      "credits": false,
+      "sha256": "dcc625a518f9f88e12aba3f9fc3de7938fe3a3d1a2eef85a5da7ae9a55182be6"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 0,
+      "credits": true,
+      "sha256": "df8d2dc57745c20aec54f273ce835c3689d185feb198900e472f6f23799b4be1"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 23,
+      "seed": 0,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 1,
+      "credits": false,
+      "sha256": "3c80054468daa295a93f2821dcabdd72e8108c773ca02e4746b4ab62b6785716"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 1,
+      "credits": true,
+      "sha256": "3c80054468daa295a93f2821dcabdd72e8108c773ca02e4746b4ab62b6785716"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 23,
+      "seed": 1,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 42,
+      "credits": false,
+      "sha256": "71051f89b0a27b203c603e735d232c06044875320a6742166f1f6d540158a78c"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 42,
+      "credits": true,
+      "sha256": "c1d137b6edcdc31fb02a55b733ae8bca87513ebeddbefadacbe55db9f35b2b2e"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 23,
+      "seed": 42,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "e1ecd0a4704a8624ca0c655cbf2c67497c79749aea7effe41a0bd99887f67ab2"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "9d65bc8afb35406ecb47f51f5a0f79d8f8eb7cb26295cc477feccf6d7f851102"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 23,
+      "seed": 1302,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 0,
+      "credits": false,
+      "sha256": "74bcc184400f47f409203e8da24695956037fe4c24453ab46b83d1918cc623ea"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 0,
+      "credits": true,
+      "sha256": "5eded8e1702c7e2226f844401f157b4c86c8322df09eec55b66f70ade75cf4f5"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 24,
+      "seed": 0,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 1,
+      "credits": false,
+      "sha256": "3e71e3d8459853d70b9ba9434a50e1258e60c0cbb6f7b3ff6f231d5a829c7ced"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 1,
+      "credits": true,
+      "sha256": "3e71e3d8459853d70b9ba9434a50e1258e60c0cbb6f7b3ff6f231d5a829c7ced"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 24,
+      "seed": 1,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 42,
+      "credits": false,
+      "sha256": "a849a44b53ba363e921d7943a32920e4018cc50dcf3066006788124742ff9d0e"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 42,
+      "credits": true,
+      "sha256": "6e1f18003d48d4ff18a63b5bf8169b5db4c6fa65ff121364d0c1933a0cffb79c"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 24,
+      "seed": 42,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "21ea1b98a1ea36974e4491e37abc67e499213643ff7c43bd93ce09de1a207c90"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "73ac666d9290471e1880bcf29e37ec939b17a25c3c0a0e4c363ff5084fa2f6bf"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 24,
+      "seed": 1302,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 0,
+      "credits": false,
+      "sha256": "2fcca8d26a27c9d1b709d4a876d2e63e357719c4ec18c9afdad745ee47eaa51a"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 0,
+      "credits": true,
+      "sha256": "19b0f2d3185328ec7ee1d4e63157a7d19381dc6889702637a2ea90f0ddeb283e"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 25,
+      "seed": 0,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 1,
+      "credits": false,
+      "sha256": "af96d881f31c2028eedb88dc4db799a4e9ee4ed5de41edb92cb1f256088dd6fe"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 1,
+      "credits": true,
+      "sha256": "af96d881f31c2028eedb88dc4db799a4e9ee4ed5de41edb92cb1f256088dd6fe"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 25,
+      "seed": 1,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 42,
+      "credits": false,
+      "sha256": "ab63b7baeb0d184932c66fc06d6126ae643f6a28a97614632a9b61e4b17147e6"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 42,
+      "credits": true,
+      "sha256": "76a2f9d6d214ccf9c0516305a82eafdc998b469f51ac093e904e572112117dd0"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 25,
+      "seed": 42,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "6f78991d7112345fdd76897ce6ad2e66796a12cb2cddb9f9112c96118befc269"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "210835f7a1072c06cdad8b51b9279ab314168229d614cbb5c663b862984641da"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 25,
+      "seed": 1302,
+      "sha256": "2fec17409349b445876fcb652293173f0c1ba48ee781e2d2d88366fb6d7c7150"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 0,
+      "credits": false,
+      "sha256": "f2292072070d0b4025346e2b1828412d0acd0a4b882093678cc4245d8e7cf1c1"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 0,
+      "credits": true,
+      "sha256": "9f070a68498b52d98eeb24eb403b0585b319141b6189bfac7523d16266038933"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 1000,
+      "seed": 0,
+      "sha256": "40100c8705f3672018967078b3b4e0fe8d3601f27bade4e612c77021673cebd8"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 1,
+      "credits": false,
+      "sha256": "4373db02895c57daed8f4e3303f4d9ac9c2ed17ebbed26cc03e356067675782f"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 1,
+      "credits": true,
+      "sha256": "2b8180941d5f05795c4c7dc0f2a9b883c42afbb76c657da1b5bc03edf171468a"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 1000,
+      "seed": 1,
+      "sha256": "e4323bce8355c205e3d5e1bc24039b4419e2474e7783b49c20e31b69bf60ee2f"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 42,
+      "credits": false,
+      "sha256": "cb9480b71e03759146df3c51a7f96249f0dd7b8a11f2694bd138c2e18f3aed99"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 42,
+      "credits": true,
+      "sha256": "1640b24a6f5e8cc9658f982b169644966905eb05cda8e6a71c1369850a4c7f66"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 1000,
+      "seed": 42,
+      "sha256": "2cc006b07454b21731e81c494ea3a1772259998eaf048227a42d39d2ef699f9b"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "1c482adb3602cdcb3b09818401c88c8d36634d231e08c5f2b2845d52b06e2394"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "8699f543b84cff136af5b3e45b8893f0a23c8cadabaed06238e8acb8891ed71d"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 1000,
+      "seed": 1302,
+      "sha256": "54c5049aa5ca82030f765bd49be36eef104479d2380e3fd5e4b8b2f7e91b70b7"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 0,
+      "credits": false,
+      "sha256": "359a068fa9ed06b8712ceb5ae1edc1e86b931689e57225fa6e0112668e7f6e49"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 0,
+      "credits": true,
+      "sha256": "bd04f1734739e2bffda3c36de60fd4463dc5c9283baa368f4cd6f824c70f3cd5"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 1001,
+      "seed": 0,
+      "sha256": "40100c8705f3672018967078b3b4e0fe8d3601f27bade4e612c77021673cebd8"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 1,
+      "credits": false,
+      "sha256": "f68382d1225552d302983c000cc237d85940810f1109b8d27e9774b61aec778b"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 1,
+      "credits": true,
+      "sha256": "f1b2921eb3c4d8568f4feaf0cf0e9a479d2b94dc4c84aef13605db0d9ef1ea1b"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 1001,
+      "seed": 1,
+      "sha256": "e4323bce8355c205e3d5e1bc24039b4419e2474e7783b49c20e31b69bf60ee2f"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 42,
+      "credits": false,
+      "sha256": "91027521c3018b5ae6a5c27f35f15a7fc89be1c1a407a074c7581e1f086c94fa"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 42,
+      "credits": true,
+      "sha256": "ce55b70732781f84b9055bbf77b5f859b1d6f83ce9d041aa257ef24d03c7eb78"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 1001,
+      "seed": 42,
+      "sha256": "2cc006b07454b21731e81c494ea3a1772259998eaf048227a42d39d2ef699f9b"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "b5f1470914edd165e7d58fa2da825a07c540aacd8952f9df9e7eea8cae02530f"
+    },
+    {
+      "provider": "aws",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "91b22929182e1355f5360927cfe178d877973c0465d5bb6d28e00a3b29d6f6af"
+    },
+    {
+      "provider": "aws",
+      "dataset": "contract_commitment",
+      "rows": 1001,
+      "seed": 1302,
+      "sha256": "54c5049aa5ca82030f765bd49be36eef104479d2380e3fd5e4b8b2f7e91b70b7"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 0,
+      "credits": false,
+      "sha256": "15bdb4c4b60efce7c0da03e0ad9817668b0bcc3adfe431bc6e5bc115562ecfdd"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 0,
+      "credits": true,
+      "sha256": "15bdb4c4b60efce7c0da03e0ad9817668b0bcc3adfe431bc6e5bc115562ecfdd"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 1,
+      "seed": 0,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 1,
+      "credits": false,
+      "sha256": "23e9a96724909ea31f9eead1ef7655f3dcb6017d81aaf0806c2b1f2b53a4444e"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 1,
+      "credits": true,
+      "sha256": "23e9a96724909ea31f9eead1ef7655f3dcb6017d81aaf0806c2b1f2b53a4444e"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 1,
+      "seed": 1,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 42,
+      "credits": false,
+      "sha256": "e4a755bf6c564fa4dfd23ffd5dce5d9f7a48e74e7ed64f160ce9f056bc6267c8"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 42,
+      "credits": true,
+      "sha256": "e4a755bf6c564fa4dfd23ffd5dce5d9f7a48e74e7ed64f160ce9f056bc6267c8"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 1,
+      "seed": 42,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "8ca40e74be17b9b4777e2e9613f03984913b821fe424edf428d4e80c74988a0a"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "8ca40e74be17b9b4777e2e9613f03984913b821fe424edf428d4e80c74988a0a"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 1,
+      "seed": 1302,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 0,
+      "credits": false,
+      "sha256": "bc77cb274a5cb0c643daf585eb7a31914fc8001649514782ad3366c7d3f1f98a"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 0,
+      "credits": true,
+      "sha256": "bc77cb274a5cb0c643daf585eb7a31914fc8001649514782ad3366c7d3f1f98a"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 2,
+      "seed": 0,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 1,
+      "credits": false,
+      "sha256": "9c4e6ab5f063e25342d3b481adb2192c3cf14f166ad41ff9ea87695b07bc6a0c"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 1,
+      "credits": true,
+      "sha256": "9c4e6ab5f063e25342d3b481adb2192c3cf14f166ad41ff9ea87695b07bc6a0c"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 2,
+      "seed": 1,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 42,
+      "credits": false,
+      "sha256": "3625914bd1fc3109b875cac66d8267bb9435e2a528318eeacb4de43f14e709d7"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 42,
+      "credits": true,
+      "sha256": "3625914bd1fc3109b875cac66d8267bb9435e2a528318eeacb4de43f14e709d7"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 2,
+      "seed": 42,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "f972a39554df4a0710cc9590e10399bab8a359911b0dc172d995e1cc884b0425"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "f972a39554df4a0710cc9590e10399bab8a359911b0dc172d995e1cc884b0425"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 2,
+      "seed": 1302,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 0,
+      "credits": false,
+      "sha256": "c72ddce982a038b998382b4bfe396426c8f99156449ac71355bafbeef37b0e8a"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 0,
+      "credits": true,
+      "sha256": "c72ddce982a038b998382b4bfe396426c8f99156449ac71355bafbeef37b0e8a"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 11,
+      "seed": 0,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 1,
+      "credits": false,
+      "sha256": "6949ca4682ce6d08b42c5161d46774d79e4e44a21a4590869cdb89c0acb777ab"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 1,
+      "credits": true,
+      "sha256": "21499a1707ba8c17479dc0048f37c7b7e510bf4063f9a98a97220a3da4e0a697"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 11,
+      "seed": 1,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 42,
+      "credits": false,
+      "sha256": "1dd57ba2cd3b930a36ede1fde5a230ffd8b7ed70d08c307182b5a2e74bca6331"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 42,
+      "credits": true,
+      "sha256": "1dd57ba2cd3b930a36ede1fde5a230ffd8b7ed70d08c307182b5a2e74bca6331"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 11,
+      "seed": 42,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "efb456118bc9efaacb23571b8a4e72d5ea469f94fe86f51be05941ba2ed93c24"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "ee8209bd59cd9d3aec721f4e431f3359eb009ea4c87e3e3be244e8680f2007b6"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 11,
+      "seed": 1302,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 0,
+      "credits": false,
+      "sha256": "3c896d92b5e0a6c519fde19bc602f41999a943fd195ab0d33ccb16372a068dd9"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 0,
+      "credits": true,
+      "sha256": "3c896d92b5e0a6c519fde19bc602f41999a943fd195ab0d33ccb16372a068dd9"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 12,
+      "seed": 0,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 1,
+      "credits": false,
+      "sha256": "e3ffdac2d56cd867d3ed24eb67f93260f5e02ed4945e767b2109c8a46c9e1b4d"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 1,
+      "credits": true,
+      "sha256": "c7057d4d46857edd3b9905616d3775034a3afd08b4366fbcea1b31d2f7fe64a1"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 12,
+      "seed": 1,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 42,
+      "credits": false,
+      "sha256": "eafc7accf0801b1a9cdbc17ad5eed9ecd36fdd90af9506e63f30951c1bb2a1ea"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 42,
+      "credits": true,
+      "sha256": "eafc7accf0801b1a9cdbc17ad5eed9ecd36fdd90af9506e63f30951c1bb2a1ea"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 12,
+      "seed": 42,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "b1f56021c1321605127f435f52b268b4ea2f8dc937a3af58477b4879bd739347"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "ff069c7916d4e89e2f5f35f2dc23402e942ff7d2eed6a59ccdfd8f6249307587"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 12,
+      "seed": 1302,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 0,
+      "credits": false,
+      "sha256": "554726a9ea4bda638be60bb3a45d6901cdbe9a034f7524bdb8863544452e7ab4"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 0,
+      "credits": true,
+      "sha256": "34437b7b2ccae92fca0e0b41d6aa41812cd0195a49e193c63afaf7257989003e"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 23,
+      "seed": 0,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 1,
+      "credits": false,
+      "sha256": "5ec42b5a47ad60bd9f799f8e2550e6397563d9a0a2f3c603161e900d9beb76c4"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 1,
+      "credits": true,
+      "sha256": "52e519dd9ce82bd3ae5a21fcdf1f8a2853085ee0c02caa685652e6a718526e1d"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 23,
+      "seed": 1,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 42,
+      "credits": false,
+      "sha256": "592844774f485d9c9c251bccd39c78cd0e583922f72c6307fb46624e2fc1ec59"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 42,
+      "credits": true,
+      "sha256": "592844774f485d9c9c251bccd39c78cd0e583922f72c6307fb46624e2fc1ec59"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 23,
+      "seed": 42,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "cdb60759ded65e9bb81dc459b0be07830a17ea695eee4b2073cfa53d8ed74013"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "1446a67c549b9c0e4c943a116f79fe5cec95b7441d4c47e0c9201002d5f7f280"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 23,
+      "seed": 1302,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 0,
+      "credits": false,
+      "sha256": "af4c759c9f57fa36d5b743c3ea47318296b024d6880f73caa4f3e6b725bd368b"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 0,
+      "credits": true,
+      "sha256": "c6ef2134af3829f4baadd8baa878dc8e754efb7d80f4fb6e6224c3aadbeaf12d"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 24,
+      "seed": 0,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 1,
+      "credits": false,
+      "sha256": "66d3d502b9c98b075af9ce092773d3207803a151d2ea921b40c9325ff869a0bb"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 1,
+      "credits": true,
+      "sha256": "8fc4f8f78c600522c4bc1c2cae1d2682f95cb942aa9d5a10d08c71ba94721759"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 24,
+      "seed": 1,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 42,
+      "credits": false,
+      "sha256": "99c2a3d74f800f74dd01e5811475b592d5eec74d96318f8dc63fb99e97de393e"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 42,
+      "credits": true,
+      "sha256": "99c2a3d74f800f74dd01e5811475b592d5eec74d96318f8dc63fb99e97de393e"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 24,
+      "seed": 42,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "959ae32a8804c90c1b2e6863db8630e640b56dd08abd86e9970698e371195a69"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "934393df4042ad2126c2f7d941cd5a12398ee81bb120dbac54d8ddff58a6d621"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 24,
+      "seed": 1302,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 0,
+      "credits": false,
+      "sha256": "8df037235c2c242c41c001f8e36b6aefb6097333cccf50cc6e33524fc7ff90dc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 0,
+      "credits": true,
+      "sha256": "7802ab8072c7c4d2b3b6df46abcff4e42e1928aa072f4d395c3036b1b4269434"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 25,
+      "seed": 0,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 1,
+      "credits": false,
+      "sha256": "5856483d1e29c94c0e09463119866e01d04228ff523ca821ab67a2f250164c1c"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 1,
+      "credits": true,
+      "sha256": "1aed8b98d30b3f66cb077d6aea29b502c3adfeafb9a241df5c904821d596865b"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 25,
+      "seed": 1,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 42,
+      "credits": false,
+      "sha256": "1e2f950ffa7339817d0928409c3a77ee96fd0758dd41c7c6529dcba4b6aa23a7"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 42,
+      "credits": true,
+      "sha256": "34904e33824725bdb240f5e26947f95ef4f1ecb6b33e97c4f68c078ea4b2165c"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 25,
+      "seed": 42,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "a94c67bce2f0b75ffe8961e9f23a0bc6f175db3eba7afa1f06171feb2864043b"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "b50eb8d2f5d02fbb6743210b4fed6121c5891237c7a44bdd71ed6d1f3697c6f4"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 25,
+      "seed": 1302,
+      "sha256": "cd71777b34a7084b2ee863c6c6a64111de443c141f26e08bac91c69b3225aefc"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 0,
+      "credits": false,
+      "sha256": "de52a085fd69ba5fa08f66f8966e756cefe6546025db42fc897b4ce7d3881e70"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 0,
+      "credits": true,
+      "sha256": "712d1d2762759d9b61079baf670d22c061cdf2218d1a7f1ce937caa2aee5ffa2"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 1000,
+      "seed": 0,
+      "sha256": "e84585e26249b7c9dad2617f83b07542d3ace482e291da11d57e48a65bc2220d"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 1,
+      "credits": false,
+      "sha256": "5844a2ecd26d489e4fd34046eff907c9db3bf90ec4c06638e2af69e3465b062d"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 1,
+      "credits": true,
+      "sha256": "fd765ec067304964a0cbc9ecd656fdb9d99e1b82aea9336b46042b18720d27ac"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 1000,
+      "seed": 1,
+      "sha256": "ab5107fb75e531597678f0bf9008dbdce25f988eb3e25a126b9bc88bbac2188f"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 42,
+      "credits": false,
+      "sha256": "0c957066184e6958a8768d4a3b7ca66324d951de03371b34cc65bad31aeaaf4f"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 42,
+      "credits": true,
+      "sha256": "bfb95ff9fe545f1f5576cf2740ee4529e6e77f01479538f306a63e9973e3a1b4"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 1000,
+      "seed": 42,
+      "sha256": "21bf67c6aa9351a939eafad280f6213f797d11d2d30a2c435fc7f09cef09377d"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "fe710f10c72652b123c9a559d18f71206b33e990ce5138ee4bd65d94129e8688"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "bf451d7338d41ad10d62e052390d34eb060a892d46fa4743b108a1861a606937"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 1000,
+      "seed": 1302,
+      "sha256": "2bcd8000c38ed310e6cf48594ef53989c460fceb704a2b157d64d1d667417aab"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 0,
+      "credits": false,
+      "sha256": "ad3376ee1d8f2d508aef06462cb3fa95025fd84b47655d8b160c0580de2af1a9"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 0,
+      "credits": true,
+      "sha256": "e5fec63d50f89cb0d283ade45ab1846df0927b994288cfd852fa349c2690cc64"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 1001,
+      "seed": 0,
+      "sha256": "e84585e26249b7c9dad2617f83b07542d3ace482e291da11d57e48a65bc2220d"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 1,
+      "credits": false,
+      "sha256": "0556acd7f17fdd6bfa5d4662f522db768e2ac8844464c62d067f96f6c2a6534f"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 1,
+      "credits": true,
+      "sha256": "174def49bbfb972ec6118060f9e336cf78f83e7d9371843d3609b7644033228f"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 1001,
+      "seed": 1,
+      "sha256": "ab5107fb75e531597678f0bf9008dbdce25f988eb3e25a126b9bc88bbac2188f"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 42,
+      "credits": false,
+      "sha256": "1ec27a82201be2eac6e0346060669b050495544accb592ca76a73292660c30c8"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 42,
+      "credits": true,
+      "sha256": "dd01706aaa5e765dfdc6ceda322e229dd48af83be6b8333a4d23ca36f26cdb63"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 1001,
+      "seed": 42,
+      "sha256": "21bf67c6aa9351a939eafad280f6213f797d11d2d30a2c435fc7f09cef09377d"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "9b325e1ee683bc2b0d8b877f3863578b4c1750322e3a9e36ae0a1f1153b9006f"
+    },
+    {
+      "provider": "azure",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "1f9b09d7715b6eaf9386c90e4364ce7ef50c422d5ff009d3b445fb736bb4c17d"
+    },
+    {
+      "provider": "azure",
+      "dataset": "contract_commitment",
+      "rows": 1001,
+      "seed": 1302,
+      "sha256": "2bcd8000c38ed310e6cf48594ef53989c460fceb704a2b157d64d1d667417aab"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 0,
+      "credits": false,
+      "sha256": "7b43da7d1349814477eb87cc77cf74947c518556c22188816b273dc0e0bb2a44"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 0,
+      "credits": true,
+      "sha256": "7b43da7d1349814477eb87cc77cf74947c518556c22188816b273dc0e0bb2a44"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 1,
+      "seed": 0,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 1,
+      "credits": false,
+      "sha256": "9cd2f04faf8970bf47b1502dc3144ef7a1949b5ad1e24704f5da559198ea2c82"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 1,
+      "credits": true,
+      "sha256": "9cd2f04faf8970bf47b1502dc3144ef7a1949b5ad1e24704f5da559198ea2c82"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 1,
+      "seed": 1,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 42,
+      "credits": false,
+      "sha256": "a35eee67e61ccc7bd43dab3d30d2f94ee80959e7eae5eb66875f66ccaf6d5f8c"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 42,
+      "credits": true,
+      "sha256": "a35eee67e61ccc7bd43dab3d30d2f94ee80959e7eae5eb66875f66ccaf6d5f8c"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 1,
+      "seed": 42,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "4930cb102cbf8529d9ecde97f63a2b386873514da75f0298937bf0f46a4c318d"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "4930cb102cbf8529d9ecde97f63a2b386873514da75f0298937bf0f46a4c318d"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 1,
+      "seed": 1302,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 0,
+      "credits": false,
+      "sha256": "5c975f40895fa4a73284259676c8f23f416b9a00e730477153be45b2dd37c4b6"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 0,
+      "credits": true,
+      "sha256": "5c975f40895fa4a73284259676c8f23f416b9a00e730477153be45b2dd37c4b6"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 2,
+      "seed": 0,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 1,
+      "credits": false,
+      "sha256": "bd260c5d8d0dc75e4eaa3cd224e3f434dcedea6b7c69df35be52faeb7cb31349"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 1,
+      "credits": true,
+      "sha256": "bd260c5d8d0dc75e4eaa3cd224e3f434dcedea6b7c69df35be52faeb7cb31349"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 2,
+      "seed": 1,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 42,
+      "credits": false,
+      "sha256": "2a3e0aaae305904080bf19a88b0320d046ea1d11203200548b077f37e5c19c02"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 42,
+      "credits": true,
+      "sha256": "2a3e0aaae305904080bf19a88b0320d046ea1d11203200548b077f37e5c19c02"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 2,
+      "seed": 42,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "2f6131828e9b82931356d1bc1005cc6c15023f76a281a7f323c22f3dfa7960cd"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 2,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "2f6131828e9b82931356d1bc1005cc6c15023f76a281a7f323c22f3dfa7960cd"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 2,
+      "seed": 1302,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 0,
+      "credits": false,
+      "sha256": "4ae42c14a0d402e71be0485a51b73335e71ec42b27c27e1406bd161f845774cf"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 0,
+      "credits": true,
+      "sha256": "4ae42c14a0d402e71be0485a51b73335e71ec42b27c27e1406bd161f845774cf"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 11,
+      "seed": 0,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 1,
+      "credits": false,
+      "sha256": "266d4c7b6b179cf1a3e4c6e9c98865fda723d21229c47ee108fdfe26e155ac6b"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 1,
+      "credits": true,
+      "sha256": "fe232a4cd054a9d85e86a5d73fd2f92ee76abee8d0144a759ad8624d7bf645ab"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 11,
+      "seed": 1,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 42,
+      "credits": false,
+      "sha256": "1dfe313618e2516878293ce96a179d16b155dd22d9297eb2a1e8411b3dddb4e4"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 42,
+      "credits": true,
+      "sha256": "1dfe313618e2516878293ce96a179d16b155dd22d9297eb2a1e8411b3dddb4e4"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 11,
+      "seed": 42,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "3d485066ca84f26f32f015a18937c471db3877718611535ed3edb782570cd070"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 11,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "24b323c65a4b95bc1cda7ef96a368f938b122606b9e0391b6bb00f1a0b08b0e1"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 11,
+      "seed": 1302,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 0,
+      "credits": false,
+      "sha256": "09efbf39cb1fb8a6174d0c1cbe9ecc756be8b6f8d81bfa94042188b0bf22ba08"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 0,
+      "credits": true,
+      "sha256": "09efbf39cb1fb8a6174d0c1cbe9ecc756be8b6f8d81bfa94042188b0bf22ba08"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 12,
+      "seed": 0,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 1,
+      "credits": false,
+      "sha256": "41803ccc282dbc9f9bb9015ff8768967ffa972bb6b7f9331993221883a2b8a0a"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 1,
+      "credits": true,
+      "sha256": "2d8dfbe98475fca50e8a28f1b516e73a1bd88ad5a7e1144d8ec6fa0a276ba69a"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 12,
+      "seed": 1,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 42,
+      "credits": false,
+      "sha256": "d54f0604ac671c78dcd9d34090c3622a496e7a56feebc6e50a4dbde6b10da4c8"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 42,
+      "credits": true,
+      "sha256": "d54f0604ac671c78dcd9d34090c3622a496e7a56feebc6e50a4dbde6b10da4c8"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 12,
+      "seed": 42,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "7764c1b4e52344df06cf623bcf34b86a4e1a2d502d9f48f3aeadbd859f5297b8"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 12,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "de13d7567743dac7084e1639f89ed31e8be4027cd1d8fe907fddda250fde99db"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 12,
+      "seed": 1302,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 0,
+      "credits": false,
+      "sha256": "ac4f50aca7cedfb1140057622aa821130d22533f8dd7d769098d19bc19a5d666"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 0,
+      "credits": true,
+      "sha256": "5c4715080f87c0bdc7ca84922daa0bd62776cebd15cb0033d6937fbd89328345"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 23,
+      "seed": 0,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 1,
+      "credits": false,
+      "sha256": "0f2d1c8779f07b32f84895739f850338a9e3aceb1dd0268f20bcbe517827e17a"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 1,
+      "credits": true,
+      "sha256": "d3a7234bff61c381d400bb9bf02611d09c23f7e749d533d5ebf1b775714b9641"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 23,
+      "seed": 1,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 42,
+      "credits": false,
+      "sha256": "8ddb2a032967f5eb96e229fc0059f5aa59a673bedd32d307fbcb02252247e17b"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 42,
+      "credits": true,
+      "sha256": "8ddb2a032967f5eb96e229fc0059f5aa59a673bedd32d307fbcb02252247e17b"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 23,
+      "seed": 42,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "8943acc4387f0332bd8e2f5cb4fe0fb7e0b3b11a1a7032abe44933d6baa1b0ef"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 23,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "2f71e043ed54740810ad56a498cb530cab0c3379e9bbcb63a8dd65506ce83bbe"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 23,
+      "seed": 1302,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 0,
+      "credits": false,
+      "sha256": "117c0e41c21d954e4c185864befe34abf0800461e3cc952a4ffb297fa8b79257"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 0,
+      "credits": true,
+      "sha256": "06c91ccd7a4de399734e9fa10252c9b761808c6c79f7c3edd46318442edb8df6"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 24,
+      "seed": 0,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 1,
+      "credits": false,
+      "sha256": "d59fdcd198a4af9326dbdce9a108190ee0e8c5d84d8f17596c7c01fc2da4860e"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 1,
+      "credits": true,
+      "sha256": "774d20656cbdb04f40d917f61fc33e4166eb030095e496fd5ae667a99127dcdc"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 24,
+      "seed": 1,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 42,
+      "credits": false,
+      "sha256": "869f474c0e8c7f3a50dc5ea5808b0e9c98356f316e065ccad16d22e7c59daeb2"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 42,
+      "credits": true,
+      "sha256": "869f474c0e8c7f3a50dc5ea5808b0e9c98356f316e065ccad16d22e7c59daeb2"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 24,
+      "seed": 42,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "1d3814b9820665f87be62cfd78e115f5aa57a6f1b4e407240cd8dc9856245f6e"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 24,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "c621408df1fba0e33b08f4685c50b86f24697291963253875fb81e393b0eef19"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 24,
+      "seed": 1302,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 0,
+      "credits": false,
+      "sha256": "cde13978c63b0dbc2465b8d69cf6f7f507074481f029c27aaa0861d45b1322c6"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 0,
+      "credits": true,
+      "sha256": "072af946aab50890df580a375f150e9958693c3743f4f711a07666fa212aa94a"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 25,
+      "seed": 0,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 1,
+      "credits": false,
+      "sha256": "1f972d08609cd5b8d9b288d7338e216efb58913d71b2cf80b3bcbdbe53982877"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 1,
+      "credits": true,
+      "sha256": "4a012a977a83db61ba11a8a88cb13646bce1cc59b6589d567095294807b83a11"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 25,
+      "seed": 1,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 42,
+      "credits": false,
+      "sha256": "30b2b30698eeecd7c523bd6e080774d6460ed0d71d3e3feaec3fdb55ac25bf1e"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 42,
+      "credits": true,
+      "sha256": "4241130c39151bbd4faf3a0a35f2197719ca9a4d87cc010a66a505d4e2964ba4"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 25,
+      "seed": 42,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "2d5f60490ec472d0653353e0894c3053310e42bc2790a63606aaffc279890137"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 25,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "f9624279810dffe0ef4732993bc3304ebe9210346a5f4ec6d2ba74da16a1db2a"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 25,
+      "seed": 1302,
+      "sha256": "817f8737b4d42bf715f1b1c70e0a606b5b0b5a78c0e7272750e1210e7e51cffb"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 0,
+      "credits": false,
+      "sha256": "6ea68bfdf3f57728f75d484970eb5f28da4e8c80c2827a90d6492fdbdd9ebead"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 0,
+      "credits": true,
+      "sha256": "b8ac2c6fcc7a61ce39242c63d51d7fe5002ba79f8043ce948e323927a4720209"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 1000,
+      "seed": 0,
+      "sha256": "f684ce71ccfc3a34fb27cbae3af17b0a1237af5619c1a3da2b028247a28970fa"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 1,
+      "credits": false,
+      "sha256": "b700993cdce8bf4821480e6b7704b47714f578cf1f07388cdd8943ed1e3519f3"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 1,
+      "credits": true,
+      "sha256": "0a78df6ad2b7ca797481efd0fdc32ab5021cc64973e852e2cb16b030c67fbd8b"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 1000,
+      "seed": 1,
+      "sha256": "0614faac797fee8176c3b0984844982bdebeb078e2b83abf2b683c2934bd98df"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 42,
+      "credits": false,
+      "sha256": "ecf3d635fdc64733cc7029774e3948a9b6eca8034fe4b65eb4aefdc46704c210"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 42,
+      "credits": true,
+      "sha256": "6d37c75e8866126fbf101a07b146e19987196aefd9b0b51da334329d50720fd7"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 1000,
+      "seed": 42,
+      "sha256": "dc8a20339e3ab6ef27ee3b0375269302bf059cc34d3b340cc1fd4afd5c0dbf80"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "0a6081b1095f0aa1eb1702b060aa4f04fae888f67eb31276832235431479bf8d"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1000,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "379ed04fcbcbd94a13234abe4aa1ee067e6b589360d2c2d8811f36909c206026"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 1000,
+      "seed": 1302,
+      "sha256": "b68c01bebbf5a0e73bc499d45d08d5574466c87ba6987e34f0602daf084b5cb8"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 0,
+      "credits": false,
+      "sha256": "aecaac46b66b5c0c9b217cc15fa1cf2c6688bdd923a9316c4ce078e638eea2e6"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 0,
+      "credits": true,
+      "sha256": "b8ab8c54d2ce69f1c505e7b9c222223f2b1a6ef493958109c94fd566f6c1b4db"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 1001,
+      "seed": 0,
+      "sha256": "f684ce71ccfc3a34fb27cbae3af17b0a1237af5619c1a3da2b028247a28970fa"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 1,
+      "credits": false,
+      "sha256": "b50e3f8398a6e04d8219ba9c9b202a3593b74d1a3d282e6ccbae6bc115e47184"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 1,
+      "credits": true,
+      "sha256": "f80ba62ed08f502c92b92ab34b0e1a54b66d7ebaa3dfadfa5af60b5fc364a05e"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 1001,
+      "seed": 1,
+      "sha256": "0614faac797fee8176c3b0984844982bdebeb078e2b83abf2b683c2934bd98df"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 42,
+      "credits": false,
+      "sha256": "38c9da82bfeeffcae32f05d7782930960be340769d155e63e2dd6ba5976dd4e8"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 42,
+      "credits": true,
+      "sha256": "b1c820ab61d5b51dd67db5c0d27eb10a9f48ceaedc64e3d6394f3add11582c30"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 1001,
+      "seed": 42,
+      "sha256": "dc8a20339e3ab6ef27ee3b0375269302bf059cc34d3b340cc1fd4afd5c0dbf80"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 1302,
+      "credits": false,
+      "sha256": "6e20f2ab31959f6c88f8f3a17e1259a0185f05aa5a48b06224add3b399401eaa"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "cost_and_usage",
+      "rows": 1001,
+      "seed": 1302,
+      "credits": true,
+      "sha256": "758afc8b0ce41c72746ade0734789e70dc3502988991b9f6b5a74c2c17b576a9"
+    },
+    {
+      "provider": "gcp",
+      "dataset": "contract_commitment",
+      "rows": 1001,
+      "seed": 1302,
+      "sha256": "b68c01bebbf5a0e73bc499d45d08d5574466c87ba6987e34f0602daf084b5cb8"
+    }
+  ],
+  "published": {
+    "focus_sample_contractcommitment_aws.csv": "54c5049aa5ca82030f765bd49be36eef104479d2380e3fd5e4b8b2f7e91b70b7",
+    "focus_sample_contractcommitment_azure.csv": "2bcd8000c38ed310e6cf48594ef53989c460fceb704a2b157d64d1d667417aab",
+    "focus_sample_contractcommitment_gcp.csv": "b68c01bebbf5a0e73bc499d45d08d5574466c87ba6987e34f0602daf084b5cb8",
+    "focus_sample_costandusage_aws_1000.csv": "1c482adb3602cdcb3b09818401c88c8d36634d231e08c5f2b2845d52b06e2394",
+    "focus_sample_costandusage_azure_1000.csv": "fe710f10c72652b123c9a559d18f71206b33e990ce5138ee4bd65d94129e8688",
+    "focus_sample_costandusage_gcp_1000.csv": "0a6081b1095f0aa1eb1702b060aa4f04fae888f67eb31276832235431479bf8d"
+  },
+  "artifacts": {
+    "dataset-statistics.json": "e26d801ae794581dd958c1973cec91523779a494efc9bb9de2ae5a0f2738a286",
+    "expected.json": "30846f886ad54fca4db4fe2ec6c7219dd7f5cec11fd2d360b32daf193753a4fd",
+    "failure-examples.json": "cfa7b2c67bf230294ed429a440aa098fd05314d1c3cb294f5ee6d1ea0c8d25f0",
+    "failure-explanations.json": "261c2e5f4edbec841ca2324b6d323dcf5170e55d4ac70b5f6f404b6c110d1cd5"
+  }
+}

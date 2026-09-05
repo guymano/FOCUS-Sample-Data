@@ -1,0 +1,50 @@
+{
+  "focus_sample_contractcommitment_aws.csv": {
+    "all_rule_states_identical": true,
+    "all_failure_counts_identical": true,
+    "data_sha256": "54c5049aa5ca82030f765bd49be36eef104479d2380e3fd5e4b8b2f7e91b70b7",
+    "model_sha256": "2c0e38136d12fc5f965c09ef7e005f8ec00dbe2fe6907e8b98d79d8257a0d272",
+    "previous_generator_sha256": "530158941d78da8ce84f483191a686ddbb9c439c8665e6334ca5a4e68be2c476",
+    "sources_sha256": "974d5cbaf1d6ff914c99b58efc2cf5bf9caf50a653d51bdc078de95186d6c719"
+  },
+  "focus_sample_contractcommitment_azure.csv": {
+    "all_rule_states_identical": true,
+    "all_failure_counts_identical": true,
+    "data_sha256": "2bcd8000c38ed310e6cf48594ef53989c460fceb704a2b157d64d1d667417aab",
+    "model_sha256": "2c0e38136d12fc5f965c09ef7e005f8ec00dbe2fe6907e8b98d79d8257a0d272",
+    "previous_generator_sha256": "0bab725ef96da3355575e1fc00f3638d4000c766d90311481063e7b1196f3786",
+    "sources_sha256": "96270b645e5fbd42c457bfd4ef7d3b39c3eaf8bbeec0ee3373c49d16f5ba0617"
+  },
+  "focus_sample_contractcommitment_gcp.csv": {
+    "all_rule_states_identical": true,
+    "all_failure_counts_identical": true,
+    "data_sha256": "b68c01bebbf5a0e73bc499d45d08d5574466c87ba6987e34f0602daf084b5cb8",
+    "model_sha256": "2c0e38136d12fc5f965c09ef7e005f8ec00dbe2fe6907e8b98d79d8257a0d272",
+    "previous_generator_sha256": "ab9b9ae175bb797595718a0d8aaca3d45188413ddae9b2b5f07448d86bd2776f",
+    "sources_sha256": "e2a89c5b05cce7c1b340da0d7b5190744b7d35bd42bf68d917e444f1fd19de94"
+  },
+  "focus_sample_costandusage_aws_1000.csv": {
+    "all_rule_states_identical": true,
+    "all_failure_counts_identical": true,
+    "data_sha256": "1c482adb3602cdcb3b09818401c88c8d36634d231e08c5f2b2845d52b06e2394",
+    "model_sha256": "2c0e38136d12fc5f965c09ef7e005f8ec00dbe2fe6907e8b98d79d8257a0d272",
+    "previous_generator_sha256": "530158941d78da8ce84f483191a686ddbb9c439c8665e6334ca5a4e68be2c476",
+    "sources_sha256": "974d5cbaf1d6ff914c99b58efc2cf5bf9caf50a653d51bdc078de95186d6c719"
+  },
+  "focus_sample_costandusage_azure_1000.csv": {
+    "all_rule_states_identical": true,
+    "all_failure_counts_identical": true,
+    "data_sha256": "fe710f10c72652b123c9a559d18f71206b33e990ce5138ee4bd65d94129e8688",
+    "model_sha256": "2c0e38136d12fc5f965c09ef7e005f8ec00dbe2fe6907e8b98d79d8257a0d272",
+    "previous_generator_sha256": "0bab725ef96da3355575e1fc00f3638d4000c766d90311481063e7b1196f3786",
+    "sources_sha256": "96270b645e5fbd42c457bfd4ef7d3b39c3eaf8bbeec0ee3373c49d16f5ba0617"
+  },
+  "focus_sample_costandusage_gcp_1000.csv": {
+    "all_rule_states_identical": true,
+    "all_failure_counts_identical": true,
+    "data_sha256": "0a6081b1095f0aa1eb1702b060aa4f04fae888f67eb31276832235431479bf8d",
+    "model_sha256": "2c0e38136d12fc5f965c09ef7e005f8ec00dbe2fe6907e8b98d79d8257a0d272",
+    "previous_generator_sha256": "ab9b9ae175bb797595718a0d8aaca3d45188413ddae9b2b5f07448d86bd2776f",
+    "sources_sha256": "e2a89c5b05cce7c1b340da0d7b5190744b7d35bd42bf68d917e444f1fd19de94"
+  }
+}

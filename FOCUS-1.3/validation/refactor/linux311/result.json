@@ -1,0 +1,61 @@
+{
+  "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.11.15",
+  "checks": [
+    {
+      "command": "python generators/check_focus_1_2_samples.py",
+      "exit_code": 0,
+      "log": "1_2-acceptance.log",
+      "sha256": "0db8a1bc3f7de16a11cc8c8e600f45b9435b976b66aa69b9c02ff040574cdd77"
+    },
+    {
+      "command": "python -m unittest discover -s generators -p test_focus_1_2_regressions.py",
+      "exit_code": 0,
+      "log": "1_2-regressions.log",
+      "sha256": "a4ad4c82d377a49964d8f0280cfaa1259f59a1f5224b4ac060a4bea73f78b14c"
+    },
+    {
+      "command": "python generators/describe_focus_1_2_samples.py",
+      "exit_code": 0,
+      "log": "1_2-statistics.log",
+      "sha256": "8515d87017747d3201fa04c9e8481b8b8c4fe8e2c2e46228b1f3ff54c9f54140"
+    },
+    {
+      "command": "python generators/validate_focus_1_2_samples.py --check-existing",
+      "exit_code": 0,
+      "log": "1_2-evidence.log",
+      "sha256": "c594aac923299ce0943aff31f774fe7e30c555935390eae8aba7a24f1b1384ba"
+    },
+    {
+      "command": "python generators/check_focus_1_3_samples.py",
+      "exit_code": 0,
+      "log": "1_3-acceptance.log",
+      "sha256": "38d1d3c8a03f9efe31bb29d4d1958c530d21f2c59e86cbd07a3848e88aaedd78"
+    },
+    {
+      "command": "python -m unittest discover -s generators -p test_focus_1_3_regressions.py",
+      "exit_code": 0,
+      "log": "1_3-regressions.log",
+      "sha256": "bb7f8819b918375e1eedae48dc442323fc8497747d2eae114f26824c7754fa0f"
+    },
+    {
+      "command": "python generators/describe_focus_1_3_samples.py",
+      "exit_code": 0,
+      "log": "1_3-statistics.log",
+      "sha256": "8515d87017747d3201fa04c9e8481b8b8c4fe8e2c2e46228b1f3ff54c9f54140"
+    },
+    {
+      "command": "python generators/validate_focus_1_3_samples.py --check-existing",
+      "exit_code": 0,
+      "log": "1_3-evidence.log",
+      "sha256": "81fc4861c23ebf9d7a63c4589e2e4e50eed7aa846a101e4e4e0f637f515c4302"
+    },
+    {
+      "command": "python -m unittest discover -s generators -p test_focus_shared.py",
+      "exit_code": 0,
+      "log": "shared.log",
+      "sha256": "4a5a8110020f62a7b1182a145984ff2b5caeeb33af175307511b250d77fb24e4"
+    }
+  ],
+  "scope": "Both corrected versions on the same shared core."
+}

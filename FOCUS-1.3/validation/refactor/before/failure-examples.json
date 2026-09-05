@@ -1,0 +1,1890 @@
+{
+  "aws": {
+    "CAU-BillingAccountId-C-000-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-BillingAccountId-C-002-M": {
+      "measured_affected_records": 1000,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "S3 Standard storage",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000012",
+            "ResourceId": "arn:aws:s3:ap-southeast-1:200000000012:bucket/bucket-f36bd2c40f3a",
+            "ResourceType": "S3 Bucket",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "46.5179761",
+            "EffectiveCost": "46.5179761",
+            "SkuPriceId": "SPRICE-5d75931c911c493aa2aa3d41",
+            "ContractApplied": ""
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "NAT gateway data processed",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:ec2:us-east-1:200000000011:natgateway/nat-a6e3667dcb4e",
+            "ResourceType": "NAT Gateway",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "5.480316",
+            "EffectiveCost": "5.480316",
+            "SkuPriceId": "SPRICE-130c94d71c797814c8e72b46",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-CapacityReservationStatus-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-CapacityReservationStatus-C-002-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-CapacityReservationStatus-C-004-C": {
+      "measured_affected_records": 1000,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "S3 Standard storage",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000012",
+            "ResourceId": "arn:aws:s3:ap-southeast-1:200000000012:bucket/bucket-f36bd2c40f3a",
+            "ResourceType": "S3 Bucket",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "46.5179761",
+            "EffectiveCost": "46.5179761",
+            "SkuPriceId": "SPRICE-5d75931c911c493aa2aa3d41",
+            "ContractApplied": ""
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "NAT gateway data processed",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:ec2:us-east-1:200000000011:natgateway/nat-a6e3667dcb4e",
+            "ResourceType": "NAT Gateway",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "5.480316",
+            "EffectiveCost": "5.480316",
+            "SkuPriceId": "SPRICE-130c94d71c797814c8e72b46",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-CommitmentDiscountStatus-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-CommitmentDiscountStatus-C-002-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-CommitmentDiscountStatus-C-003-C": {
+      "measured_affected_records": 662,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "S3 Standard storage",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000012",
+            "ResourceId": "arn:aws:s3:ap-southeast-1:200000000012:bucket/bucket-f36bd2c40f3a",
+            "ResourceType": "S3 Bucket",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "46.5179761",
+            "EffectiveCost": "46.5179761",
+            "SkuPriceId": "SPRICE-5d75931c911c493aa2aa3d41",
+            "ContractApplied": ""
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "NAT gateway data processed",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:ec2:us-east-1:200000000011:natgateway/nat-a6e3667dcb4e",
+            "ResourceType": "NAT Gateway",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "5.480316",
+            "EffectiveCost": "5.480316",
+            "SkuPriceId": "SPRICE-130c94d71c797814c8e72b46",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-CommitmentDiscountStatus-C-004-C": {
+      "measured_affected_records": 662,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "S3 Standard storage",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000012",
+            "ResourceId": "arn:aws:s3:ap-southeast-1:200000000012:bucket/bucket-f36bd2c40f3a",
+            "ResourceType": "S3 Bucket",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "46.5179761",
+            "EffectiveCost": "46.5179761",
+            "SkuPriceId": "SPRICE-5d75931c911c493aa2aa3d41",
+            "ContractApplied": ""
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "NAT gateway data processed",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:ec2:us-east-1:200000000011:natgateway/nat-a6e3667dcb4e",
+            "ResourceType": "NAT Gateway",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "5.480316",
+            "EffectiveCost": "5.480316",
+            "SkuPriceId": "SPRICE-130c94d71c797814c8e72b46",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-ContractApplied-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractApplied-C-003-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-007-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-028-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-035-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-039-C": {
+      "measured_affected_records": 248,
+      "examples": [
+        {
+          "data_record": 5,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "NAT gateway data processed",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000014",
+            "ResourceId": "arn:aws:ec2:us-west-2:200000000014:natgateway/nat-50b471b98720",
+            "ResourceType": "NAT Gateway",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "13.871898",
+            "EffectiveCost": "13.871898",
+            "SkuPriceId": "SPRICE-974405df44bbf0808ce048b9",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-EA-2026-0001\",\"ContractCommitmentId\":\"CC-EA-SPEND-0001\",\"ContractCommitmentAppliedCost\":13.87189800000000}]}"
+          }
+        },
+        {
+          "data_record": 7,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Linux on-demand m6i.large",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000012",
+            "ResourceId": "arn:aws:ec2:eu-west-1:200000000012:instance/i-5f70fe1afea7",
+            "ResourceType": "EC2 Instance",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0.0864",
+            "EffectiveCost": "0.0864",
+            "SkuPriceId": "SPRICE-bcca3461b1b47a349114891e",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-EA-2026-0001\",\"ContractCommitmentId\":\"CC-EA-COMPUTE-0003\",\"ContractCommitmentAppliedCost\":0.08640000000000,\"ContractCommitmentAppliedQuantity\":1.0000,\"ContractCommitmentAppliedUnit\":\"Hours\"}]}"
+          }
+        }
+      ]
+    },
+    "CAU-ContractAppliedObject-O-050-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-051-C": {
+      "measured_affected_records": 199,
+      "examples": [
+        {
+          "data_record": 5,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "NAT gateway data processed",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000014",
+            "ResourceId": "arn:aws:ec2:us-west-2:200000000014:natgateway/nat-50b471b98720",
+            "ResourceType": "NAT Gateway",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "13.871898",
+            "EffectiveCost": "13.871898",
+            "SkuPriceId": "SPRICE-974405df44bbf0808ce048b9",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-EA-2026-0001\",\"ContractCommitmentId\":\"CC-EA-SPEND-0001\",\"ContractCommitmentAppliedCost\":13.87189800000000}]}"
+          }
+        },
+        {
+          "data_record": 11,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "NAT gateway data processed",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000012",
+            "ResourceId": "arn:aws:ec2:ap-southeast-1:200000000012:natgateway/nat-6e3ef1f5c3a8",
+            "ResourceType": "NAT Gateway",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "3.34417005",
+            "EffectiveCost": "3.34417005",
+            "SkuPriceId": "SPRICE-b948c57b4c22bb2955afff1a",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-EA-2026-0001\",\"ContractCommitmentId\":\"CC-EA-SPEND-0001\",\"ContractCommitmentAppliedCost\":3.34417005000000}]}"
+          }
+        }
+      ]
+    },
+    "CAU-ContractAppliedObject-O-052-M": {
+      "measured_affected_records": 199,
+      "examples": [
+        {
+          "data_record": 5,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "NAT gateway data processed",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000014",
+            "ResourceId": "arn:aws:ec2:us-west-2:200000000014:natgateway/nat-50b471b98720",
+            "ResourceType": "NAT Gateway",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "13.871898",
+            "EffectiveCost": "13.871898",
+            "SkuPriceId": "SPRICE-974405df44bbf0808ce048b9",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-EA-2026-0001\",\"ContractCommitmentId\":\"CC-EA-SPEND-0001\",\"ContractCommitmentAppliedCost\":13.87189800000000}]}"
+          }
+        },
+        {
+          "data_record": 11,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "NAT gateway data processed",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000012",
+            "ResourceId": "arn:aws:ec2:ap-southeast-1:200000000012:natgateway/nat-6e3ef1f5c3a8",
+            "ResourceType": "NAT Gateway",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "3.34417005",
+            "EffectiveCost": "3.34417005",
+            "SkuPriceId": "SPRICE-b948c57b4c22bb2955afff1a",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-EA-2026-0001\",\"ContractCommitmentId\":\"CC-EA-SPEND-0001\",\"ContractCommitmentAppliedCost\":3.34417005000000}]}"
+          }
+        }
+      ]
+    },
+    "CAU-ContractAppliedObject-O-059-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-060-C": {
+      "measured_affected_records": 199,
+      "examples": [
+        {
+          "data_record": 5,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "NAT gateway data processed",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000014",
+            "ResourceId": "arn:aws:ec2:us-west-2:200000000014:natgateway/nat-50b471b98720",
+            "ResourceType": "NAT Gateway",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "13.871898",
+            "EffectiveCost": "13.871898",
+            "SkuPriceId": "SPRICE-974405df44bbf0808ce048b9",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-EA-2026-0001\",\"ContractCommitmentId\":\"CC-EA-SPEND-0001\",\"ContractCommitmentAppliedCost\":13.87189800000000}]}"
+          }
+        },
+        {
+          "data_record": 11,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "NAT gateway data processed",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000012",
+            "ResourceId": "arn:aws:ec2:ap-southeast-1:200000000012:natgateway/nat-6e3ef1f5c3a8",
+            "ResourceType": "NAT Gateway",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "3.34417005",
+            "EffectiveCost": "3.34417005",
+            "SkuPriceId": "SPRICE-b948c57b4c22bb2955afff1a",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-EA-2026-0001\",\"ContractCommitmentId\":\"CC-EA-SPEND-0001\",\"ContractCommitmentAppliedCost\":3.34417005000000}]}"
+          }
+        }
+      ]
+    },
+    "CAU-ContractAppliedObject-O-061-M": {
+      "measured_affected_records": 199,
+      "examples": [
+        {
+          "data_record": 5,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "NAT gateway data processed",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000014",
+            "ResourceId": "arn:aws:ec2:us-west-2:200000000014:natgateway/nat-50b471b98720",
+            "ResourceType": "NAT Gateway",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "13.871898",
+            "EffectiveCost": "13.871898",
+            "SkuPriceId": "SPRICE-974405df44bbf0808ce048b9",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-EA-2026-0001\",\"ContractCommitmentId\":\"CC-EA-SPEND-0001\",\"ContractCommitmentAppliedCost\":13.87189800000000}]}"
+          }
+        },
+        {
+          "data_record": 11,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "NAT gateway data processed",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000012",
+            "ResourceId": "arn:aws:ec2:ap-southeast-1:200000000012:natgateway/nat-6e3ef1f5c3a8",
+            "ResourceType": "NAT Gateway",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "3.34417005",
+            "EffectiveCost": "3.34417005",
+            "SkuPriceId": "SPRICE-b948c57b4c22bb2955afff1a",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-EA-2026-0001\",\"ContractCommitmentId\":\"CC-EA-SPEND-0001\",\"ContractCommitmentAppliedCost\":3.34417005000000}]}"
+          }
+        }
+      ]
+    },
+    "CAU-ContractAppliedObject-O-064-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-065-C": {
+      "measured_affected_records": 86,
+      "examples": [
+        {
+          "data_record": 7,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Linux on-demand m6i.large",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000012",
+            "ResourceId": "arn:aws:ec2:eu-west-1:200000000012:instance/i-5f70fe1afea7",
+            "ResourceType": "EC2 Instance",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0.0864",
+            "EffectiveCost": "0.0864",
+            "SkuPriceId": "SPRICE-bcca3461b1b47a349114891e",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-EA-2026-0001\",\"ContractCommitmentId\":\"CC-EA-COMPUTE-0003\",\"ContractCommitmentAppliedCost\":0.08640000000000,\"ContractCommitmentAppliedQuantity\":1.0000,\"ContractCommitmentAppliedUnit\":\"Hours\"}]}"
+          }
+        },
+        {
+          "data_record": 20,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "AmazonEC2 committed usage of 500 machine-equivalents",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000012",
+            "ResourceId": "urn:focus-sample:aws:us-east-1:200000000012:compute-fleet:fleet2eab30897a0ebfc8adc39af3",
+            "ResourceType": "Compute Fleet",
+            "CommitmentDiscountId": "arn:aws:ec2:us-east-1::reservation/1473bd0ea6ea2540",
+            "CommitmentDiscountStatus": "Used",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0",
+            "EffectiveCost": "32.016",
+            "SkuPriceId": "SPRICE-c862323f09b487c42efb1c6b",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-CD-0001\",\"ContractCommitmentId\":\"arn:aws:ec2:us-east-1::reservation/1473bd0ea6ea2540\",\"ContractCommitmentAppliedCost\":32.0160000000,\"ContractCommitmentAppliedQuantity\":500,\"ContractCommitmentAppliedUnit\":\"Hours\"}]}"
+          }
+        }
+      ]
+    },
+    "CAU-CostAndUsage-D-000-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-CostAndUsage-D-002-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-EffectiveCost-C-000-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-EffectiveCost-C-005-C": {
+      "measured_affected_records": 41,
+      "examples": [
+        {
+          "data_record": 85,
+          "values": {
+            "ChargeCategory": "Purchase",
+            "ChargeDescription": "AmazonEC2 subscription fee",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000012",
+            "ResourceId": "arn:aws:ec2:ap-southeast-1:200000000012:instance/i-d6e8c68ef2f5",
+            "ResourceType": "EC2 Instance",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "767.22",
+            "EffectiveCost": "767.22",
+            "SkuPriceId": "SPRICE-a218b786199322998ed93cb2",
+            "ContractApplied": ""
+          }
+        },
+        {
+          "data_record": 151,
+          "values": {
+            "ChargeCategory": "Purchase",
+            "ChargeDescription": "AmazonVPC subscription fee",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:ec2:us-east-1:200000000011:natgateway/nat-bcac49afba12",
+            "ResourceType": "NAT Gateway",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "559.17",
+            "EffectiveCost": "559.17",
+            "SkuPriceId": "SPRICE-c75d774dc0cda2284dbcd79b",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-003-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-012-C": {
+      "measured_affected_records": 94,
+      "examples": [
+        {
+          "data_record": 4,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 2: AmazonVPC",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000011",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0.5480316",
+            "EffectiveCost": "0.5480316",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        },
+        {
+          "data_record": 12,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 8: AmazonCloudWatch",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000013",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "1.033182",
+            "EffectiveCost": "1.033182",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-ResourceType-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ResourceType-C-003-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ResourceType-C-005-C": {
+      "measured_affected_records": 94,
+      "examples": [
+        {
+          "data_record": 4,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 2: AmazonVPC",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000011",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0.5480316",
+            "EffectiveCost": "0.5480316",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        },
+        {
+          "data_record": 12,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 8: AmazonCloudWatch",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000013",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "1.033182",
+            "EffectiveCost": "1.033182",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-SubAccountId-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-SubAccountId-C-001-M": {
+      "measured_affected_records": 1000,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "S3 Standard storage",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000012",
+            "ResourceId": "arn:aws:s3:ap-southeast-1:200000000012:bucket/bucket-f36bd2c40f3a",
+            "ResourceType": "S3 Bucket",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "46.5179761",
+            "EffectiveCost": "46.5179761",
+            "SkuPriceId": "SPRICE-5d75931c911c493aa2aa3d41",
+            "ContractApplied": ""
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "NAT gateway data processed",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:ec2:us-east-1:200000000011:natgateway/nat-a6e3667dcb4e",
+            "ResourceType": "NAT Gateway",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "5.480316",
+            "EffectiveCost": "5.480316",
+            "SkuPriceId": "SPRICE-130c94d71c797814c8e72b46",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    }
+  },
+  "azure": {
+    "CAU-CapacityReservationStatus-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-CapacityReservationStatus-C-002-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-CapacityReservationStatus-C-004-C": {
+      "measured_affected_records": 1000,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Hot LRS data stored",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "22222222-2222-4222-8222-222222222222",
+            "ResourceId": "/subscriptions/22222222-2222-4222-8222-222222222222/resourceGroups/rg-staging-platform/providers/Microsoft.Storage/storageAccounts/storf36bd2c4",
+            "ResourceType": "Storage Account",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "124.615632816",
+            "EffectiveCost": "124.615632816",
+            "SkuPriceId": "SPRICE-d4d50bb9c178f21244744bf8",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-MACC-2026-0001\",\"ContractCommitmentId\":\"CC-MACC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":124.61563281600000}]}"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Azure Blob Storage",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "22222222-2222-4222-8222-222222222222",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "12.4615632816",
+            "EffectiveCost": "12.4615632816",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-CommitmentDiscountStatus-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-CommitmentDiscountStatus-C-002-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-CommitmentDiscountStatus-C-003-C": {
+      "measured_affected_records": 658,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Hot LRS data stored",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "22222222-2222-4222-8222-222222222222",
+            "ResourceId": "/subscriptions/22222222-2222-4222-8222-222222222222/resourceGroups/rg-staging-platform/providers/Microsoft.Storage/storageAccounts/storf36bd2c4",
+            "ResourceType": "Storage Account",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "124.615632816",
+            "EffectiveCost": "124.615632816",
+            "SkuPriceId": "SPRICE-d4d50bb9c178f21244744bf8",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-MACC-2026-0001\",\"ContractCommitmentId\":\"CC-MACC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":124.61563281600000}]}"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Azure Blob Storage",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "22222222-2222-4222-8222-222222222222",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "12.4615632816",
+            "EffectiveCost": "12.4615632816",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-CommitmentDiscountStatus-C-004-C": {
+      "measured_affected_records": 658,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Hot LRS data stored",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "22222222-2222-4222-8222-222222222222",
+            "ResourceId": "/subscriptions/22222222-2222-4222-8222-222222222222/resourceGroups/rg-staging-platform/providers/Microsoft.Storage/storageAccounts/storf36bd2c4",
+            "ResourceType": "Storage Account",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "124.615632816",
+            "EffectiveCost": "124.615632816",
+            "SkuPriceId": "SPRICE-d4d50bb9c178f21244744bf8",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-MACC-2026-0001\",\"ContractCommitmentId\":\"CC-MACC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":124.61563281600000}]}"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Azure Blob Storage",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "22222222-2222-4222-8222-222222222222",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "12.4615632816",
+            "EffectiveCost": "12.4615632816",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-ContractApplied-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractApplied-C-003-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-007-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-028-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-035-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-039-C": {
+      "measured_affected_records": 262,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Hot LRS data stored",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "22222222-2222-4222-8222-222222222222",
+            "ResourceId": "/subscriptions/22222222-2222-4222-8222-222222222222/resourceGroups/rg-staging-platform/providers/Microsoft.Storage/storageAccounts/storf36bd2c4",
+            "ResourceType": "Storage Account",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "124.615632816",
+            "EffectiveCost": "124.615632816",
+            "SkuPriceId": "SPRICE-d4d50bb9c178f21244744bf8",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-MACC-2026-0001\",\"ContractCommitmentId\":\"CC-MACC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":124.61563281600000}]}"
+          }
+        },
+        {
+          "data_record": 5,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "VNet peering data transfer",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000001",
+            "SubAccountId": "44444444-4444-4444-8444-444444444444",
+            "ResourceId": "/subscriptions/44444444-4444-4444-8444-444444444444/resourceGroups/rg-sandbox-dev/providers/Microsoft.Network/virtualNetworks/vnet-b471b987",
+            "ResourceType": "Virtual Network",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "44.5592061",
+            "EffectiveCost": "44.5592061",
+            "SkuPriceId": "SPRICE-144b7ae41849e56237321c86",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-MACC-2026-0001\",\"ContractCommitmentId\":\"CC-MACC-SPEND-0001\",\"ContractCommitmentAppliedCost\":44.55920610000000}]}"
+          }
+        }
+      ]
+    },
+    "CAU-ContractAppliedObject-O-050-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-051-C": {
+      "measured_affected_records": 242,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Hot LRS data stored",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "22222222-2222-4222-8222-222222222222",
+            "ResourceId": "/subscriptions/22222222-2222-4222-8222-222222222222/resourceGroups/rg-staging-platform/providers/Microsoft.Storage/storageAccounts/storf36bd2c4",
+            "ResourceType": "Storage Account",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "124.615632816",
+            "EffectiveCost": "124.615632816",
+            "SkuPriceId": "SPRICE-d4d50bb9c178f21244744bf8",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-MACC-2026-0001\",\"ContractCommitmentId\":\"CC-MACC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":124.61563281600000}]}"
+          }
+        },
+        {
+          "data_record": 5,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "VNet peering data transfer",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000001",
+            "SubAccountId": "44444444-4444-4444-8444-444444444444",
+            "ResourceId": "/subscriptions/44444444-4444-4444-8444-444444444444/resourceGroups/rg-sandbox-dev/providers/Microsoft.Network/virtualNetworks/vnet-b471b987",
+            "ResourceType": "Virtual Network",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "44.5592061",
+            "EffectiveCost": "44.5592061",
+            "SkuPriceId": "SPRICE-144b7ae41849e56237321c86",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-MACC-2026-0001\",\"ContractCommitmentId\":\"CC-MACC-SPEND-0001\",\"ContractCommitmentAppliedCost\":44.55920610000000}]}"
+          }
+        }
+      ]
+    },
+    "CAU-ContractAppliedObject-O-052-M": {
+      "measured_affected_records": 242,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Hot LRS data stored",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "22222222-2222-4222-8222-222222222222",
+            "ResourceId": "/subscriptions/22222222-2222-4222-8222-222222222222/resourceGroups/rg-staging-platform/providers/Microsoft.Storage/storageAccounts/storf36bd2c4",
+            "ResourceType": "Storage Account",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "124.615632816",
+            "EffectiveCost": "124.615632816",
+            "SkuPriceId": "SPRICE-d4d50bb9c178f21244744bf8",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-MACC-2026-0001\",\"ContractCommitmentId\":\"CC-MACC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":124.61563281600000}]}"
+          }
+        },
+        {
+          "data_record": 5,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "VNet peering data transfer",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000001",
+            "SubAccountId": "44444444-4444-4444-8444-444444444444",
+            "ResourceId": "/subscriptions/44444444-4444-4444-8444-444444444444/resourceGroups/rg-sandbox-dev/providers/Microsoft.Network/virtualNetworks/vnet-b471b987",
+            "ResourceType": "Virtual Network",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "44.5592061",
+            "EffectiveCost": "44.5592061",
+            "SkuPriceId": "SPRICE-144b7ae41849e56237321c86",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-MACC-2026-0001\",\"ContractCommitmentId\":\"CC-MACC-SPEND-0001\",\"ContractCommitmentAppliedCost\":44.55920610000000}]}"
+          }
+        }
+      ]
+    },
+    "CAU-ContractAppliedObject-O-059-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-060-C": {
+      "measured_affected_records": 242,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Hot LRS data stored",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "22222222-2222-4222-8222-222222222222",
+            "ResourceId": "/subscriptions/22222222-2222-4222-8222-222222222222/resourceGroups/rg-staging-platform/providers/Microsoft.Storage/storageAccounts/storf36bd2c4",
+            "ResourceType": "Storage Account",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "124.615632816",
+            "EffectiveCost": "124.615632816",
+            "SkuPriceId": "SPRICE-d4d50bb9c178f21244744bf8",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-MACC-2026-0001\",\"ContractCommitmentId\":\"CC-MACC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":124.61563281600000}]}"
+          }
+        },
+        {
+          "data_record": 5,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "VNet peering data transfer",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000001",
+            "SubAccountId": "44444444-4444-4444-8444-444444444444",
+            "ResourceId": "/subscriptions/44444444-4444-4444-8444-444444444444/resourceGroups/rg-sandbox-dev/providers/Microsoft.Network/virtualNetworks/vnet-b471b987",
+            "ResourceType": "Virtual Network",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "44.5592061",
+            "EffectiveCost": "44.5592061",
+            "SkuPriceId": "SPRICE-144b7ae41849e56237321c86",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-MACC-2026-0001\",\"ContractCommitmentId\":\"CC-MACC-SPEND-0001\",\"ContractCommitmentAppliedCost\":44.55920610000000}]}"
+          }
+        }
+      ]
+    },
+    "CAU-ContractAppliedObject-O-061-M": {
+      "measured_affected_records": 242,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Hot LRS data stored",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "22222222-2222-4222-8222-222222222222",
+            "ResourceId": "/subscriptions/22222222-2222-4222-8222-222222222222/resourceGroups/rg-staging-platform/providers/Microsoft.Storage/storageAccounts/storf36bd2c4",
+            "ResourceType": "Storage Account",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "124.615632816",
+            "EffectiveCost": "124.615632816",
+            "SkuPriceId": "SPRICE-d4d50bb9c178f21244744bf8",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-MACC-2026-0001\",\"ContractCommitmentId\":\"CC-MACC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":124.61563281600000}]}"
+          }
+        },
+        {
+          "data_record": 5,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "VNet peering data transfer",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000001",
+            "SubAccountId": "44444444-4444-4444-8444-444444444444",
+            "ResourceId": "/subscriptions/44444444-4444-4444-8444-444444444444/resourceGroups/rg-sandbox-dev/providers/Microsoft.Network/virtualNetworks/vnet-b471b987",
+            "ResourceType": "Virtual Network",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "44.5592061",
+            "EffectiveCost": "44.5592061",
+            "SkuPriceId": "SPRICE-144b7ae41849e56237321c86",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-MACC-2026-0001\",\"ContractCommitmentId\":\"CC-MACC-SPEND-0001\",\"ContractCommitmentAppliedCost\":44.55920610000000}]}"
+          }
+        }
+      ]
+    },
+    "CAU-ContractAppliedObject-O-064-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-065-C": {
+      "measured_affected_records": 58,
+      "examples": [
+        {
+          "data_record": 29,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Virtual Machines committed usage of 500 machine-equivalents",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000001",
+            "SubAccountId": "22222222-2222-4222-8222-222222222222",
+            "ResourceId": "urn:focus-sample:azure:westeurope:22222222-2222-4222-8222-222222222222:compute-fleet:fleet160d2a629516f878cebb36be",
+            "ResourceType": "Compute Fleet",
+            "CommitmentDiscountId": "/subscriptions/22222222-2222-4222-8222-222222222222/providers/Microsoft.BillingBenefits/reservations/3c0546ccdba5",
+            "CommitmentDiscountStatus": "Used",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0",
+            "EffectiveCost": "64.032",
+            "SkuPriceId": "SPRICE-c67542f99d62397ca2403419",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-CD-0001\",\"ContractCommitmentId\":\"/subscriptions/22222222-2222-4222-8222-222222222222/providers/Microsoft.BillingBenefits/reservations/3c0546ccdba5\",\"ContractCommitmentAppliedCost\":64.0320000000,\"ContractCommitmentAppliedQuantity\":500,\"ContractCommitmentAppliedUnit\":\"Hours\"}]}"
+          }
+        },
+        {
+          "data_record": 31,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Virtual Machines committed usage of 500 machine-equivalents",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000001",
+            "SubAccountId": "22222222-2222-4222-8222-222222222222",
+            "ResourceId": "urn:focus-sample:azure:westeurope:22222222-2222-4222-8222-222222222222:compute-fleet:fleet160d2a629516f878cebb36be",
+            "ResourceType": "Compute Fleet",
+            "CommitmentDiscountId": "/subscriptions/22222222-2222-4222-8222-222222222222/providers/Microsoft.BillingBenefits/reservations/3c0546ccdba5",
+            "CommitmentDiscountStatus": "Used",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0",
+            "EffectiveCost": "64.032",
+            "SkuPriceId": "SPRICE-c67542f99d62397ca2403419",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-CD-0001\",\"ContractCommitmentId\":\"/subscriptions/22222222-2222-4222-8222-222222222222/providers/Microsoft.BillingBenefits/reservations/3c0546ccdba5\",\"ContractCommitmentAppliedCost\":64.0320000000,\"ContractCommitmentAppliedQuantity\":500,\"ContractCommitmentAppliedUnit\":\"Hours\"}]}"
+          }
+        }
+      ]
+    },
+    "CAU-CostAndUsage-D-000-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-CostAndUsage-D-002-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-EffectiveCost-C-000-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-EffectiveCost-C-005-C": {
+      "measured_affected_records": 57,
+      "examples": [
+        {
+          "data_record": 18,
+          "values": {
+            "ChargeCategory": "Purchase",
+            "ChargeDescription": "Azure Kubernetes Service subscription fee",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "44444444-4444-4444-8444-444444444444",
+            "ResourceId": "/subscriptions/44444444-4444-4444-8444-444444444444/resourceGroups/rg-sandbox-dev/providers/Microsoft.ContainerService/managedClusters/aks-c60a0dd6",
+            "ResourceType": "Managed Cluster",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "677",
+            "EffectiveCost": "677",
+            "SkuPriceId": "SPRICE-29d1522bc40f6afe38588ae6",
+            "ContractApplied": ""
+          }
+        },
+        {
+          "data_record": 89,
+          "values": {
+            "ChargeCategory": "Purchase",
+            "ChargeDescription": "Virtual Network subscription fee",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "33333333-3333-4333-8333-333333333333",
+            "ResourceId": "/subscriptions/33333333-3333-4333-8333-333333333333/resourceGroups/rg-data-analytics/providers/Microsoft.Network/virtualNetworks/vnet-1d23c5dc",
+            "ResourceType": "Virtual Network",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "729.41",
+            "EffectiveCost": "729.41",
+            "SkuPriceId": "SPRICE-cc29e7955364187370c9a5bb",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-003-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-012-C": {
+      "measured_affected_records": 97,
+      "examples": [
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Azure Blob Storage",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "22222222-2222-4222-8222-222222222222",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "12.4615632816",
+            "EffectiveCost": "12.4615632816",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        },
+        {
+          "data_record": 7,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 3: Virtual Machines",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "11111111-1111-4111-8111-111111111111",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0.00768576",
+            "EffectiveCost": "0.00768576",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-ResourceType-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ResourceType-C-003-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ResourceType-C-005-C": {
+      "measured_affected_records": 97,
+      "examples": [
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Azure Blob Storage",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "22222222-2222-4222-8222-222222222222",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "12.4615632816",
+            "EffectiveCost": "12.4615632816",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        },
+        {
+          "data_record": 7,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 3: Virtual Machines",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "11111111-1111-4111-8111-111111111111",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0.00768576",
+            "EffectiveCost": "0.00768576",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    }
+  },
+  "gcp": {
+    "CAU-CapacityReservationStatus-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-CapacityReservationStatus-C-002-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-CapacityReservationStatus-C-004-C": {
+      "measured_affected_records": 1000,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Standard storage",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-staging-552831",
+            "ResourceId": "//storage.googleapis.com/projects/examplecorp-staging-552831/buckets/bucket-f36bd2c4",
+            "ResourceType": "Storage Bucket",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "135.4517748",
+            "EffectiveCost": "135.4517748",
+            "SkuPriceId": "SPRICE-acaf4d3f193ddc335413e7e0",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-GCC-2026-0001\",\"ContractCommitmentId\":\"CC-GCC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":135.45177480000000}]}"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Cloud Storage",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-staging-552831",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "13.54517748",
+            "EffectiveCost": "13.54517748",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-CommitmentDiscountStatus-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-CommitmentDiscountStatus-C-002-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-CommitmentDiscountStatus-C-003-C": {
+      "measured_affected_records": 662,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Standard storage",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-staging-552831",
+            "ResourceId": "//storage.googleapis.com/projects/examplecorp-staging-552831/buckets/bucket-f36bd2c4",
+            "ResourceType": "Storage Bucket",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "135.4517748",
+            "EffectiveCost": "135.4517748",
+            "SkuPriceId": "SPRICE-acaf4d3f193ddc335413e7e0",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-GCC-2026-0001\",\"ContractCommitmentId\":\"CC-GCC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":135.45177480000000}]}"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Cloud Storage",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-staging-552831",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "13.54517748",
+            "EffectiveCost": "13.54517748",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-CommitmentDiscountStatus-C-004-C": {
+      "measured_affected_records": 662,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Standard storage",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-staging-552831",
+            "ResourceId": "//storage.googleapis.com/projects/examplecorp-staging-552831/buckets/bucket-f36bd2c4",
+            "ResourceType": "Storage Bucket",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "135.4517748",
+            "EffectiveCost": "135.4517748",
+            "SkuPriceId": "SPRICE-acaf4d3f193ddc335413e7e0",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-GCC-2026-0001\",\"ContractCommitmentId\":\"CC-GCC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":135.45177480000000}]}"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Cloud Storage",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-staging-552831",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "13.54517748",
+            "EffectiveCost": "13.54517748",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-ContractApplied-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractApplied-C-003-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-007-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-028-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-035-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-039-C": {
+      "measured_affected_records": 261,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Standard storage",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-staging-552831",
+            "ResourceId": "//storage.googleapis.com/projects/examplecorp-staging-552831/buckets/bucket-f36bd2c4",
+            "ResourceType": "Storage Bucket",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "135.4517748",
+            "EffectiveCost": "135.4517748",
+            "SkuPriceId": "SPRICE-acaf4d3f193ddc335413e7e0",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-GCC-2026-0001\",\"ContractCommitmentId\":\"CC-GCC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":135.45177480000000}]}"
+          }
+        },
+        {
+          "data_record": 5,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Cloud Run vCPU allocation",
+            "BillingAccountId": "01A2B3-C4D5E6-F70819",
+            "SubAccountId": "examplecorp-sandbox-160942",
+            "ResourceId": "//run.googleapis.com/projects/examplecorp-sandbox-160942/services/svc-b471b987",
+            "ResourceType": "Cloud Run Service",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "106.96304543256",
+            "EffectiveCost": "106.96304543256",
+            "SkuPriceId": "SPRICE-9c404e5e6026ce0b2e5ce800",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-GCC-2026-0001\",\"ContractCommitmentId\":\"CC-GCC-SPEND-0001\",\"ContractCommitmentAppliedCost\":106.96304543256000}]}"
+          }
+        }
+      ]
+    },
+    "CAU-ContractAppliedObject-O-050-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-051-C": {
+      "measured_affected_records": 238,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Standard storage",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-staging-552831",
+            "ResourceId": "//storage.googleapis.com/projects/examplecorp-staging-552831/buckets/bucket-f36bd2c4",
+            "ResourceType": "Storage Bucket",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "135.4517748",
+            "EffectiveCost": "135.4517748",
+            "SkuPriceId": "SPRICE-acaf4d3f193ddc335413e7e0",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-GCC-2026-0001\",\"ContractCommitmentId\":\"CC-GCC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":135.45177480000000}]}"
+          }
+        },
+        {
+          "data_record": 5,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Cloud Run vCPU allocation",
+            "BillingAccountId": "01A2B3-C4D5E6-F70819",
+            "SubAccountId": "examplecorp-sandbox-160942",
+            "ResourceId": "//run.googleapis.com/projects/examplecorp-sandbox-160942/services/svc-b471b987",
+            "ResourceType": "Cloud Run Service",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "106.96304543256",
+            "EffectiveCost": "106.96304543256",
+            "SkuPriceId": "SPRICE-9c404e5e6026ce0b2e5ce800",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-GCC-2026-0001\",\"ContractCommitmentId\":\"CC-GCC-SPEND-0001\",\"ContractCommitmentAppliedCost\":106.96304543256000}]}"
+          }
+        }
+      ]
+    },
+    "CAU-ContractAppliedObject-O-052-M": {
+      "measured_affected_records": 238,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Standard storage",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-staging-552831",
+            "ResourceId": "//storage.googleapis.com/projects/examplecorp-staging-552831/buckets/bucket-f36bd2c4",
+            "ResourceType": "Storage Bucket",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "135.4517748",
+            "EffectiveCost": "135.4517748",
+            "SkuPriceId": "SPRICE-acaf4d3f193ddc335413e7e0",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-GCC-2026-0001\",\"ContractCommitmentId\":\"CC-GCC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":135.45177480000000}]}"
+          }
+        },
+        {
+          "data_record": 5,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Cloud Run vCPU allocation",
+            "BillingAccountId": "01A2B3-C4D5E6-F70819",
+            "SubAccountId": "examplecorp-sandbox-160942",
+            "ResourceId": "//run.googleapis.com/projects/examplecorp-sandbox-160942/services/svc-b471b987",
+            "ResourceType": "Cloud Run Service",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "106.96304543256",
+            "EffectiveCost": "106.96304543256",
+            "SkuPriceId": "SPRICE-9c404e5e6026ce0b2e5ce800",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-GCC-2026-0001\",\"ContractCommitmentId\":\"CC-GCC-SPEND-0001\",\"ContractCommitmentAppliedCost\":106.96304543256000}]}"
+          }
+        }
+      ]
+    },
+    "CAU-ContractAppliedObject-O-059-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-060-C": {
+      "measured_affected_records": 238,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Standard storage",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-staging-552831",
+            "ResourceId": "//storage.googleapis.com/projects/examplecorp-staging-552831/buckets/bucket-f36bd2c4",
+            "ResourceType": "Storage Bucket",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "135.4517748",
+            "EffectiveCost": "135.4517748",
+            "SkuPriceId": "SPRICE-acaf4d3f193ddc335413e7e0",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-GCC-2026-0001\",\"ContractCommitmentId\":\"CC-GCC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":135.45177480000000}]}"
+          }
+        },
+        {
+          "data_record": 5,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Cloud Run vCPU allocation",
+            "BillingAccountId": "01A2B3-C4D5E6-F70819",
+            "SubAccountId": "examplecorp-sandbox-160942",
+            "ResourceId": "//run.googleapis.com/projects/examplecorp-sandbox-160942/services/svc-b471b987",
+            "ResourceType": "Cloud Run Service",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "106.96304543256",
+            "EffectiveCost": "106.96304543256",
+            "SkuPriceId": "SPRICE-9c404e5e6026ce0b2e5ce800",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-GCC-2026-0001\",\"ContractCommitmentId\":\"CC-GCC-SPEND-0001\",\"ContractCommitmentAppliedCost\":106.96304543256000}]}"
+          }
+        }
+      ]
+    },
+    "CAU-ContractAppliedObject-O-061-M": {
+      "measured_affected_records": 238,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Standard storage",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-staging-552831",
+            "ResourceId": "//storage.googleapis.com/projects/examplecorp-staging-552831/buckets/bucket-f36bd2c4",
+            "ResourceType": "Storage Bucket",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "135.4517748",
+            "EffectiveCost": "135.4517748",
+            "SkuPriceId": "SPRICE-acaf4d3f193ddc335413e7e0",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-GCC-2026-0001\",\"ContractCommitmentId\":\"CC-GCC-STORAGE-0002\",\"ContractCommitmentAppliedCost\":135.45177480000000}]}"
+          }
+        },
+        {
+          "data_record": 5,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Cloud Run vCPU allocation",
+            "BillingAccountId": "01A2B3-C4D5E6-F70819",
+            "SubAccountId": "examplecorp-sandbox-160942",
+            "ResourceId": "//run.googleapis.com/projects/examplecorp-sandbox-160942/services/svc-b471b987",
+            "ResourceType": "Cloud Run Service",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "106.96304543256",
+            "EffectiveCost": "106.96304543256",
+            "SkuPriceId": "SPRICE-9c404e5e6026ce0b2e5ce800",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-GCC-2026-0001\",\"ContractCommitmentId\":\"CC-GCC-SPEND-0001\",\"ContractCommitmentAppliedCost\":106.96304543256000}]}"
+          }
+        }
+      ]
+    },
+    "CAU-ContractAppliedObject-O-064-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ContractAppliedObject-O-065-C": {
+      "measured_affected_records": 58,
+      "examples": [
+        {
+          "data_record": 29,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Compute Engine committed usage of 500 machine-equivalents",
+            "BillingAccountId": "01A2B3-C4D5E6-F70819",
+            "SubAccountId": "examplecorp-staging-552831",
+            "ResourceId": "urn:focus-sample:gcp:europe-west1:examplecorp-staging-552831:compute-fleet:fleetbcfc93b14ce0bb1339a873c6",
+            "ResourceType": "Compute Fleet",
+            "CommitmentDiscountId": "//compute.googleapis.com/projects/examplecorp-staging-552831/regions/europe-west1/commitments/cud-3c0546ccdb",
+            "CommitmentDiscountStatus": "Used",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0",
+            "EffectiveCost": "44.689",
+            "SkuPriceId": "SPRICE-0e8670e23a7f9352bf5b81bc",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-CD-0001\",\"ContractCommitmentId\":\"//compute.googleapis.com/projects/examplecorp-staging-552831/regions/europe-west1/commitments/cud-3c0546ccdb\",\"ContractCommitmentAppliedCost\":44.6890000000,\"ContractCommitmentAppliedQuantity\":500,\"ContractCommitmentAppliedUnit\":\"Hours\"}]}"
+          }
+        },
+        {
+          "data_record": 31,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Compute Engine committed usage of 500 machine-equivalents",
+            "BillingAccountId": "01A2B3-C4D5E6-F70819",
+            "SubAccountId": "examplecorp-staging-552831",
+            "ResourceId": "urn:focus-sample:gcp:europe-west1:examplecorp-staging-552831:compute-fleet:fleetbcfc93b14ce0bb1339a873c6",
+            "ResourceType": "Compute Fleet",
+            "CommitmentDiscountId": "//compute.googleapis.com/projects/examplecorp-staging-552831/regions/europe-west1/commitments/cud-3c0546ccdb",
+            "CommitmentDiscountStatus": "Used",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0",
+            "EffectiveCost": "44.689",
+            "SkuPriceId": "SPRICE-0e8670e23a7f9352bf5b81bc",
+            "ContractApplied": "{\"Elements\":[{\"ContractId\":\"CONTRACT-CD-0001\",\"ContractCommitmentId\":\"//compute.googleapis.com/projects/examplecorp-staging-552831/regions/europe-west1/commitments/cud-3c0546ccdb\",\"ContractCommitmentAppliedCost\":44.6890000000,\"ContractCommitmentAppliedQuantity\":500,\"ContractCommitmentAppliedUnit\":\"Hours\"}]}"
+          }
+        }
+      ]
+    },
+    "CAU-CostAndUsage-D-000-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-CostAndUsage-D-002-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-EffectiveCost-C-000-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-EffectiveCost-C-005-C": {
+      "measured_affected_records": 55,
+      "examples": [
+        {
+          "data_record": 18,
+          "values": {
+            "ChargeCategory": "Purchase",
+            "ChargeDescription": "Google Kubernetes Engine subscription fee",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-sandbox-160942",
+            "ResourceId": "//container.googleapis.com/projects/examplecorp-sandbox-160942/clusters/gke-c60a0dd6",
+            "ResourceType": "GKE Cluster",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "413.24",
+            "EffectiveCost": "413.24",
+            "SkuPriceId": "SPRICE-da77de27bbea08ff0885cef1",
+            "ContractApplied": ""
+          }
+        },
+        {
+          "data_record": 89,
+          "values": {
+            "ChargeCategory": "Purchase",
+            "ChargeDescription": "Cloud Run subscription fee",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-data-739104",
+            "ResourceId": "//run.googleapis.com/projects/examplecorp-data-739104/services/svc-1d23c5dc",
+            "ResourceType": "Cloud Run Service",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "150.99",
+            "EffectiveCost": "150.99",
+            "SkuPriceId": "SPRICE-7f7b33833d5065313f14d1fc",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-003-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-012-C": {
+      "measured_affected_records": 96,
+      "examples": [
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Cloud Storage",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-staging-552831",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "13.54517748",
+            "EffectiveCost": "13.54517748",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        },
+        {
+          "data_record": 7,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 3: Compute Engine",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-prod-481627",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0.00536402",
+            "EffectiveCost": "0.00536402",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    },
+    "CAU-ResourceType-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ResourceType-C-003-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CAU-ResourceType-C-005-C": {
+      "measured_affected_records": 96,
+      "examples": [
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Cloud Storage",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-staging-552831",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "13.54517748",
+            "EffectiveCost": "13.54517748",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        },
+        {
+          "data_record": 7,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 3: Compute Engine",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-prod-481627",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0.00536402",
+            "EffectiveCost": "0.00536402",
+            "SkuPriceId": "",
+            "ContractApplied": ""
+          }
+        }
+      ]
+    }
+  }
+}

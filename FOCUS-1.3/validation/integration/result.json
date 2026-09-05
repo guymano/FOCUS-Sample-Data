@@ -1,0 +1,100 @@
+{
+  "pr5": "4fe60d96737ea06c64851f3a0b2bcd675125b980",
+  "combined_6_7": "39c436bd3a1fc8bf640b630e7f4bbf8173872777",
+  "combined_5_6_7": "ae0de308547fe9171675f30a50839ae7f958557e",
+  "conflicts_6_7": [
+    "generators/README.md"
+  ],
+  "conflicts_with_5": [
+    ".gitignore",
+    "FOCUS-1.2/README.md",
+    "FOCUS-1.3/README.md"
+  ],
+  "pr5_code_workflows_and_examples_unchanged": true,
+  "initial_pr6": "907b46adf2670424643e1f84176c2dfe15494b36",
+  "initial_pr7": "24d3c318739deb681ae1f6c6b60242fb49d4218d",
+  "pr6": "977f8184411ae332ee5d384ae34556281e0e3b10",
+  "pr7": "4bdd6089a5bc02bdf95271753fb3ed00d7f09b5f",
+  "tested_combination": "35528145aff9fe41b69d0015edaa47ed01e75b72",
+  "checks": {
+    "1_2": [
+      {
+        "command": "python generators/check_focus_1_2_samples.py",
+        "exit_code": 0,
+        "log": "1_2-acceptance.log",
+        "sha256": "b9bf879943371c6fc6ba5368208d6282f2424f8dda6206a2f09d865eb52b80b9"
+      },
+      {
+        "command": "python -m unittest discover -s generators -p test_focus_1_2_regressions.py",
+        "exit_code": 0,
+        "log": "1_2-regressions.log",
+        "sha256": "8da523f5533d227474a836c6ec176a1f94a66ca08221b72807dbcac3002d5365"
+      },
+      {
+        "command": "python generators/describe_focus_1_2_samples.py",
+        "exit_code": 0,
+        "log": "1_2-statistics.log",
+        "sha256": "f7f7d9cb0b8bbce1ad450b4ea1d5e5fc091e3c78f89a81b99156a9f3595d161c"
+      },
+      {
+        "command": "python generators/validate_focus_1_2_samples.py --check-existing",
+        "exit_code": 0,
+        "log": "1_2-evidence-check.log",
+        "sha256": "743c6ab1456544e22105b9fd7b756f0a508e3f6bd89a683f337ec9cc1ce22458"
+      }
+    ],
+    "1_3": [
+      {
+        "command": "python generators/check_focus_1_3_samples.py",
+        "exit_code": 0,
+        "log": "1_3-acceptance.log",
+        "sha256": "cbf1f43490c448b515a52281ff1eccbba558845663841dc38e2f8730b31cba37"
+      },
+      {
+        "command": "python -m unittest discover -s generators -p test_focus_1_3_regressions.py",
+        "exit_code": 0,
+        "log": "1_3-regressions.log",
+        "sha256": "9d72fece324b76916ad6eaa00d350117a50f71afc760e08e81d2cce5eb48a522"
+      },
+      {
+        "command": "python generators/describe_focus_1_3_samples.py",
+        "exit_code": 0,
+        "log": "1_3-statistics.log",
+        "sha256": "f7f7d9cb0b8bbce1ad450b4ea1d5e5fc091e3c78f89a81b99156a9f3595d161c"
+      },
+      {
+        "command": "python generators/validate_focus_1_3_samples.py --check-existing",
+        "exit_code": 0,
+        "log": "1_3-evidence-check.log",
+        "sha256": "baf58fa1ce37f25065f4d1297742bd3b77d503044cef7cb73e1af8d49806b3ff"
+      }
+    ]
+  },
+  "provider_files_identical_to_review_branches": {
+    "generators/check_focus_1_2_samples.py": "75b71d765955e2ba98993f96ce5e8d485546fc80d7a5552b1c5dade8c163070d",
+    "generators/describe_focus_1_2_samples.py": "cd75b28a6d44f7c530054b50270773a0b43f1afbda381c3e1597804711b66627",
+    "generators/generate_aws_focus_1_2.py": "d4cda69e2deec8fdb68d37ef5dcd6df1b6162821c8714e548ea8de277fafa26b",
+    "generators/generate_azure_focus_1_2.py": "af771dba098805a4a51d4b7906af08ce7ea3efa2c5830a48eacb6e2ffa3ad92d",
+    "generators/generate_gcp_focus_1_2.py": "094be77c1d586bc7a4f9882ff78ddf7dcfab6eaa9210381b0ab47c15449e94ea",
+    "generators/reproduce_focus_1_2_validator.py": "a4cc744cc0d62b192b99b47dd18638cbeb0521544ff7f89300c67c053d7710b7",
+    "generators/test_focus_1_2_regressions.py": "fd3b6542f5a20c16b1c1b2972776be225d9093cde42494b522b5813480acc275",
+    "generators/validate_focus_1_2_samples.py": "1ec344c5d3f5b4690de9ca7e0a9d667d0534390d3b746354905878f5500937f6",
+    "FOCUS-1.2/focus_sample_costandusage_aws_1000.csv": "dc489473400f14a098f4bbfee1b927a912704f7570f33f0ef2db5958fb1a5ff2",
+    "FOCUS-1.2/focus_sample_costandusage_azure_1000.csv": "98d3772441e158c77d9d7355ae9ac1e8e7ddbc8cfef529d972a0b8ae9a4d13ac",
+    "FOCUS-1.2/focus_sample_costandusage_gcp_1000.csv": "0f404d4144d8cd1e3d4cc0b23a57bf0975908812729b3bdd7d0789cf70fcb94c",
+    "generators/check_focus_1_3_samples.py": "a8c6df3722465bc1fcd26300f47161231c511994634ee16f9bba8a597f977b57",
+    "generators/describe_focus_1_3_samples.py": "3e0219ea3adfdc5e5a31d7c3d6ed61b544d99a360392909152a23b8134b848d7",
+    "generators/generate_aws_focus_1_3.py": "530158941d78da8ce84f483191a686ddbb9c439c8665e6334ca5a4e68be2c476",
+    "generators/generate_azure_focus_1_3.py": "0bab725ef96da3355575e1fc00f3638d4000c766d90311481063e7b1196f3786",
+    "generators/generate_gcp_focus_1_3.py": "ab9b9ae175bb797595718a0d8aaca3d45188413ddae9b2b5f07448d86bd2776f",
+    "generators/reproduce_focus_1_3_validator.py": "b326fa37fe39ebddf3bd7df45203fbe6e14a03254f57bd5d8b404535701eb2ab",
+    "generators/test_focus_1_3_regressions.py": "a3ef923f698742ff398673e7e525c9f3094a1c41bcab0972e9455cd2a08260b2",
+    "generators/validate_focus_1_3_samples.py": "3927fd544f4f7f44f89d5c6188f87edfd59d7dcd807ad5661c797a9f335734cf",
+    "FOCUS-1.3/focus_sample_contractcommitment_aws.csv": "54c5049aa5ca82030f765bd49be36eef104479d2380e3fd5e4b8b2f7e91b70b7",
+    "FOCUS-1.3/focus_sample_contractcommitment_azure.csv": "2bcd8000c38ed310e6cf48594ef53989c460fceb704a2b157d64d1d667417aab",
+    "FOCUS-1.3/focus_sample_contractcommitment_gcp.csv": "b68c01bebbf5a0e73bc499d45d08d5574466c87ba6987e34f0602daf084b5cb8",
+    "FOCUS-1.3/focus_sample_costandusage_aws_1000.csv": "1c482adb3602cdcb3b09818401c88c8d36634d231e08c5f2b2845d52b06e2394",
+    "FOCUS-1.3/focus_sample_costandusage_azure_1000.csv": "fe710f10c72652b123c9a559d18f71206b33e990ce5138ee4bd65d94129e8688",
+    "FOCUS-1.3/focus_sample_costandusage_gcp_1000.csv": "0a6081b1095f0aa1eb1702b060aa4f04fae888f67eb31276832235431479bf8d"
+  }
+}

@@ -1,0 +1,1978 @@
+{
+  "CAU-BillingAccountId-C-000-M": {
+    "explanation": "CSV type inference reads the twelve-digit AWS account string as an integer. The fixture deliberately retains provider-shaped IDs.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "BillingAccountId",
+      "EntityType": "Column",
+      "EntityName": "Billing Account Id",
+      "EntityId": "BillingAccountId",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 0,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "BillingAccountId adheres to the following requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-BillingAccountId-C-001-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-BillingAccountId-C-002-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-BillingAccountId-C-003-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-BillingAccountId-C-004-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-BillingAccountId-C-005-O"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-CostAndUsage-D-024-M",
+          "CAU-BillingAccountId-C-002-M",
+          "CAU-BillingAccountId-C-003-M",
+          "CAU-BillingAccountId-C-001-M",
+          "CAU-BillingAccountId-C-004-M",
+          "CAU-BillingAccountId-C-005-O"
+        ]
+      }
+    }
+  },
+  "CAU-BillingAccountId-C-002-M": {
+    "explanation": "CSV type inference reads the twelve-digit AWS account string as an integer. The fixture deliberately retains provider-shaped IDs.",
+    "model_rule": {
+      "Function": "Type",
+      "EntityType": "Column",
+      "EntityName": "Billing Account Id",
+      "EntityId": "BillingAccountId",
+      "Reference": "BillingAccountId",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 20,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "BillingAccountId MUST be of type String.",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "TypeString",
+          "ColumnName": "BillingAccountId"
+        },
+        "Condition": {},
+        "Dependencies": []
+      }
+    }
+  },
+  "CAU-CapacityReservationStatus-C-000-C": {
+    "explanation": "The rule's AND condition is dropped by the validator; all rows correctly have no capacity reservation. See focus_validator#142.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "CapacityReservationStatus",
+      "EntityType": "Column",
+      "EntityName": "Capacity Reservation Status",
+      "EntityId": "CapacityReservationStatus",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "Notes": "",
+      "ApplicabilityCriteria": [
+        "CAPACITY_RESERVATION_SUPPORTED"
+      ],
+      "Order": 0,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "CapacityReservationStatus adheres to the following requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CapacityReservationStatus-C-001-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CapacityReservationStatus-C-002-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CapacityReservationStatus-C-005-C"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-CostAndUsage-D-020-C",
+          "CAU-CapacityReservationStatus-C-001-M",
+          "CAU-CapacityReservationStatus-C-002-C",
+          "CAU-CapacityReservationStatus-C-005-C"
+        ]
+      }
+    }
+  },
+  "CAU-CapacityReservationStatus-C-002-C": {
+    "explanation": "The rule's AND condition is dropped by the validator; all rows correctly have no capacity reservation. See focus_validator#142.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "CapacityReservationStatus",
+      "EntityType": "Column",
+      "EntityName": "Capacity Reservation Status",
+      "EntityId": "CapacityReservationStatus",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "Notes": "",
+      "ApplicabilityCriteria": [],
+      "Order": 30,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "CapacityReservationStatus nullability is defined as follows:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CapacityReservationStatus-C-003-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CapacityReservationStatus-C-004-C"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-CapacityReservationStatus-C-003-C",
+          "CAU-CapacityReservationStatus-C-004-C"
+        ]
+      }
+    }
+  },
+  "CAU-CapacityReservationStatus-C-004-C": {
+    "explanation": "The rule's AND condition is dropped by the validator; all rows correctly have no capacity reservation. See focus_validator#142.",
+    "model_rule": {
+      "Function": "Nullability",
+      "Reference": "CapacityReservationStatus",
+      "EntityType": "Column",
+      "EntityName": "Capacity Reservation Status",
+      "EntityId": "CapacityReservationStatus",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "Notes": "",
+      "ApplicabilityCriteria": [],
+      "Order": 50,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "CapacityReservationStatus MUST NOT be null when CapacityReservationId is not null and ChargeCategory is \"Usage\".",
+        "Keyword": "MUST NOT",
+        "Requirement": {
+          "CheckFunction": "CheckNotValue",
+          "ColumnName": "CapacityReservationStatus",
+          "Value": null
+        },
+        "Condition": {
+          "AND": [
+            {
+              "CheckFunction": "CheckNotValue",
+              "ColumnName": "CapacityReservationId",
+              "Value": null
+            },
+            {
+              "CheckFunction": "CheckValue",
+              "ColumnName": "ChargeCategory",
+              "Value": "Usage"
+            }
+          ]
+        },
+        "Dependencies": [
+          "CAU-CapacityReservationId-C-003-C",
+          "CAU-ChargeCategory-C-000-M"
+        ]
+      }
+    }
+  },
+  "CAU-CommitmentDiscountStatus-C-000-C": {
+    "explanation": "The model tests CommitmentDiscountId == null while its prose requires a populated ID (and Usage). Rows without a commitment correctly leave status null.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "CommitmentDiscountStatus",
+      "EntityType": "Column",
+      "EntityName": "Commitment Discount Status",
+      "EntityId": "CommitmentDiscountStatus",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [
+        "COMMITMENT_DISCOUNT_SUPPORTED"
+      ],
+      "Order": 0,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "CommitmentDiscountStatus adheres to the following requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CommitmentDiscountStatus-C-001-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CommitmentDiscountStatus-C-002-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CommitmentDiscountStatus-C-005-M"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-CostAndUsage-D-017-C",
+          "CAU-CommitmentDiscountStatus-C-001-M",
+          "CAU-CommitmentDiscountStatus-C-002-C",
+          "CAU-CommitmentDiscountStatus-C-005-M"
+        ]
+      }
+    }
+  },
+  "CAU-CommitmentDiscountStatus-C-002-C": {
+    "explanation": "The model tests CommitmentDiscountId == null while its prose requires a populated ID (and Usage). Rows without a commitment correctly leave status null.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "CommitmentDiscountStatus",
+      "EntityType": "Column",
+      "EntityName": "Commitment Discount Status",
+      "EntityId": "CommitmentDiscountStatus",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 30,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "CommitmentDiscountStatus nullability is defined as follows:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CommitmentDiscountStatus-C-003-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CommitmentDiscountStatus-C-004-C"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-CommitmentDiscountStatus-C-003-C",
+          "CAU-CommitmentDiscountStatus-C-004-C"
+        ]
+      }
+    }
+  },
+  "CAU-CommitmentDiscountStatus-C-003-C": {
+    "explanation": "The model tests CommitmentDiscountId == null while its prose requires a populated ID (and Usage). Rows without a commitment correctly leave status null.",
+    "model_rule": {
+      "Function": "Nullability",
+      "Reference": "CommitmentDiscountStatus",
+      "EntityType": "Column",
+      "EntityName": "Commitment Discount Status",
+      "EntityId": "CommitmentDiscountStatus",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 40,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "CommitmentDiscountStatus MUST be null when CommitmentDiscountId is null.",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "CheckNotValue",
+          "ColumnName": "CommitmentDiscountStatus",
+          "Value": null
+        },
+        "Condition": {
+          "CheckFunction": "CheckValue",
+          "ColumnName": "CommitmentDiscountId",
+          "Value": null
+        },
+        "Dependencies": [
+          "CAU-CommitmentDiscountId-C-000-C"
+        ]
+      }
+    }
+  },
+  "CAU-CommitmentDiscountStatus-C-004-C": {
+    "explanation": "The model tests CommitmentDiscountId == null while its prose requires a populated ID (and Usage). Rows without a commitment correctly leave status null.",
+    "model_rule": {
+      "Function": "Nullability",
+      "Reference": "CommitmentDiscountStatus",
+      "EntityType": "Column",
+      "EntityName": "Commitment Discount Status",
+      "EntityId": "CommitmentDiscountStatus",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 50,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "CommitmentDiscountStatus MUST NOT be null when CommitmentDiscountId is not null and Charge Category is \"Usage\".",
+        "Keyword": "MUST NOT",
+        "Requirement": {
+          "CheckFunction": "CheckNotValue",
+          "ColumnName": "CommitmentDiscountStatus",
+          "Value": null
+        },
+        "Condition": {
+          "CheckFunction": "CheckValue",
+          "ColumnName": "CommitmentDiscountId",
+          "Value": null
+        },
+        "Dependencies": [
+          "CAU-CommitmentDiscountId-C-000-C"
+        ]
+      }
+    }
+  },
+  "CAU-ContractApplied-C-000-C": {
+    "explanation": "Downstream composite of the documented ContractAppliedObject failures; it is not an additional data defect.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "ContractApplied",
+      "EntityType": "Column",
+      "EntityId": "ContractApplied",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [
+        "CONTRACT_COMMITMENTS_SUPPORTED"
+      ],
+      "Order": 0,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "The ContractApplied column adheres to the following requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractApplied-C-001-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractApplied-C-002-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractApplied-C-003-C"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-CostAndUsage-D-074-C",
+          "CAU-ContractApplied-C-001-M",
+          "CAU-ContractApplied-C-002-C",
+          "CAU-ContractApplied-C-003-C"
+        ]
+      }
+    }
+  },
+  "CAU-ContractApplied-C-003-C": {
+    "explanation": "Downstream composite of the documented ContractAppliedObject failures; it is not an additional data defect.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "ContractApplied",
+      "EntityName": "Contract Applied",
+      "EntityId": "ContractApplied",
+      "EntityType": "Column",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Type": "Static",
+      "Order": 80,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "ValidationCriteria": {
+        "MustSatisfy": "ContractAppliedObject MUST adhere to the following requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-000-C"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-ContractAppliedObject-O-000-C"
+        ]
+      }
+    }
+  },
+  "CAU-ContractAppliedObject-O-000-C": {
+    "explanation": "The five-key presence rule conflicts with optional Spend properties/examples even after erratum #5 (FOCUS_Spec#2674). Separately, row/element conditions are ignored (focus_validator#160). The reviewed three-key Spend shape is retained pending consistent upstream clarification; exact values and service/contract joins are checked independently.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "ContractAppliedObject",
+      "EntityType": "Object",
+      "EntityId": "ContractAppliedObject",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [
+        "CONTRACT_COMMITMENTS_SUPPORTED"
+      ],
+      "Order": 0,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "If ContractApplied is not null, ContractApplied adheres to the following requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-001-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-002-O"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-003-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-004-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-005-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-006-O"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-007-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-008-O"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-009-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-013-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-017-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-018-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-028-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-041-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-050-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-059-M"
+            }
+          ]
+        },
+        "Condition": {
+          "CheckFunction": "CheckNotValue",
+          "ColumnName": "ContractApplied",
+          "Value": null
+        },
+        "Dependencies": [
+          "CAU-ContractAppliedObject-O-001-M",
+          "CAU-ContractAppliedObject-O-002-O",
+          "CAU-ContractAppliedObject-O-003-M",
+          "CAU-ContractAppliedObject-O-004-M",
+          "CAU-ContractAppliedObject-O-005-M",
+          "CAU-ContractAppliedObject-O-006-O",
+          "CAU-ContractAppliedObject-O-007-M",
+          "CAU-ContractAppliedObject-O-008-O",
+          "CAU-ContractAppliedObject-O-009-C",
+          "CAU-ContractAppliedObject-O-013-M",
+          "CAU-ContractAppliedObject-O-017-C",
+          "CAU-ContractAppliedObject-O-018-M",
+          "CAU-ContractAppliedObject-O-028-M",
+          "CAU-ContractAppliedObject-O-041-M",
+          "CAU-ContractAppliedObject-O-050-M",
+          "CAU-ContractAppliedObject-O-059-M"
+        ]
+      }
+    }
+  },
+  "CAU-ContractAppliedObject-O-007-M": {
+    "explanation": "The five-key presence rule conflicts with optional Spend properties/examples even after erratum #5 (FOCUS_Spec#2674). Separately, row/element conditions are ignored (focus_validator#160). The reviewed three-key Spend shape is retained pending consistent upstream clarification; exact values and service/contract joins are checked independently.",
+    "model_rule": {
+      "Function": "Validation",
+      "Reference": "ContractAppliedObject",
+      "EntityType": "Object",
+      "EntityId": "ContractAppliedObject",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 70,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "\"Elements\" objects MUST contain five key-value pairs, representing \"ContractId\", \"ContractCommitmentId\", \"ContractCommitmentAppliedCost\", \"ContractCommitmentAppliedQuantity\", and \"ContractCommitmentAppliedUnit\".",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "JSONCheckPathKeyExists",
+              "ColumnName": "ContractApplied",
+              "Path": "$.Elements[*].ContractId"
+            },
+            {
+              "CheckFunction": "JSONCheckPathKeyExists",
+              "ColumnName": "ContractApplied",
+              "Path": "$.Elements[*].ContractCommitmentId"
+            },
+            {
+              "CheckFunction": "JSONCheckPathKeyExists",
+              "ColumnName": "ContractApplied",
+              "Path": "$.Elements[*].ContractCommitmentAppliedCost"
+            },
+            {
+              "CheckFunction": "JSONCheckPathKeyExists",
+              "ColumnName": "ContractApplied",
+              "Path": "$.Elements[*].ContractCommitmentAppliedQuantity"
+            },
+            {
+              "CheckFunction": "JSONCheckPathKeyExists",
+              "ColumnName": "ContractApplied",
+              "Path": "$.Elements[*].ContractCommitmentAppliedUnit"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": []
+      }
+    }
+  },
+  "CAU-ContractAppliedObject-O-028-M": {
+    "explanation": "The five-key presence rule conflicts with optional Spend properties/examples even after erratum #5 (FOCUS_Spec#2674). Separately, row/element conditions are ignored (focus_validator#160). The reviewed three-key Spend shape is retained pending consistent upstream clarification; exact values and service/contract joins are checked independently.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "ContractAppliedObject",
+      "EntityType": "Object",
+      "EntityId": "ContractAppliedObject",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 280,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "The \"ContractCommitmentId\" property adheres to the following requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-029-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-030-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-031-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-032-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-035-C"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-ContractAppliedObject-O-029-C",
+          "CAU-ContractAppliedObject-O-030-M",
+          "CAU-ContractAppliedObject-O-031-M",
+          "CAU-ContractAppliedObject-O-032-C",
+          "CAU-ContractAppliedObject-O-035-C"
+        ]
+      }
+    }
+  },
+  "CAU-ContractAppliedObject-O-035-C": {
+    "explanation": "The five-key presence rule conflicts with optional Spend properties/examples even after erratum #5 (FOCUS_Spec#2674). Separately, row/element conditions are ignored (focus_validator#160). The reviewed three-key Spend shape is retained pending consistent upstream clarification; exact values and service/contract joins are checked independently.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "ContractAppliedObject",
+      "EntityType": "Object",
+      "EntityId": "ContractAppliedObject",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 350,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "When \"ContractCommitmentId\" is not null, \"ContractCommitmentId\" adheres to the following additional requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-036-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-037-O"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-038-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-039-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-040-O"
+            }
+          ]
+        },
+        "Condition": {
+          "CheckFunction": "JSONCheckPathNotValue",
+          "ColumnName": "ContractApplied",
+          "Path": "$.Elements[*].ContractCommitmentId",
+          "Value": null
+        },
+        "Dependencies": [
+          "CAU-ContractAppliedObject-O-036-M",
+          "CAU-ContractAppliedObject-O-037-O",
+          "CAU-ContractAppliedObject-O-038-M",
+          "CAU-ContractAppliedObject-O-039-C",
+          "CAU-ContractAppliedObject-O-040-O"
+        ]
+      }
+    }
+  },
+  "CAU-ContractAppliedObject-O-039-C": {
+    "explanation": "The five-key presence rule conflicts with optional Spend properties/examples even after erratum #5 (FOCUS_Spec#2674). Separately, row/element conditions are ignored (focus_validator#160). The reviewed three-key Spend shape is retained pending consistent upstream clarification; exact values and service/contract joins are checked independently.",
+    "model_rule": {
+      "Function": "Validation",
+      "Reference": "ContractAppliedObject",
+      "EntityType": "Object",
+      "EntityId": "ContractAppliedObject",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 390,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "\"ContractCommitmentId\" MUST be equal to ResourceId when ChargeCategory is \"Purchase\".",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "JSONCheckPathSameValue",
+          "ColumnAName": "ContractApplied",
+          "PathA": "$.Elements[*].ContractCommitmentId",
+          "ColumnBName": "ResourceId",
+          "PathB": null
+        },
+        "Condition": {
+          "CheckFunction": "CheckValue",
+          "ColumnName": "ChargeCategory",
+          "Value": "Purchase"
+        },
+        "Dependencies": []
+      }
+    }
+  },
+  "CAU-ContractAppliedObject-O-050-M": {
+    "explanation": "The five-key presence rule conflicts with optional Spend properties/examples even after erratum #5 (FOCUS_Spec#2674). Separately, row/element conditions are ignored (focus_validator#160). The reviewed three-key Spend shape is retained pending consistent upstream clarification; exact values and service/contract joins are checked independently.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "ContractAppliedObject",
+      "EntityType": "Object",
+      "EntityId": "ContractAppliedObject",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 500,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "The \"ContractCommitmentAppliedQuantity\" property adheres to the following requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-051-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-052-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-053-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-054-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-057-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-058-M"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-ContractAppliedObject-O-051-C",
+          "CAU-ContractAppliedObject-O-052-M",
+          "CAU-ContractAppliedObject-O-053-M",
+          "CAU-ContractAppliedObject-O-054-M",
+          "CAU-ContractAppliedObject-O-057-M",
+          "CAU-ContractAppliedObject-O-058-M"
+        ]
+      }
+    }
+  },
+  "CAU-ContractAppliedObject-O-051-C": {
+    "explanation": "The five-key presence rule conflicts with optional Spend properties/examples even after erratum #5 (FOCUS_Spec#2674). Separately, row/element conditions are ignored (focus_validator#160). The reviewed three-key Spend shape is retained pending consistent upstream clarification; exact values and service/contract joins are checked independently.",
+    "model_rule": {
+      "Function": "Presence",
+      "Reference": "ContractAppliedObject",
+      "EntityType": "Object",
+      "EntityId": "ContractAppliedObject",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 510,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "\"ContractCommitmentAppliedQuantity\" MUST be present in an Elements object within ContractApplied when the service provider associates the *charge's* quantity with one or more *contract commitments*.",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "JSONCheckPathKeyExists",
+          "ColumnName": "ContractApplied",
+          "Path": "$.Elements[*].ContractCommitmentAppliedQuantity"
+        },
+        "Condition": {},
+        "Dependencies": []
+      }
+    }
+  },
+  "CAU-ContractAppliedObject-O-052-M": {
+    "explanation": "The five-key presence rule conflicts with optional Spend properties/examples even after erratum #5 (FOCUS_Spec#2674). Separately, row/element conditions are ignored (focus_validator#160). The reviewed three-key Spend shape is retained pending consistent upstream clarification; exact values and service/contract joins are checked independently.",
+    "model_rule": {
+      "Function": "Type",
+      "Reference": "ContractAppliedObject",
+      "EntityType": "Object",
+      "EntityId": "ContractAppliedObject",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 520,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "\"ContractCommitmentAppliedQuantity\" MUST be of type Decimal.",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "JSONCheckPathType",
+          "ColumnName": "ContractApplied",
+          "Path": "$.Elements[*].ContractCommitmentAppliedQuantity",
+          "ExpectedType": "Decimal"
+        },
+        "Condition": {},
+        "Dependencies": []
+      }
+    }
+  },
+  "CAU-ContractAppliedObject-O-059-M": {
+    "explanation": "The five-key presence rule conflicts with optional Spend properties/examples even after erratum #5 (FOCUS_Spec#2674). Separately, row/element conditions are ignored (focus_validator#160). The reviewed three-key Spend shape is retained pending consistent upstream clarification; exact values and service/contract joins are checked independently.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "ContractAppliedObject",
+      "EntityType": "Object",
+      "EntityId": "ContractAppliedObject",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 590,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "The \"ContractCommitmentAppliedUnit\" property adheres to the following requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-060-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-061-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-062-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-063-O"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-064-C"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-ContractAppliedObject-O-060-C",
+          "CAU-ContractAppliedObject-O-061-M",
+          "CAU-ContractAppliedObject-O-062-M",
+          "CAU-ContractAppliedObject-O-063-O",
+          "CAU-ContractAppliedObject-O-064-C"
+        ]
+      }
+    }
+  },
+  "CAU-ContractAppliedObject-O-060-C": {
+    "explanation": "The five-key presence rule conflicts with optional Spend properties/examples even after erratum #5 (FOCUS_Spec#2674). Separately, row/element conditions are ignored (focus_validator#160). The reviewed three-key Spend shape is retained pending consistent upstream clarification; exact values and service/contract joins are checked independently.",
+    "model_rule": {
+      "Function": "Presence",
+      "Reference": "ContractAppliedObject",
+      "EntityType": "Object",
+      "EntityId": "ContractAppliedObject",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 600,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "\"ContractCommitmentAppliedUnit\" MUST be present in an Elements object within ContractApplied when the service provider associates the *charge's* quantity with one or more *contract commitments*.",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "JSONCheckPathKeyExists",
+          "ColumnName": "ContractApplied",
+          "Path": "$.Elements[*].ContractCommitmentAppliedUnit"
+        },
+        "Condition": {},
+        "Dependencies": []
+      }
+    }
+  },
+  "CAU-ContractAppliedObject-O-061-M": {
+    "explanation": "The five-key presence rule conflicts with optional Spend properties/examples even after erratum #5 (FOCUS_Spec#2674). Separately, row/element conditions are ignored (focus_validator#160). The reviewed three-key Spend shape is retained pending consistent upstream clarification; exact values and service/contract joins are checked independently.",
+    "model_rule": {
+      "Function": "Type",
+      "Reference": "ContractAppliedObject",
+      "EntityType": "Object",
+      "EntityId": "ContractAppliedObject",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 610,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "\"ContractCommitmentAppliedUnit\" MUST be of type String.",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "JSONCheckPathType",
+          "ColumnName": "ContractApplied",
+          "Path": "$.Elements[*].ContractCommitmentAppliedUnit",
+          "ExpectedType": "String"
+        },
+        "Condition": {},
+        "Dependencies": []
+      }
+    }
+  },
+  "CAU-ContractAppliedObject-O-064-C": {
+    "explanation": "The five-key presence rule conflicts with optional Spend properties/examples even after erratum #5 (FOCUS_Spec#2674). Separately, row/element conditions are ignored (focus_validator#160). The reviewed three-key Spend shape is retained pending consistent upstream clarification; exact values and service/contract joins are checked independently.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "ContractAppliedObject",
+      "EntityType": "Object",
+      "EntityId": "ContractAppliedObject",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 640,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "\"ContractCommitmentAppliedUnit\" nullability is defined as follows:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-065-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractAppliedObject-O-066-C"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-ContractAppliedObject-O-065-C",
+          "CAU-ContractAppliedObject-O-066-C"
+        ]
+      }
+    }
+  },
+  "CAU-ContractAppliedObject-O-065-C": {
+    "explanation": "The five-key presence rule conflicts with optional Spend properties/examples even after erratum #5 (FOCUS_Spec#2674). Separately, row/element conditions are ignored (focus_validator#160). The reviewed three-key Spend shape is retained pending consistent upstream clarification; exact values and service/contract joins are checked independently.",
+    "model_rule": {
+      "Function": "Nullability",
+      "Reference": "ContractAppliedObject",
+      "EntityType": "Object",
+      "EntityId": "ContractAppliedObject",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 650,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "\"ContractCommitmentAppliedUnit\" MUST be null when \"ContractCommitmentAppliedQuantity\" is null.",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "JSONCheckPathValue",
+          "ColumnName": "ContractApplied",
+          "Path": "$.Elements[*].ContractCommitmentAppliedUnit",
+          "Value": null
+        },
+        "Condition": {
+          "CheckFunction": "JSONCheckPathValue",
+          "ColumnName": "ContractApplied",
+          "Path": "$.Elements[*].ContractCommitmentAppliedQuantity",
+          "Value": null
+        },
+        "Dependencies": []
+      }
+    }
+  },
+  "CAU-CostAndUsage-D-000-M": {
+    "explanation": "Dataset composite propagates the documented child-rule failures. No additional row-level defect is asserted by this rule.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "CostAndUsage",
+      "EntityType": "Dataset",
+      "EntityName": "Cost And Usage",
+      "EntityId": "CostAndUsage",
+      "Notes": "Main dataset composite rule",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Type": "Static",
+      "Order": 0,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "ValidationCriteria": {
+        "MustSatisfy": "The CostAndUsage dataset adheres to the following requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CostAndUsage-D-001-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CostAndUsage-D-002-M"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-CostAndUsage-D-001-M",
+          "CAU-CostAndUsage-D-002-M",
+          "DiscountHandling-A-000-C",
+          "NullHandling-A-000-M",
+          "ColumnHandling-A-000-M",
+          "InvoiceHandling-A-000-M",
+          "DataGeneratorCalculatedSplitCostAllocationHandling-A-000-C"
+        ]
+      }
+    }
+  },
+  "CAU-CostAndUsage-D-002-M": {
+    "explanation": "Dataset composite propagates the documented child-rule failures. No additional row-level defect is asserted by this rule.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "CostAndUsage",
+      "EntityType": "Dataset",
+      "EntityName": "Cost And Usage",
+      "EntityId": "CostAndUsage",
+      "Notes": "Columns composite rule",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 20,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "The CostAndUsage dataset adheres to the following additional requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-AllocatedMethodId-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-AllocatedMethodDetails-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-AllocatedResourceId-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-AllocatedResourceName-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-AllocatedTags-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-AvailabilityZone-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-BilledCost-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-BillingAccountId-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-BillingAccountName-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-BillingAccountType-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-BillingCurrency-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-BillingPeriodEnd-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-BillingPeriodStart-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CapacityReservationId-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CapacityReservationStatus-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ChargeCategory-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ChargeClass-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ChargeFrequency-C-000-O"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ChargeDescription-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ChargePeriodEnd-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ChargePeriodStart-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CommitmentDiscountCategory-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CommitmentDiscountId-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CommitmentDiscountName-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CommitmentDiscountStatus-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CommitmentDiscountType-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CommitmentDiscountUnit-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-CommitmentDiscountQuantity-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ConsumedUnit-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ConsumedQuantity-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractApplied-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractedCost-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ContractedUnitPrice-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-EffectiveCost-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-HostProviderName-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-InvoiceId-C-000-O"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-InvoiceIssuerName-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ListCost-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ListUnitPrice-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingCategory-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingCurrency-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingCurrencyEffectiveCost-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingCurrencyListUnitPrice-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingQuantity-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingUnit-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ProviderName-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PublisherName-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-RegionId-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-RegionName-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ResourceId-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ResourceName-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ResourceType-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-SubAccountId-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-SubAccountName-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ServiceProviderName-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ServiceCategory-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ServiceName-C-000-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ServiceSubcategory-C-000-O"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-SkuId-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-SkuMeter-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-SkuPriceDetails-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-SkuPriceId-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-SubAccountType-C-000-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-Tags-C-000-C"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-AllocatedMethodId-C-000-C",
+          "CAU-AllocatedMethodDetails-C-000-C",
+          "CAU-AllocatedResourceId-C-000-C",
+          "CAU-AllocatedResourceName-C-000-C",
+          "CAU-AllocatedTags-C-000-C",
+          "CAU-AvailabilityZone-C-000-C",
+          "CAU-BilledCost-C-000-M",
+          "CAU-BillingAccountId-C-000-M",
+          "CAU-BillingAccountName-C-000-M",
+          "CAU-BillingAccountType-C-000-C",
+          "CAU-BillingCurrency-C-000-M",
+          "CAU-BillingPeriodEnd-C-000-M",
+          "CAU-BillingPeriodStart-C-000-M",
+          "CAU-CapacityReservationId-C-000-C",
+          "CAU-CapacityReservationStatus-C-000-C",
+          "CAU-ChargeCategory-C-000-M",
+          "CAU-ChargeClass-C-000-M",
+          "CAU-ChargeFrequency-C-000-O",
+          "CAU-ChargeDescription-C-000-M",
+          "CAU-ChargePeriodEnd-C-000-M",
+          "CAU-ChargePeriodStart-C-000-M",
+          "CAU-CommitmentDiscountCategory-C-000-C",
+          "CAU-CommitmentDiscountId-C-000-C",
+          "CAU-CommitmentDiscountName-C-000-C",
+          "CAU-CommitmentDiscountStatus-C-000-C",
+          "CAU-CommitmentDiscountType-C-000-C",
+          "CAU-CommitmentDiscountUnit-C-000-C",
+          "CAU-CommitmentDiscountQuantity-C-000-C",
+          "CAU-ConsumedUnit-C-000-C",
+          "CAU-ConsumedQuantity-C-000-C",
+          "CAU-ContractApplied-C-000-C",
+          "CAU-ContractedCost-C-000-M",
+          "CAU-ContractedUnitPrice-C-000-C",
+          "CAU-EffectiveCost-C-000-M",
+          "CAU-HostProviderName-C-000-M",
+          "CAU-InvoiceId-C-000-O",
+          "CAU-InvoiceIssuerName-C-000-M",
+          "CAU-ListCost-C-000-M",
+          "CAU-ListUnitPrice-C-000-C",
+          "CAU-PricingCategory-C-000-C",
+          "CAU-PricingCurrency-C-000-C",
+          "CAU-PricingCurrencyContractedUnitPrice-C-000-C",
+          "CAU-PricingCurrencyEffectiveCost-C-000-C",
+          "CAU-PricingCurrencyListUnitPrice-C-000-C",
+          "CAU-PricingQuantity-C-000-M",
+          "CAU-PricingUnit-C-000-M",
+          "CAU-ProviderName-C-000-M",
+          "CAU-RegionId-C-000-C",
+          "CAU-RegionName-C-000-C",
+          "CAU-ResourceId-C-000-C",
+          "CAU-ResourceName-C-000-C",
+          "CAU-ResourceType-C-000-C",
+          "CAU-PublisherName-C-000-M",
+          "CAU-SubAccountId-C-000-C",
+          "CAU-SubAccountName-C-000-C",
+          "CAU-ServiceProviderName-C-000-M",
+          "CAU-ServiceCategory-C-000-M",
+          "CAU-ServiceName-C-000-M",
+          "CAU-ServiceSubcategory-C-000-O",
+          "CAU-SkuId-C-000-C",
+          "CAU-SkuMeter-C-000-C",
+          "CAU-SkuPriceDetails-C-000-C",
+          "CAU-SkuPriceId-C-000-C",
+          "CAU-SubAccountType-C-000-C",
+          "CAU-Tags-C-000-C"
+        ]
+      }
+    }
+  },
+  "CAU-EffectiveCost-C-000-M": {
+    "explanation": "C-005-C models Purchase alone, omitting 'intended to cover future eligible charges'. Period subscription fees must retain their cost in this fixture. Both actual future-covering commitment purchases and their amortization are tested independently.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "EffectiveCost",
+      "EntityType": "Column",
+      "EntityName": "Effective Cost",
+      "EntityId": "EffectiveCost",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 0,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "EffectiveCost adheres to the following requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-EffectiveCost-C-001-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-EffectiveCost-C-002-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-EffectiveCost-C-003-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-EffectiveCost-C-004-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-EffectiveCost-C-005-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-EffectiveCost-C-006-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-EffectiveCost-C-007-O"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-EffectiveCost-C-008-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-EffectiveCost-C-011-C"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-CostAndUsage-D-031-M",
+          "CAU-EffectiveCost-C-001-M",
+          "CAU-EffectiveCost-C-002-M",
+          "CAU-EffectiveCost-C-003-M",
+          "CAU-EffectiveCost-C-004-M",
+          "CAU-EffectiveCost-C-005-C",
+          "CAU-EffectiveCost-C-006-M",
+          "CAU-EffectiveCost-C-007-O",
+          "CAU-EffectiveCost-C-008-C",
+          "CAU-EffectiveCost-C-011-C"
+        ]
+      }
+    }
+  },
+  "CAU-EffectiveCost-C-005-C": {
+    "explanation": "C-005-C models Purchase alone, omitting 'intended to cover future eligible charges'. Period subscription fees must retain their cost in this fixture. Both actual future-covering commitment purchases and their amortization are tested independently.",
+    "model_rule": {
+      "Function": "Validation",
+      "Reference": "EffectiveCost",
+      "EntityType": "Column",
+      "EntityName": "Effective Cost",
+      "EntityId": "EffectiveCost",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 60,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "EffectiveCost MUST be 0 when ChargeCategory is \"Purchase\" and the purchase is intended to cover future eligible charges.",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "CheckValue",
+          "ColumnName": "EffectiveCost",
+          "Value": 0
+        },
+        "Condition": {
+          "CheckFunction": "CheckValue",
+          "ColumnName": "ChargeCategory",
+          "Value": "Purchase"
+        },
+        "Dependencies": [
+          "CAU-ChargeCategory-C-000-M"
+        ]
+      }
+    }
+  },
+  "CAU-PricingCurrencyContractedUnitPrice-C-000-C": {
+    "explanation": "C-012-C inverts its prose: SkuPriceId == null rather than != null. Tax rows correctly have no SKU or unit price. See focus_validator#143.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "PricingCurrencyContractedUnitPrice",
+      "EntityType": "Column",
+      "EntityName": "Pricing Currency Contracted Unit Price",
+      "EntityId": "PricingCurrencyContractedUnitPrice",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [
+        "PRICING_BILLING_CURRENCY_DIFFERENCES_SUPPORTED"
+      ],
+      "Order": 0,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "PricingCurrencyContractedUnitPrice adheres to the following requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-001-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-002-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-003-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-007-C"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-CostAndUsage-D-046-C",
+          "CAU-PricingCurrencyContractedUnitPrice-C-001-M",
+          "CAU-PricingCurrencyContractedUnitPrice-C-002-M",
+          "CAU-PricingCurrencyContractedUnitPrice-C-003-M",
+          "CAU-PricingCurrencyContractedUnitPrice-C-007-C"
+        ]
+      }
+    }
+  },
+  "CAU-PricingCurrencyContractedUnitPrice-C-003-M": {
+    "explanation": "C-012-C inverts its prose: SkuPriceId == null rather than != null. Tax rows correctly have no SKU or unit price. See focus_validator#143.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "PricingCurrencyContractedUnitPrice",
+      "EntityType": "Column",
+      "EntityName": "Pricing Currency Contracted Unit Price",
+      "EntityId": "PricingCurrencyContractedUnitPrice",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 70,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "PricingCurrencyContractedUnitPrice nullability is defined as follows:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-011-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-004-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-012-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-005-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-006-O"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-PricingCurrencyContractedUnitPrice-C-011-C",
+          "CAU-PricingCurrencyContractedUnitPrice-C-004-C",
+          "CAU-PricingCurrencyContractedUnitPrice-C-012-C",
+          "CAU-PricingCurrencyContractedUnitPrice-C-005-C",
+          "CAU-PricingCurrencyContractedUnitPrice-C-006-O"
+        ]
+      }
+    }
+  },
+  "CAU-PricingCurrencyContractedUnitPrice-C-012-C": {
+    "explanation": "C-012-C inverts its prose: SkuPriceId == null rather than != null. Tax rows correctly have no SKU or unit price. See focus_validator#143.",
+    "model_rule": {
+      "Function": "Nullability",
+      "Reference": "PricingCurrencyContractedUnitPrice",
+      "EntityType": "Column",
+      "EntityName": "Pricing Currency Contracted Unit Price",
+      "EntityId": "PricingCurrencyContractedUnitPrice",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 100,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "PricingCurrencyContractedUnitPrice MUST NOT be null when SkuPriceId is not null.",
+        "Keyword": "MUST NOT",
+        "Requirement": {
+          "CheckFunction": "CheckNotValue",
+          "ColumnName": "PricingCurrencyContractedUnitPrice",
+          "Value": null
+        },
+        "Condition": {
+          "CheckFunction": "CheckValue",
+          "ColumnName": "SkuPriceId",
+          "Value": null
+        },
+        "Dependencies": [
+          "CAU-SkuPriceId-C-003-M"
+        ]
+      }
+    }
+  },
+  "CAU-ResourceType-C-000-C": {
+    "explanation": "The conditional requirement is enforced on Tax rows even though their ResourceId is null; the required condition does not apply.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "ResourceType",
+      "EntityType": "Column",
+      "EntityName": "Resource Type",
+      "EntityId": "ResourceType",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [
+        "BILLING_BASED_ON_PROVISIONED_RESOURCES_SUPPORTED",
+        "RESOURCE_TYPE_ASSIGNMENT_SUPPORTED"
+      ],
+      "Order": 0,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "ResourceType adheres to the following requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ResourceType-C-001-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ResourceType-C-002-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ResourceType-C-003-C"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-CostAndUsage-D-039-C",
+          "CAU-ResourceType-C-001-M",
+          "CAU-ResourceType-C-002-M",
+          "CAU-ResourceType-C-003-C"
+        ]
+      }
+    }
+  },
+  "CAU-ResourceType-C-003-C": {
+    "explanation": "The conditional requirement is enforced on Tax rows even though their ResourceId is null; the required condition does not apply.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "ResourceType",
+      "EntityType": "Column",
+      "EntityName": "Resource Type",
+      "EntityId": "ResourceType",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 40,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "ResourceType nullability is defined as follows:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ResourceType-C-004-C"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-ResourceType-C-005-C"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-ResourceType-C-004-C",
+          "CAU-ResourceType-C-005-C"
+        ]
+      }
+    }
+  },
+  "CAU-ResourceType-C-005-C": {
+    "explanation": "The conditional requirement is enforced on Tax rows even though their ResourceId is null; the required condition does not apply.",
+    "model_rule": {
+      "Function": "Nullability",
+      "Reference": "ResourceType",
+      "EntityType": "Column",
+      "EntityName": "Resource Type",
+      "EntityId": "ResourceType",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 60,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "ResourceType MUST NOT be null when ResourceId is not null.",
+        "Keyword": "MUST NOT",
+        "Requirement": {
+          "CheckFunction": "CheckNotValue",
+          "ColumnName": "ResourceType",
+          "Value": null
+        },
+        "Condition": {
+          "CheckFunction": "CheckNotValue",
+          "CheckCondition": "ResourceId",
+          "Value": null
+        },
+        "Dependencies": [
+          "CAU-ResourceId-C-000-C"
+        ]
+      }
+    }
+  },
+  "CAU-SubAccountId-C-000-C": {
+    "explanation": "CSV type inference reads the twelve-digit AWS account string as an integer. The fixture deliberately retains provider-shaped IDs.",
+    "model_rule": {
+      "Function": "Composite",
+      "Reference": "SubAccountId",
+      "EntityType": "Column",
+      "EntityName": "Sub Account Id",
+      "EntityId": "SubAccountId",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [
+        "SUB_ACCOUNT_SUPPORTED"
+      ],
+      "Order": 0,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "SubAccountId adheres to the following requirements:",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "AND",
+          "Items": [
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-SubAccountId-C-001-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-SubAccountId-C-002-M"
+            },
+            {
+              "CheckFunction": "CheckModelRule",
+              "ModelRuleId": "CAU-SubAccountId-C-003-C"
+            }
+          ]
+        },
+        "Condition": {},
+        "Dependencies": [
+          "CAU-CostAndUsage-D-019-C",
+          "CAU-SubAccountId-C-001-M",
+          "CAU-SubAccountId-C-002-M",
+          "CAU-SubAccountId-C-003-C"
+        ]
+      }
+    }
+  },
+  "CAU-SubAccountId-C-001-M": {
+    "explanation": "CSV type inference reads the twelve-digit AWS account string as an integer. The fixture deliberately retains provider-shaped IDs.",
+    "model_rule": {
+      "Function": "Type",
+      "Reference": "SubAccountId",
+      "EntityType": "Column",
+      "EntityName": "Sub Account Id",
+      "EntityId": "SubAccountId",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 20,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "SubAccountId MUST be of type String.",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "TypeString",
+          "ColumnName": "SubAccountId"
+        },
+        "Condition": {},
+        "Dependencies": []
+      }
+    }
+  }
+}

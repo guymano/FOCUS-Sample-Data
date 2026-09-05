@@ -1,0 +1,86 @@
+{
+  "source": "focus_sample_costandusage_aws_1000.csv",
+  "source_data_record": 7,
+  "source_sha256": "1c482adb3602cdcb3b09818401c88c8d36634d231e08c5f2b2845d52b06e2394",
+  "input_sha256": "5c8ed2c61cbd522083727aca24f0be30a86a2f6ad82edfecda5e48f8c9146785",
+  "target_rules": [
+    "CAU-ContractAppliedObject-O-039-C",
+    "CAU-ContractAppliedObject-O-065-C"
+  ],
+  "model": "1.3.0.1",
+  "model_sha256": "2c0e38136d12fc5f965c09ef7e005f8ec00dbe2fe6907e8b98d79d8257a0d272",
+  "validator": "2.2.1",
+  "observed_target_failures": {
+    "CAU-ContractAppliedObject-O-039-C": 1,
+    "CAU-ContractAppliedObject-O-065-C": 1
+  },
+  "model_rules": {
+    "CAU-ContractAppliedObject-O-039-C": {
+      "Function": "Validation",
+      "Reference": "ContractAppliedObject",
+      "EntityType": "Object",
+      "EntityId": "ContractAppliedObject",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 390,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "\"ContractCommitmentId\" MUST be equal to ResourceId when ChargeCategory is \"Purchase\".",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "JSONCheckPathSameValue",
+          "ColumnAName": "ContractApplied",
+          "PathA": "$.Elements[*].ContractCommitmentId",
+          "ColumnBName": "ResourceId",
+          "PathB": null
+        },
+        "Condition": {
+          "CheckFunction": "CheckValue",
+          "ColumnName": "ChargeCategory",
+          "Value": "Purchase"
+        },
+        "Dependencies": []
+      }
+    },
+    "CAU-ContractAppliedObject-O-065-C": {
+      "Function": "Nullability",
+      "Reference": "ContractAppliedObject",
+      "EntityType": "Object",
+      "EntityId": "ContractAppliedObject",
+      "EntityName": "Contract Applied",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.3",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Order": 650,
+      "DatasetType": "CAU",
+      "DatasetId": "CostAndUsage",
+      "DatasetName": "Cost and Usage",
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "\"ContractCommitmentAppliedUnit\" MUST be null when \"ContractCommitmentAppliedQuantity\" is null.",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "JSONCheckPathValue",
+          "ColumnName": "ContractApplied",
+          "Path": "$.Elements[*].ContractCommitmentAppliedUnit",
+          "Value": null
+        },
+        "Condition": {
+          "CheckFunction": "JSONCheckPathValue",
+          "ColumnName": "ContractApplied",
+          "Path": "$.Elements[*].ContractCommitmentAppliedQuantity",
+          "Value": null
+        },
+        "Dependencies": []
+      }
+    }
+  },
+  "command": "focus-validator --data-file usage-element-conditions.csv --validate-version 1.3.0.1 --focus-dataset CostAndUsage --applicability-criteria ALL --show-violations --block-download"
+}

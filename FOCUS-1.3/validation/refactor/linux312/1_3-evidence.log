@@ -1,0 +1,7 @@
+focus_sample_contractcommitment_aws.csv: 0 failing, 76 passing, 38 skipped rules
+focus_sample_contractcommitment_azure.csv: 0 failing, 76 passing, 38 skipped rules
+focus_sample_contractcommitment_gcp.csv: 0 failing, 76 passing, 38 skipped rules
+focus_sample_costandusage_aws_1000.csv: 36 failing, 431 passing, 297 skipped rules
+focus_sample_costandusage_azure_1000.csv: 32 failing, 435 passing, 297 skipped rules
+focus_sample_costandusage_gcp_1000.csv: 32 failing, 435 passing, 297 skipped rules
+Reviewed artifacts and skipped rules are NOT conformance passes.

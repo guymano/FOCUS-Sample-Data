@@ -1,6 +1,6 @@
 # Provider sample generators
 
-The provider direct-script entry points use one standard-library generation core. No
+The six direct-script entry points use one standard-library generation core. No
 package installation or external toolkit dependency is needed. Keep the local
 `focus_sample_core` directory alongside the scripts when copying this workflow.
 
@@ -28,7 +28,7 @@ separate command with the pinned optional environment documented below.
 
 ## FOCUS 1.2
 
-[Scenarios and generation commands](../FOCUS-1.2/README.md) Â·
+[Scenarios and generation commands](../FOCUS-1.2/README.md) ·
 [Official validator and evidence](../FOCUS-1.2/validation/README.md).
 
 ```bash
@@ -36,6 +36,18 @@ python generators/check_focus_1_2_samples.py
 python -m unittest discover -s generators -p 'test_focus_1_2_regressions.py'
 python generators/describe_focus_1_2_samples.py
 python generators/validate_focus_1_2_samples.py --check-existing
+```
+
+## FOCUS 1.3
+
+[Scenarios and generation commands](../FOCUS-1.3/README.md) ·
+[Official validator and evidence](../FOCUS-1.3/validation/README.md).
+
+```bash
+python generators/check_focus_1_3_samples.py
+python -m unittest discover -s generators -p 'test_focus_1_3_regressions.py'
+python generators/describe_focus_1_3_samples.py
+python generators/validate_focus_1_3_samples.py --check-existing
 ```
 
 Contributed under the repository license (CC BY 4.0).

@@ -1,0 +1,9 @@
+{
+  "python": "3.12.14",
+  "platform": "win32",
+  "validator": "2.2.1",
+  "model": "1.3.0.1",
+  "model_sha256": "2c0e38136d12fc5f965c09ef7e005f8ec00dbe2fe6907e8b98d79d8257a0d272",
+  "currency_codes_sha256": "60e9b405692a977040f4232e6f449fd75c251f8608e7c624cb21472d5c151e14",
+  "cwd_requirement": "Run the unmodified 2.2.1 package from its site-packages parent; currency_codes.csv is resolved relative to cwd."
+}

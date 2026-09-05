@@ -1,0 +1,78 @@
+{
+  "before": {
+    "focus_sample_contractcommitment_aws": {
+      "total": 114,
+      "passed": 73,
+      "failed": 3,
+      "skipped": 38
+    },
+    "focus_sample_contractcommitment_azure": {
+      "total": 114,
+      "passed": 73,
+      "failed": 3,
+      "skipped": 38
+    },
+    "focus_sample_contractcommitment_gcp": {
+      "total": 114,
+      "passed": 73,
+      "failed": 3,
+      "skipped": 38
+    },
+    "focus_sample_costandusage_aws_1000": {
+      "total": 764,
+      "passed": 433,
+      "failed": 34,
+      "skipped": 297
+    },
+    "focus_sample_costandusage_azure_1000": {
+      "total": 764,
+      "passed": 437,
+      "failed": 30,
+      "skipped": 297
+    },
+    "focus_sample_costandusage_gcp_1000": {
+      "total": 764,
+      "passed": 437,
+      "failed": 30,
+      "skipped": 297
+    }
+  },
+  "after": {
+    "focus_sample_contractcommitment_aws": {
+      "total": 114,
+      "passed": 76,
+      "failed": 0,
+      "skipped": 38
+    },
+    "focus_sample_contractcommitment_azure": {
+      "total": 114,
+      "passed": 76,
+      "failed": 0,
+      "skipped": 38
+    },
+    "focus_sample_contractcommitment_gcp": {
+      "total": 114,
+      "passed": 76,
+      "failed": 0,
+      "skipped": 38
+    },
+    "focus_sample_costandusage_aws_1000": {
+      "total": 764,
+      "passed": 431,
+      "failed": 36,
+      "skipped": 297
+    },
+    "focus_sample_costandusage_azure_1000": {
+      "total": 764,
+      "passed": 435,
+      "failed": 32,
+      "skipped": 297
+    },
+    "focus_sample_costandusage_gcp_1000": {
+      "total": 764,
+      "passed": 435,
+      "failed": 32,
+      "skipped": 297
+    }
+  }
+}

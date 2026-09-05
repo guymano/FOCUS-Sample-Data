@@ -1,0 +1,38 @@
+{
+  "aws": {
+    "billed_cost": "33773.232522429145313",
+    "commitment_purchases": "5410.704",
+    "used_effective_cost": "4226.112",
+    "unused_effective_cost": "1184.592",
+    "eligible_list_cost": "6348.1514496",
+    "covered_list_cost": "6336",
+    "commitment_share": "0.1602068737840447090090121235",
+    "utilization": "0.7810650887573964497041420118",
+    "waste": "0.2189349112426035502958579882",
+    "coverage": "0.9980858286547707256514663478"
+  },
+  "azure": {
+    "billed_cost": "70514.496245627744",
+    "commitment_purchases": "10949.472",
+    "used_effective_cost": "8516.256",
+    "unused_effective_cost": "2433.216",
+    "eligible_list_cost": "12791.6595840",
+    "covered_list_cost": "12768",
+    "commitment_share": "0.1552797308777331403684040924",
+    "utilization": "0.7777777777777777777777777778",
+    "waste": "0.2222222222222222222222222222",
+    "coverage": "0.9981503898032438446729696837"
+  },
+  "gcp": {
+    "billed_cost": "43126.3717999335770",
+    "commitment_purchases": "7552.441",
+    "used_effective_cost": "5988.326",
+    "unused_effective_cost": "1564.115",
+    "eligible_list_cost": "8992.8969542",
+    "covered_list_cost": "8978",
+    "commitment_share": "0.1751234960139084138762568438",
+    "utilization": "0.7928994082840236686390532544",
+    "waste": "0.2071005917159763313609467456",
+    "coverage": "0.9983434754922836520363339270"
+  }
+}
