@@ -1,0 +1,26 @@
+{
+  "focus_sample_costandusage_aws_1000.csv": {
+    "all_rule_states_identical": true,
+    "all_failure_counts_identical": true,
+    "data_sha256": "dc489473400f14a098f4bbfee1b927a912704f7570f33f0ef2db5958fb1a5ff2",
+    "model_sha256": "639b302ace9edd05922e3d15fcedf62723c92e7cf25e0a7a6684dd4fd4076fec",
+    "previous_generator_sha256": "d4cda69e2deec8fdb68d37ef5dcd6df1b6162821c8714e548ea8de277fafa26b",
+    "sources_sha256": "ed41f7b51726ccc9ef7bdee30aac58e4796d05b390f3af054e26a3146a64c634"
+  },
+  "focus_sample_costandusage_azure_1000.csv": {
+    "all_rule_states_identical": true,
+    "all_failure_counts_identical": true,
+    "data_sha256": "98d3772441e158c77d9d7355ae9ac1e8e7ddbc8cfef529d972a0b8ae9a4d13ac",
+    "model_sha256": "639b302ace9edd05922e3d15fcedf62723c92e7cf25e0a7a6684dd4fd4076fec",
+    "previous_generator_sha256": "af771dba098805a4a51d4b7906af08ce7ea3efa2c5830a48eacb6e2ffa3ad92d",
+    "sources_sha256": "3fa08dad19e20c844fc0b2141c31db859369cd93ac3d1c54c04179343d714334"
+  },
+  "focus_sample_costandusage_gcp_1000.csv": {
+    "all_rule_states_identical": true,
+    "all_failure_counts_identical": true,
+    "data_sha256": "0f404d4144d8cd1e3d4cc0b23a57bf0975908812729b3bdd7d0789cf70fcb94c",
+    "model_sha256": "639b302ace9edd05922e3d15fcedf62723c92e7cf25e0a7a6684dd4fd4076fec",
+    "previous_generator_sha256": "094be77c1d586bc7a4f9882ff78ddf7dcfab6eaa9210381b0ab47c15449e94ea",
+    "sources_sha256": "99be25cedb65ea97d34ad79ac33bc54678a9b274f7d4504e50570bdefd2ae2cf"
+  }
+}

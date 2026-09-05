@@ -16,6 +16,8 @@ import re
 import subprocess
 import sys
 
+from source_provenance import source_manifest
+
 import check_focus_1_2_samples as audit
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -65,6 +67,9 @@ def snapshot_errors(source, expected):
     for key, path in (("data_sha256", source), ("generator_sha256", generator)):
         if digest(path) != expected[key]:
             errors.append(f"{path.name} differs from the reviewed {key}")
+    for key, value in source_manifest(ROOT, "1_2", provider).items():
+        if expected.get(key) != value:
+            errors.append(f"unreviewed shared generation {key}")
     runtime = json.loads((EVIDENCE / "runtime.json").read_text(encoding="utf-8"))
     for key in ("model_sha256", "currency_codes_sha256"):
         if expected[key] != runtime[key]:
@@ -183,6 +188,7 @@ def main(argv=None):
             candidate = {key: report[key] for key in ("rules", "failures", "skipped_rules")}
             candidate.update(data_sha256=digest(source), generator_sha256=digest(ROOT / "generators" / f"generate_{provider}_focus_1_2.py"),
                              model_sha256=runtime["model_sha256"], currency_codes_sha256=runtime["currency_codes_sha256"])
+            candidate.update(source_manifest(ROOT, "1_2", provider))
             recorded[source.name] = candidate
             revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
             manifest = dict(candidate, dataset=dataset, model="1.2.0.1", validator=runtime["validator"],

@@ -27,6 +27,7 @@ validator run or a replacement for the reference evidence. Draft artifact hashes
 - 1.2.0.3: b42cd16aaf4e9002f52ccf7069e981431c020eeefb85f792d73979f9e94382e7
 - 1.3.0.3: 01ef5d89568eafb7f00c84f9d268db6e834fa87d8165c2bc51f8d816ec407716
 
-Fleet sizing is implemented and independently checked. Only shared-provider code
-extraction remains deliberately deferred; integration order is tracked in the PR
-conversation rather than permanent generator documentation.
+Fleet sizing and shared-provider code extraction are implemented and independently
+checked. The refactoring preserves the reviewed CSVs and official rule results.
+Upstream defects remain reported, not fixed by this structural change; actual
+integration order is tracked in the PR conversation.

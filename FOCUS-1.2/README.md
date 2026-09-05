@@ -102,5 +102,7 @@ See [validation evidence](validation/README.md) for raw reports, all rule states
 affected-record proofs and reproducible diagnostic snippets. Skipped rules are not
 passes; residual artifacts are documented, not silently suppressed.
 
-All three provider generators remain self-contained. Common-code extraction is
-explicitly deferred. The fleet correction is implemented; it is no longer deferred.
+All three entry points use the local shared generation core, immutable provider
+profiles and version adapters. Fleet sizing and the other reviewed corrections are
+preserved; the refactoring reproduces the same CSV bytes. See
+[non-regression evidence](validation/refactor/README.md).

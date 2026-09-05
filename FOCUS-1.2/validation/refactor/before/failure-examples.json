@@ -1,0 +1,674 @@
+{
+  "aws": {
+    "BillingAccountId-C-000-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "BillingAccountId-C-002-M": {
+      "measured_affected_records": 1000,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Glue ETL job run",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:glue:ap-southeast-1:200000000011:job/job-b05eef5f4399",
+            "ResourceType": "Glue Job",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "6.0020136",
+            "EffectiveCost": "6.0020136",
+            "SkuPriceId": "SPRICE-2caf36fd8fbe6a68e682b866"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Lambda function duration",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:lambda:us-east-1:200000000011:function/fn-c4ead482b009",
+            "ResourceType": "Lambda Function",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "27.070609614",
+            "EffectiveCost": "27.070609614",
+            "SkuPriceId": "SPRICE-227d5491bbfb36c4f69bea63"
+          }
+        }
+      ]
+    },
+    "CapacityReservationStatus-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CapacityReservationStatus-C-002-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CapacityReservationStatus-C-004-C": {
+      "measured_affected_records": 1000,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Glue ETL job run",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:glue:ap-southeast-1:200000000011:job/job-b05eef5f4399",
+            "ResourceType": "Glue Job",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "6.0020136",
+            "EffectiveCost": "6.0020136",
+            "SkuPriceId": "SPRICE-2caf36fd8fbe6a68e682b866"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Lambda function duration",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:lambda:us-east-1:200000000011:function/fn-c4ead482b009",
+            "ResourceType": "Lambda Function",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "27.070609614",
+            "EffectiveCost": "27.070609614",
+            "SkuPriceId": "SPRICE-227d5491bbfb36c4f69bea63"
+          }
+        }
+      ]
+    },
+    "CommitmentDiscountStatus-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CommitmentDiscountStatus-C-002-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CommitmentDiscountStatus-C-004-C": {
+      "measured_affected_records": 638,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Glue ETL job run",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:glue:ap-southeast-1:200000000011:job/job-b05eef5f4399",
+            "ResourceType": "Glue Job",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "6.0020136",
+            "EffectiveCost": "6.0020136",
+            "SkuPriceId": "SPRICE-2caf36fd8fbe6a68e682b866"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Lambda function duration",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:lambda:us-east-1:200000000011:function/fn-c4ead482b009",
+            "ResourceType": "Lambda Function",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "27.070609614",
+            "EffectiveCost": "27.070609614",
+            "SkuPriceId": "SPRICE-227d5491bbfb36c4f69bea63"
+          }
+        }
+      ]
+    },
+    "CostAndUsage-D-000-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CostAndUsage-D-002-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "EffectiveCost-C-000-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "EffectiveCost-C-005-C": {
+      "measured_affected_records": 51,
+      "examples": [
+        {
+          "data_record": 8,
+          "values": {
+            "ChargeCategory": "Purchase",
+            "ChargeDescription": "AWSLambda subscription fee",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000014",
+            "ResourceId": "arn:aws:lambda:eu-west-1:200000000014:function/fn-24ffcd877ec8",
+            "ResourceType": "Lambda Function",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "160.2",
+            "EffectiveCost": "160.2",
+            "SkuPriceId": "SPRICE-93ee86cad4d9013385430597"
+          }
+        },
+        {
+          "data_record": 36,
+          "values": {
+            "ChargeCategory": "Purchase",
+            "ChargeDescription": "AmazonEC2 subscription fee",
+            "BillingAccountId": "100000000002",
+            "SubAccountId": "200000000014",
+            "ResourceId": "arn:aws:ec2:eu-west-1:200000000014:instance/i-bccf6280ffc0",
+            "ResourceType": "EC2 Instance",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "596.74",
+            "EffectiveCost": "596.74",
+            "SkuPriceId": "SPRICE-be085248bbc4792303298e2e"
+          }
+        }
+      ]
+    },
+    "InvoiceId-C-004-C": {
+      "measured_affected_records": 1000,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Glue ETL job run",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:glue:ap-southeast-1:200000000011:job/job-b05eef5f4399",
+            "ResourceType": "Glue Job",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "6.0020136",
+            "EffectiveCost": "6.0020136",
+            "SkuPriceId": "SPRICE-2caf36fd8fbe6a68e682b866"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Lambda function duration",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:lambda:us-east-1:200000000011:function/fn-c4ead482b009",
+            "ResourceType": "Lambda Function",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "27.070609614",
+            "EffectiveCost": "27.070609614",
+            "SkuPriceId": "SPRICE-227d5491bbfb36c4f69bea63"
+          }
+        }
+      ]
+    },
+    "SubAccountId-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "SubAccountId-C-001-M": {
+      "measured_affected_records": 1000,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Glue ETL job run",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:glue:ap-southeast-1:200000000011:job/job-b05eef5f4399",
+            "ResourceType": "Glue Job",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "6.0020136",
+            "EffectiveCost": "6.0020136",
+            "SkuPriceId": "SPRICE-2caf36fd8fbe6a68e682b866"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Lambda function duration",
+            "BillingAccountId": "100000000001",
+            "SubAccountId": "200000000011",
+            "ResourceId": "arn:aws:lambda:us-east-1:200000000011:function/fn-c4ead482b009",
+            "ResourceType": "Lambda Function",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "27.070609614",
+            "EffectiveCost": "27.070609614",
+            "SkuPriceId": "SPRICE-227d5491bbfb36c4f69bea63"
+          }
+        }
+      ]
+    }
+  },
+  "azure": {
+    "CapacityReservationStatus-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CapacityReservationStatus-C-002-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CapacityReservationStatus-C-004-C": {
+      "measured_affected_records": 1000,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "VNet peering data transfer",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000001",
+            "SubAccountId": "11111111-1111-4111-8111-111111111111",
+            "ResourceId": "/subscriptions/11111111-1111-4111-8111-111111111111/resourceGroups/rg-prod-platform/providers/Microsoft.Network/virtualNetworks/vnet-b05eef5f",
+            "ResourceType": "Virtual Network",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "6.4587096",
+            "EffectiveCost": "6.4587096",
+            "SkuPriceId": "SPRICE-144b7ae41849e56237321c86"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Virtual Network",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000001",
+            "SubAccountId": "11111111-1111-4111-8111-111111111111",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0.64587096",
+            "EffectiveCost": "0.64587096",
+            "SkuPriceId": ""
+          }
+        }
+      ]
+    },
+    "CommitmentDiscountStatus-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CommitmentDiscountStatus-C-002-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CommitmentDiscountStatus-C-004-C": {
+      "measured_affected_records": 676,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "VNet peering data transfer",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000001",
+            "SubAccountId": "11111111-1111-4111-8111-111111111111",
+            "ResourceId": "/subscriptions/11111111-1111-4111-8111-111111111111/resourceGroups/rg-prod-platform/providers/Microsoft.Network/virtualNetworks/vnet-b05eef5f",
+            "ResourceType": "Virtual Network",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "6.4587096",
+            "EffectiveCost": "6.4587096",
+            "SkuPriceId": "SPRICE-144b7ae41849e56237321c86"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Virtual Network",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000001",
+            "SubAccountId": "11111111-1111-4111-8111-111111111111",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0.64587096",
+            "EffectiveCost": "0.64587096",
+            "SkuPriceId": ""
+          }
+        }
+      ]
+    },
+    "CostAndUsage-D-000-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CostAndUsage-D-002-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "EffectiveCost-C-000-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "EffectiveCost-C-005-C": {
+      "measured_affected_records": 58,
+      "examples": [
+        {
+          "data_record": 6,
+          "values": {
+            "ChargeCategory": "Purchase",
+            "ChargeDescription": "Virtual Network subscription fee",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "33333333-3333-4333-8333-333333333333",
+            "ResourceId": "/subscriptions/33333333-3333-4333-8333-333333333333/resourceGroups/rg-data-analytics/providers/Microsoft.Network/virtualNetworks/vnet-9084ee82",
+            "ResourceType": "Virtual Network",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "729.41",
+            "EffectiveCost": "729.41",
+            "SkuPriceId": "SPRICE-cc29e7955364187370c9a5bb"
+          }
+        },
+        {
+          "data_record": 38,
+          "values": {
+            "ChargeCategory": "Purchase",
+            "ChargeDescription": "Virtual Machines subscription fee",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000002",
+            "SubAccountId": "44444444-4444-4444-8444-444444444444",
+            "ResourceId": "/subscriptions/44444444-4444-4444-8444-444444444444/resourceGroups/rg-sandbox-dev/providers/Microsoft.Compute/virtualMachines/vm-f6280ffc",
+            "ResourceType": "Virtual Machine",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "54.37",
+            "EffectiveCost": "54.37",
+            "SkuPriceId": "SPRICE-c57b125e87bf16e8d39ab3b8"
+          }
+        }
+      ]
+    },
+    "InvoiceId-C-004-C": {
+      "measured_affected_records": 1000,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "VNet peering data transfer",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000001",
+            "SubAccountId": "11111111-1111-4111-8111-111111111111",
+            "ResourceId": "/subscriptions/11111111-1111-4111-8111-111111111111/resourceGroups/rg-prod-platform/providers/Microsoft.Network/virtualNetworks/vnet-b05eef5f",
+            "ResourceType": "Virtual Network",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "6.4587096",
+            "EffectiveCost": "6.4587096",
+            "SkuPriceId": "SPRICE-144b7ae41849e56237321c86"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Virtual Network",
+            "BillingAccountId": "8a1b2c3d-0000-4a00-9000-000000000001",
+            "SubAccountId": "11111111-1111-4111-8111-111111111111",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "0.64587096",
+            "EffectiveCost": "0.64587096",
+            "SkuPriceId": ""
+          }
+        }
+      ]
+    }
+  },
+  "gcp": {
+    "CapacityReservationStatus-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CapacityReservationStatus-C-002-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CapacityReservationStatus-C-004-C": {
+      "measured_affected_records": 1000,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Cloud Run vCPU allocation",
+            "BillingAccountId": "01A2B3-C4D5E6-F70819",
+            "SubAccountId": "examplecorp-prod-481627",
+            "ResourceId": "//run.googleapis.com/projects/examplecorp-prod-481627/services/svc-b05eef5f",
+            "ResourceType": "Cloud Run Service",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "17.33275133424",
+            "EffectiveCost": "17.33275133424",
+            "SkuPriceId": "SPRICE-9c404e5e6026ce0b2e5ce800"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Cloud Run",
+            "BillingAccountId": "01A2B3-C4D5E6-F70819",
+            "SubAccountId": "examplecorp-prod-481627",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "1.733275133424",
+            "EffectiveCost": "1.733275133424",
+            "SkuPriceId": ""
+          }
+        }
+      ]
+    },
+    "CommitmentDiscountStatus-C-000-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CommitmentDiscountStatus-C-002-C": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CommitmentDiscountStatus-C-004-C": {
+      "measured_affected_records": 692,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Cloud Run vCPU allocation",
+            "BillingAccountId": "01A2B3-C4D5E6-F70819",
+            "SubAccountId": "examplecorp-prod-481627",
+            "ResourceId": "//run.googleapis.com/projects/examplecorp-prod-481627/services/svc-b05eef5f",
+            "ResourceType": "Cloud Run Service",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "17.33275133424",
+            "EffectiveCost": "17.33275133424",
+            "SkuPriceId": "SPRICE-9c404e5e6026ce0b2e5ce800"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Cloud Run",
+            "BillingAccountId": "01A2B3-C4D5E6-F70819",
+            "SubAccountId": "examplecorp-prod-481627",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "1.733275133424",
+            "EffectiveCost": "1.733275133424",
+            "SkuPriceId": ""
+          }
+        }
+      ]
+    },
+    "CostAndUsage-D-000-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "CostAndUsage-D-002-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "EffectiveCost-C-000-M": {
+      "composite_failure": true,
+      "see": "failure-explanations.json"
+    },
+    "EffectiveCost-C-005-C": {
+      "measured_affected_records": 63,
+      "examples": [
+        {
+          "data_record": 6,
+          "values": {
+            "ChargeCategory": "Purchase",
+            "ChargeDescription": "Cloud Run subscription fee",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-data-739104",
+            "ResourceId": "//run.googleapis.com/projects/examplecorp-data-739104/services/svc-9084ee82",
+            "ResourceType": "Cloud Run Service",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "150.99",
+            "EffectiveCost": "150.99",
+            "SkuPriceId": "SPRICE-7f7b33833d5065313f14d1fc"
+          }
+        },
+        {
+          "data_record": 38,
+          "values": {
+            "ChargeCategory": "Purchase",
+            "ChargeDescription": "Compute Engine subscription fee",
+            "BillingAccountId": "11C2D3-E4F506-A7B8C9",
+            "SubAccountId": "examplecorp-sandbox-160942",
+            "ResourceId": "//compute.googleapis.com/projects/examplecorp-sandbox-160942/instances/instance-f6280ffc",
+            "ResourceType": "Compute Instance",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "773.55",
+            "EffectiveCost": "773.55",
+            "SkuPriceId": "SPRICE-0d4599b9f9ddf68fe43a1d13"
+          }
+        }
+      ]
+    },
+    "InvoiceId-C-004-C": {
+      "measured_affected_records": 1000,
+      "examples": [
+        {
+          "data_record": 1,
+          "values": {
+            "ChargeCategory": "Usage",
+            "ChargeDescription": "Cloud Run vCPU allocation",
+            "BillingAccountId": "01A2B3-C4D5E6-F70819",
+            "SubAccountId": "examplecorp-prod-481627",
+            "ResourceId": "//run.googleapis.com/projects/examplecorp-prod-481627/services/svc-b05eef5f",
+            "ResourceType": "Cloud Run Service",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "17.33275133424",
+            "EffectiveCost": "17.33275133424",
+            "SkuPriceId": "SPRICE-9c404e5e6026ce0b2e5ce800"
+          }
+        },
+        {
+          "data_record": 2,
+          "values": {
+            "ChargeCategory": "Tax",
+            "ChargeDescription": "Synthetic tax 10% on usage record 1: Cloud Run",
+            "BillingAccountId": "01A2B3-C4D5E6-F70819",
+            "SubAccountId": "examplecorp-prod-481627",
+            "ResourceId": "",
+            "ResourceType": "",
+            "CommitmentDiscountId": "",
+            "CommitmentDiscountStatus": "",
+            "CapacityReservationId": "",
+            "CapacityReservationStatus": "",
+            "BilledCost": "1.733275133424",
+            "EffectiveCost": "1.733275133424",
+            "SkuPriceId": ""
+          }
+        }
+      ]
+    }
+  }
+}

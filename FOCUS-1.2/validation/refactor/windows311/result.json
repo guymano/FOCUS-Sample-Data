@@ -1,0 +1,37 @@
+{
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.16",
+  "checks": [
+    {
+      "command": "python generators/check_focus_1_2_samples.py",
+      "exit_code": 0,
+      "log": "1_2-acceptance.log",
+      "sha256": "b9bf879943371c6fc6ba5368208d6282f2424f8dda6206a2f09d865eb52b80b9"
+    },
+    {
+      "command": "python -m unittest discover -s generators -p test_focus_1_2_regressions.py",
+      "exit_code": 0,
+      "log": "1_2-regressions.log",
+      "sha256": "3a8db4d82e69b06b9e501a89e204b5fe68c853f6b2c6c7239b921c8d6c55105c"
+    },
+    {
+      "command": "python generators/describe_focus_1_2_samples.py",
+      "exit_code": 0,
+      "log": "1_2-statistics.log",
+      "sha256": "f7f7d9cb0b8bbce1ad450b4ea1d5e5fc091e3c78f89a81b99156a9f3595d161c"
+    },
+    {
+      "command": "python generators/validate_focus_1_2_samples.py --check-existing",
+      "exit_code": 0,
+      "log": "1_2-evidence.log",
+      "sha256": "743c6ab1456544e22105b9fd7b756f0a508e3f6bd89a683f337ec9cc1ce22458"
+    },
+    {
+      "command": "python -m unittest discover -s generators -p test_focus_shared.py",
+      "exit_code": 0,
+      "log": "shared.log",
+      "sha256": "844571de73c6b8d23e21f5496af625b25be3075cf991e223f3cb75b370a4a4c8"
+    }
+  ],
+  "scope": "Both corrected versions on identical shared core; 1.2-specific checks shown here."
+}

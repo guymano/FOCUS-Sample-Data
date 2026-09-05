@@ -5,9 +5,9 @@ Reference environment: Python 3.12 / Windows, focus-validator 2.2.1, model 1.2.0
 currency resource hashes are pinned in [runtime.json](runtime.json). These results
 do not claim a Linux run or complete conformance.
 
-[Current results](results.md) · [statistics](statistics.md) · [all expected rule states](expected.json)
-· [failure explanations](failure-explanations.json) · [affected-record proofs](failure-examples.json)
-· [upstream tracking](upstream-notes.md).
+[Current results](results.md) Â· [statistics](statistics.md) Â· [all expected rule states](expected.json)
+Â· [failure explanations](failure-explanations.json) Â· [affected-record proofs](failure-examples.json)
+Â· [upstream tracking](upstream-notes.md).
 
 ## Reproduce and record
 
@@ -77,3 +77,18 @@ tests cover the fixture's arithmetic, SKU consistency, tax lineage and reconcili
 ## Local checks
 
 [Acceptance](acceptance.log), [regressions](regressions.log), and [evidence check](evidence-check.log).
+
+## Shared-core non-regression
+
+[Refactoring proof](refactor/README.md) locks output to the pre-extraction commits.
+`expected.json` and each current report manifest now also record the sorted shared
+source file inventory and its aggregate SHA-256. The inventory includes core,
+provider, version and initializer modules, the entry point and the provenance
+implementation. FOCUS 1.2 excludes only the explicit 1.3 extensions it never imports.
+Added, removed or modified common source files invalidate reviewed evidence even
+when the thin entry point stays unchanged. The previous reports remain in the Git
+history at the frozen reference commit; the original before/ directory is unchanged.
+
+The refactor-validation-comparison.json records the reviewed comparison: every rule
+state, violation count, data/model hash and failing population remains unchanged.
+The 2.2.1 live reports were rerun using the same 1.2.0.1 / 1.3.0.1 models and ALL.

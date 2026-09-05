@@ -1,0 +1,37 @@
+{
+  "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.12.13",
+  "checks": [
+    {
+      "command": "python generators/check_focus_1_2_samples.py",
+      "exit_code": 0,
+      "log": "1_2-acceptance.log",
+      "sha256": "0db8a1bc3f7de16a11cc8c8e600f45b9435b976b66aa69b9c02ff040574cdd77"
+    },
+    {
+      "command": "python -m unittest discover -s generators -p test_focus_1_2_regressions.py",
+      "exit_code": 0,
+      "log": "1_2-regressions.log",
+      "sha256": "7418ee94d56e5fb2ce4d03e5e58e2db9628fccabb353c21b666220f9abbc2349"
+    },
+    {
+      "command": "python generators/describe_focus_1_2_samples.py",
+      "exit_code": 0,
+      "log": "1_2-statistics.log",
+      "sha256": "8515d87017747d3201fa04c9e8481b8b8c4fe8e2c2e46228b1f3ff54c9f54140"
+    },
+    {
+      "command": "python generators/validate_focus_1_2_samples.py --check-existing",
+      "exit_code": 0,
+      "log": "1_2-evidence.log",
+      "sha256": "c594aac923299ce0943aff31f774fe7e30c555935390eae8aba7a24f1b1384ba"
+    },
+    {
+      "command": "python -m unittest discover -s generators -p test_focus_shared.py",
+      "exit_code": 0,
+      "log": "shared.log",
+      "sha256": "ef2e7232f546d5d0724e4f40d409e084cd503b100f07d47061286080d061b767"
+    }
+  ],
+  "scope": "Both corrected versions on identical shared core; 1.2-specific checks shown here."
+}
