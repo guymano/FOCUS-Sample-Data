@@ -6,6 +6,8 @@ AWS
   PASS  independent sku invariants
   PASS  independent resource invariants
   PASS  independent commitment invariants
+  PASS  default fleet commitments represent at least 5% of billed cost [fixture target]
+  PASS  fleet utilization, waste and eligible-compute coverage are bounded
   PASS  the committed file is byte-reproducible
   PASS  57 columns
   PASS  ListCost == ListUnitPrice x PricingQuantity where unit pricing applies
@@ -38,6 +40,8 @@ AZURE
   PASS  independent sku invariants
   PASS  independent resource invariants
   PASS  independent commitment invariants
+  PASS  default fleet commitments represent at least 5% of billed cost [fixture target]
+  PASS  fleet utilization, waste and eligible-compute coverage are bounded
   PASS  the committed file is byte-reproducible
   PASS  57 columns
   PASS  ListCost == ListUnitPrice x PricingQuantity where unit pricing applies
@@ -70,6 +74,8 @@ GCP
   PASS  independent sku invariants
   PASS  independent resource invariants
   PASS  independent commitment invariants
+  PASS  default fleet commitments represent at least 5% of billed cost [fixture target]
+  PASS  fleet utilization, waste and eligible-compute coverage are bounded
   PASS  the committed file is byte-reproducible
   PASS  57 columns
   PASS  ListCost == ListUnitPrice x PricingQuantity where unit pricing applies

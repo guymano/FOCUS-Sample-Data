@@ -1,33 +1,32 @@
-# Prepared upstream findings (not newly filed)
+# Upstream tracking
 
-Existing related reports were searched before preparing these notes:
+The reference remains unmodified focus-validator 2.2.1 and the versioned 1.2.0.1 /
+1.3.0.1 release assets. Reports under reproductions/ contain targeted one-record
+proofs, exact input/model hashes, source rows and the actual rule definitions.
 
-- [focus_validator#142](https://github.com/finopsfoundation/focus_validator/issues/142): dropped bare AND conditions, including CapacityReservationStatus.
-- [focus_validator#143](https://github.com/finopsfoundation/focus_validator/issues/143): inverted PricingCurrencyContractedUnitPrice condition.
-- [FOCUS_Spec#2635](https://github.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/issues/2635): key-casing build checks; 1.3 erratum #3 already covers the casing correction.
-- [FOCUS_Spec#2036](https://github.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/issues/2036): related ContractApplied purchase/usage semantics; it does not itself fix the validator dropping the Purchase condition.
+| Finding | Tracking | Status of this contribution |
+|---|---|---|
+| Period subscription rejected by over-broad EffectiveCost purchase condition | [FOCUS_Spec #2673](https://github.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/issues/2673) | Filed with measured 1.2 and 1.3 reproductions; not fixed upstream |
+| Spend optional properties versus mandatory presence | [FOCUS_Spec #2674](https://github.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/issues/2674) | Filed as a specification/model consistency issue; not fixed upstream |
+| JSON row/element conditions ignored (O-039-C, O-065-C) | [focus_validator #160](https://github.com/finopsfoundation/focus_validator/issues/160) | Filed with measured one-record reproduction; not fixed upstream |
+| Bare AND conditions dropped | [focus_validator #142](https://github.com/finopsfoundation/focus_validator/issues/142) | Existing report; no duplicate filed |
+| Inverted pricing-currency contracted unit-price condition | [focus_validator #143](https://github.com/finopsfoundation/focus_validator/issues/143) / [FOCUS_Spec #2369](https://github.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/issues/2369) | Original issue closed with a backport reference; #2369 was closed when a PR was opened, not as proof of a fix in our pinned model |
 
-## Period purchases falsely required to have zero EffectiveCost
+#2048 already records errata including #5's four-to-five property-count change.
+That does not remove the contradiction with JTD optionalProperties and the existing
+three-key Spend examples; #2674 reports this remaining consistency problem rather
+than another spelling/count typo. The fixture retains the shape Matt recommended
+while the upstream requirements are clarified. No claim is made that contradictory
+normative bullets can all be satisfied simultaneously.
 
-Reproduce with any recorded standalone subscription purchase in failure-examples.json.
-The model's EffectiveCost-C-005-C prose includes 'intended to cover future eligible
-charges', but its executable condition contains only ChargeCategory == Purchase.
-A period-consumed subscription has equal BilledCost and EffectiveCost, with no
-future charge to cover. Both 1.2.0.1 and 1.3.0.1 reject it; the parent composite
-also fails. Preserve the intended condition or classify it as non-static when
-the input cannot express that intent. The raw model rule and exact record/count
-evidence are included here; no model modification was made for these runs.
+Static inspection of latest-draft models 1.2.0.3 and 1.3.0.3 still found the over-broad
+EffectiveCost condition, and 1.3.0.3 retained the five-key requirement and inverted
+pricing-currency condition. This is a separate source inspection, not another live
+validator run or a replacement for the reference evidence. Draft artifact hashes:
 
-## ContractApplied optional properties and condition scope (1.3)
+- 1.2.0.3: b42cd16aaf4e9002f52ccf7069e981431c020eeefb85f792d73979f9e94382e7
+- 1.3.0.3: 01ef5d89568eafb7f00c84f9d268db6e834fa87d8165c2bc51f8d816ec407716
 
-Spend elements legitimately omit applied quantity/unit, but O-007-M demands all
-five keys. Adding null keys creates conflicting downstream failures. O-039-C
-declares a Purchase condition but compares IDs on Usage rows; O-065-C requires
-unit null even for elements with a populated quantity. Use the unmodified three-key
-Spend and five-key Usage examples, inspect the exact rule snapshots and affected
-record counts, and fix model/condition evaluation rather than corrupting samples.
-
-## Deferred sample improvements
-
-Fleet-scale commitments and shared provider helpers remain future work. No shared
-module was introduced. These are not marked as completed corrections.
+Fleet sizing is implemented and independently checked. Only shared-provider code
+extraction remains deliberately deferred; integration order is tracked in the PR
+conversation rather than permanent generator documentation.

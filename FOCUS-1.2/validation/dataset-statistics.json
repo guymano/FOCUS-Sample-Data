@@ -1,0 +1,71 @@
+{
+  "aws": {
+    "categories": {
+      "Usage": 687,
+      "Purchase": 232,
+      "Tax": 81
+    },
+    "commitment_discounts": 20,
+    "used": 144,
+    "unused": 37,
+    "effective_cost": "41111.69488077753375",
+    "metrics": {
+      "billed_cost": "41111.69488077753375",
+      "commitment_purchases": "5794.896",
+      "used_effective_cost": "4610.304",
+      "unused_effective_cost": "1184.592",
+      "eligible_list_cost": "6917.280",
+      "covered_list_cost": "6912",
+      "commitment_share": "0.1409549281975601874309680683",
+      "utilization": "0.7955801104972375690607734807",
+      "waste": "0.2044198895027624309392265193",
+      "coverage": "0.9992366941919367150093678440"
+    }
+  },
+  "azure": {
+    "categories": {
+      "Usage": 690,
+      "Tax": 90,
+      "Purchase": 220
+    },
+    "commitment_discounts": 18,
+    "used": 124,
+    "unused": 38,
+    "effective_cost": "81185.248950230304",
+    "metrics": {
+      "billed_cost": "81185.248950230304",
+      "commitment_purchases": "10373.184",
+      "used_effective_cost": "7939.968",
+      "unused_effective_cost": "2433.216",
+      "eligible_list_cost": "11915.712",
+      "covered_list_cost": "11904",
+      "commitment_share": "0.1277717828562570866800436481",
+      "utilization": "0.7654320987654320987654320988",
+      "waste": "0.2345679012345679012345679012",
+      "coverage": "0.9990170960828861926169413964"
+    }
+  },
+  "gcp": {
+    "categories": {
+      "Usage": 695,
+      "Tax": 88,
+      "Purchase": 217
+    },
+    "commitment_discounts": 18,
+    "used": 118,
+    "unused": 36,
+    "effective_cost": "54393.0794798256860",
+    "metrics": {
+      "billed_cost": "54393.0794798256860",
+      "commitment_purchases": "6882.106",
+      "used_effective_cost": "5273.302",
+      "unused_effective_cost": "1608.804",
+      "eligible_list_cost": "7915.112",
+      "covered_list_cost": "7906",
+      "commitment_share": "0.1265253974552509588510618119",
+      "utilization": "0.7662337662337662337662337662",
+      "waste": "0.2337662337662337662337662338",
+      "coverage": "0.9988487844518182433805105980"
+    }
+  }
+}

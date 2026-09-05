@@ -118,12 +118,43 @@ class RegressionTests(unittest.TestCase):
 
     def test_validator_report_cannot_hide_new_failures(self):
         import validate_focus_1_2_samples as validator
-        expected = {"failures": {"Known-C-001-M": 2}, "skipped_rules": []}
-        text = "Total: 2 | Pass: 1 | Fail: 1 | Skipped: 0\nX Known-C-001-M: FAIL  (violations=2)"
+        text = "Total: 2 | Pass: 1 | Fail: 1 | Skipped: 0\nX Good-C-001-M: PASS  (violations=0)\nX Known-C-001-M: FAIL  (violations=2)"
+        expected = validator.parse_report(text)
         self.assertEqual(validator.check_report(text, expected), [])
         self.assertTrue(validator.check_report(text.replace("Known-", "Unknown-"), expected))
         self.assertTrue(validator.check_report(text.replace("violations=2", "violations=3"), expected))
         self.assertTrue(validator.check_report("Traceback (most recent call last)", expected))
+        missing = text.replace("X Good-C-001-M: PASS  (violations=0)\n", "").replace("Total: 2 | Pass: 1", "Total: 1 | Pass: 0")
+        self.assertTrue(validator.check_report(missing, expected))
+        self.assertTrue(validator.check_report(text + "\nX Good-C-001-M: PASS  (violations=0)", expected))
+        changed = text.replace("Pass: 1", "Pass: 0").replace("Skipped: 0", "Skipped: 1").replace(": PASS ", ": SKIPPED ")
+        self.assertTrue(validator.check_report(changed, expected))
+
+    def test_evidence_checks_input_and_generator_hashes(self):
+        import validate_focus_1_2_samples as validator
+        source = validator.DATA / "focus_sample_costandusage_aws_1000.csv"
+        expected = json.loads((validator.EVIDENCE / "expected.json").read_text(encoding="utf-8"))[source.name]
+        self.assertEqual(validator.snapshot_errors(source, expected), [])
+        for key in ("data_sha256", "generator_sha256", "model_sha256", "currency_codes_sha256"):
+            wrong = dict(expected, **{key: "0" * 64})
+            self.assertTrue(validator.snapshot_errors(source, wrong), key)
+
+    def test_fleet_scale_and_metrics(self):
+        for provider, rows in self.samples.items():
+            metrics = audit.fixture_metrics(rows, provider)
+            self.assertGreaterEqual(Decimal(metrics["commitment_share"]), Decimal("0.05"))
+            self.assertEqual(Decimal(metrics["used_effective_cost"]) + Decimal(metrics["unused_effective_cost"]), Decimal(metrics["commitment_purchases"]))
+            for key in ("utilization", "waste", "coverage"):
+                self.assertTrue(0 <= Decimal(metrics[key]) <= 1, key)
+            used = next(r for r in rows if r["CommitmentDiscountStatus"] == "Used")
+            self.assertEqual(used["ResourceType"], "Compute Fleet")
+            self.assertEqual(Decimal(used["ConsumedQuantity"]), Decimal(500))
+            self.assertEqual(json.loads(used["Tags"])["SyntheticFleetSize"], "500")
+            broken = copy.deepcopy(rows)
+            next(r for r in broken if r["CommitmentDiscountStatus"] == "Used")["ConsumedQuantity"] = "1"
+            self.assertTrue(any(e.startswith("commitment:") for e in audit.audit_rows(broken, provider)))
+            excluded = [r for r in rows if r["ChargeCategory"] in ("Tax", "Purchase")]
+            self.assertIsNone(audit.fixture_metrics(excluded, provider)["coverage"])
 
 
 if __name__ == "__main__":

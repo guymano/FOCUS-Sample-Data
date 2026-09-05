@@ -157,6 +157,7 @@ _QTY_Q = Decimal("0.0001")
 _EUR_PER_USD = Decimal("0.92")
 _COMMIT_RATE = Decimal("0.667")
 _PRIVATE_RATE = Decimal("0.90")
+_FLEET_SIZE = Decimal("500")  # machine-equivalents, aggregated per hourly period
 _COMMIT_TERM_HOURS = Decimal("8760")
 
 
@@ -543,7 +544,8 @@ def _commitment_group(
     # commitment discounts, so the commitment's saving shows up in EffectiveCost alone.
     list_unit = _q(spec.unit_price_usd, _PRICE_Q)
     contracted_unit = _q(list_unit * _PRIVATE_RATE, _PRICE_Q)
-    commit_rate = _q(list_unit * _COMMIT_RATE, _PRICE_Q)
+    commit_unit_rate = _q(list_unit * _COMMIT_RATE, _PRICE_Q)
+    commit_rate = commit_unit_rate * _FLEET_SIZE
 
     n_usage = rng.randint(5, 9)
     n_unused = rng.randint(1, 3)
@@ -570,10 +572,10 @@ def _commitment_group(
         commit_pricing_unit = "USD"
         commit_drawdown = _s_cost(commit_rate)
     else:
-        commit_price_unit = commit_rate
-        commit_pricing_qty = Decimal("1")
+        commit_price_unit = commit_unit_rate
+        commit_pricing_qty = _FLEET_SIZE
         commit_pricing_unit = "Hours"
-        commit_drawdown = "1"
+        commit_drawdown = _s_cost(_FLEET_SIZE)
 
     # Full billing identity of the commitment, reused verbatim by every row of the group
     # so account, invoice and reconciliation stay consistent within it.
@@ -599,6 +601,9 @@ def _commitment_group(
         row["RegionName"] = region_name
         row["SkuMeter"] = "Commitment"
         row["SkuPriceDetails"] = commit_sku_details
+
+    fleet_name = _stable_id("fleet", [PROVIDER_NAME, ctx["sub_id"], region_id, commit_id])
+    fleet_id = f"urn:focus-sample:gcp:{region_id}:{ctx['sub_id']}:compute-fleet:{fleet_name}"
 
     rows: list[dict[str, str]] = []
     for k in range(n_periods):
@@ -639,7 +644,7 @@ def _commitment_group(
 
         if k < n_usage:
             # An eligible resource ran for the period and drew the commitment down.
-            used_qty = Decimal("1")
+            used_qty = _FLEET_SIZE
             resource_name = f"{spec.name_prefix}{k:04d}{_hexid(rng, 6)}"
             usage["ResourceId"] = _resource_id(spec, ctx["sub_id"], resource_name)
             usage["ResourceName"] = resource_name
@@ -649,8 +654,14 @@ def _commitment_group(
             usage["AvailabilityZone"] = zone
             usage["SkuMeter"] = spec.sku_meter
             usage["SkuPriceDetails"] = json.dumps(spec.sku_details, separators=(",", ":"))
-            usage["ChargeDescription"] = f"{spec.name} committed usage"
-            usage["EffectiveCost"] = _s_cost(commit_rate * used_qty)
+            usage["ResourceId"] = fleet_id
+            usage["ResourceName"] = fleet_name
+            usage["ResourceType"] = "Compute Fleet"
+            tags = json.loads(usage["Tags"])
+            tags["SyntheticFleetSize"] = "500"
+            usage["Tags"] = json.dumps(tags, separators=(",", ":"))
+            usage["ChargeDescription"] = f"{spec.name} committed usage of 500 machine-equivalents"
+            usage["EffectiveCost"] = _s_cost(commit_unit_rate * used_qty)
             usage["ListCost"] = _s_cost(list_unit * used_qty)
             usage["ContractedCost"] = _s_cost(contracted_unit * used_qty)
             usage["ListUnitPrice"] = _s(list_unit)
@@ -660,7 +671,7 @@ def _commitment_group(
             usage["ConsumedQuantity"] = _s_cost(used_qty)
             usage["ConsumedUnit"] = "Hours"
             _commitment_columns(usage, "Used")
-            _set_currency(usage, "USD", list_unit, contracted_unit, commit_rate * used_qty)
+            _set_currency(usage, "USD", list_unit, contracted_unit, commit_unit_rate * used_qty)
         else:
             # Nothing eligible ran: the period's allocation is wasted. ConsumedQuantity
             # and ConsumedUnit MUST be null here, and the charge prices the commitment

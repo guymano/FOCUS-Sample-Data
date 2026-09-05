@@ -1,44 +1,54 @@
 # FOCUS 1.2 validation evidence
 
-Measured against the pre-correction branch revision and the regenerated CSVs.
-Every per-file JSON manifest records the input SHA-256, base revision, command,
-model/currency-resource hashes, individual failures and skipped rules. The after
-manifests also identify the generator source by SHA-256. Console logs are retained
-unaltered; timing values are informational and need not repeat.
+Reference environment: Python 3.12 / Windows, focus-validator 2.2.1, model 1.2.0.1,
+`--applicability-criteria ALL --show-violations --block-download`. The model and
+currency resource hashes are pinned in [runtime.json](runtime.json). These results
+do not claim a Linux run or complete conformance.
 
-- [Runtime and rule hashes](runtime.json)
-- [Exact validation-environment packages](requirements.txt)
-- [Before/after counts](summary.json)
-- [Every residual failure and its actual model rule](failure-explanations.json)
-- [Reviewed after expectations](expected.json)
-- [Affected-row examples and measured counts](failure-examples.json)
-- [Prepared upstream findings and existing tickets](upstream-notes.md)
+[Current results](results.md) · [statistics](statistics.md) · [all expected rule states](expected.json)
+· [failure explanations](failure-explanations.json) · [affected-record proofs](failure-examples.json)
+· [upstream tracking](upstream-notes.md).
 
-## Reproduce
-
-Use Python 3.12 in an isolated environment. Install the recorded requirements;
-the generators themselves do not require these packages. `uv pip install` was
-used successfully, including the pandasql build, with a writable local cache.
-The recorded runtime is Windows; test results below do not claim a Linux run.
+## Reproduce and record
 
 ```bash
 python -m pip install -r FOCUS-1.2/validation/requirements.txt
 python generators/validate_focus_1_2_samples.py
+python generators/validate_focus_1_2_samples.py --check-existing
+python generators/validate_focus_1_2_samples.py --record FOCUS-1.2/validation/local/candidate
+python generators/reproduce_focus_1_2_validator.py --out FOCUS-1.2/validation/local/reproductions --run
 ```
 
-The wrapper invokes the unmodified validator from its installed package's parent
-directory because 2.2.1 resolves `focus_validator/rules/currency_codes.csv` against
-the working directory. It supplies absolute data paths and always uses
-`--validate-version 1.2.0.1 --applicability-criteria ALL --show-violations`.
-It blocks remote rule replacement and verifies the recorded model/resource hashes.
-If a fresh installation lacks model-1.2.0.1.json, obtain [the official v1.2 model](https://github.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/releases/download/v1.2/model-1.2.0.1.json)
-from FOCUS_Spec and verify its runtime.json hash before running the wrapper.
+If the installation lacks the model, obtain the [official versioned release asset](https://github.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/releases/download/v1.2/model-1.2.0.1.json)
+and verify its runtime.json hash before installing it in focus_validator/rules.
+The wrapper runs the unmodified package from its site-packages parent because 2.2.1
+resolves currency_codes.csv relative to that directory. No validator source is patched.
 
-`--check-existing` checks saved reports and input hashes without installing the
-validator. Live output goes to ignored `validation/local/`, leaving evidence intact.
-Both modes run the independent CSV audit first. Changed inputs, incomplete reports,
-unreviewed failing rules/counts or changed skipped-rule sets result in a nonzero exit.
-This gate confirms the reviewed evidence; it does not turn artifacts into passes.
+Default/check-existing mode verifies data and generator hashes, model-resource hashes,
+the complete rule inventory and states (PASS included), duplicate/missing rules,
+totals and violation counts. It runs the independent data audit first. The official
+executable can exit zero while rules fail; this wrapper examines the actual report.
+
+--record writes a separate candidate directory: raw logs, per-file manifests, expected
+states, independently counted failing populations, metrics and a results table. It
+does not replace committed expectations. Review every changed population and any
+new rule before promoting logs/manifests into after/, expected.json and failure-examples.json;
+copy its summary.md to results.md and use the describe command to refresh statistics.
+Existing explanations must still match the pinned model; an unknown failing population
+stops recording. Rerun --check-existing, acceptance and regression tests after promotion.
+
+before/ preserves the original pre-correction run. after/ records the current CSVs and
+generator hashes; its base_revision identifies the preceding commit whose working
+tree was modified. Earlier after/ snapshots remain available in Git history. Raw logs
+are preserved byte-for-byte and treated as binary diffs to avoid CRLF normalization.
+
+## Minimal reproductions
+
+reproductions/ contains single-record synthetic CSV snippets, source record numbers,
+hashes, targeted rule JSON, and full official logs. They isolate the named defects;
+they are not complete billing periods or claims of whole-file conformance. The
+reproduce command extracts them again from the current AWS sample and asserts the
+target failures when --run is used.
 
 ## Failure counts by cause (including parent composites)
 
@@ -63,5 +73,4 @@ tests cover the fixture's arithmetic, SKU consistency, tax lineage and reconcili
 
 ## Local checks
 
-[Acceptance output](acceptance.log), [regression output](regressions.log), and
-[saved-evidence check](evidence-check.log) are recorded alongside the official reports.
+[Acceptance](acceptance.log), [regressions](regressions.log), and [evidence check](evidence-check.log).

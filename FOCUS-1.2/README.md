@@ -1,137 +1,106 @@
-# FOCUS 1.2 synthetic sample data
+# FOCUS 1.2 synthetic provider samples
 
-Provider-shaped synthetic examples for AWS, Microsoft Azure and Google Cloud,
-using the [FOCUS 1.2 specification](https://focus.finops.org/docs/specification/v1-2/).
-Cost and Usage has **57 columns and 1,000 rows per provider**.
+AWS, Microsoft Azure and Google Cloud examples using the [FOCUS 1.2 specification](https://focus.finops.org/docs/specification/v1-2/).
+Each Cost and Usage file has 1,000 rows and 57 columns.
+These fixtures demonstrate selected scenarios; they are not a conformance certification.
 
+## Generate and check
 
-These examples illustrate selected scenarios. The validator has documented
-limitations; this is **not a claim of complete automated conformance certification**.
-
-## Generate the files
-
-Python 3.11+; the generators and acceptance/regression checks use only the standard
-library. The seed, timestamps and UTF-8/LF serialization are deterministic.
-The local `.gitattributes` preserves CSV LF bytes on Windows checkouts too.
+Python 3.11+ standard library; seeds, timestamps and UTF-8/LF CSV output are deterministic.
+The local attributes preserve CSV and Python-source LF bytes on Windows.
 
 ```bash
 python generators/generate_aws_focus_1_2.py --rows 1000 --seed 1202 --out FOCUS-1.2/focus_sample_costandusage_aws_1000.csv
 python generators/generate_azure_focus_1_2.py --rows 1000 --seed 1202 --out FOCUS-1.2/focus_sample_costandusage_azure_1000.csv
 python generators/generate_gcp_focus_1_2.py --rows 1000 --seed 1202 --out FOCUS-1.2/focus_sample_costandusage_gcp_1000.csv
-```
-
-## What the files contain
-
-| Provider | Usage | Purchase | Tax | Commitment discounts | Used | Unused |
-|---|---:|---:|---:|---:|---:|---:|
-| AWS | 687 | 232 | 81 | 20 | 144 | 37 |
-| Microsoft Azure | 690 | 220 | 90 | 18 | 124 | 38 |
-| Google Cloud | 695 | 217 | 88 | 18 | 118 | 36 |
-
-The committed samples have no Credit, marketplace or correction rows.
-`--include-credits` enables synthetic negative credits for additional testing.
-Capacity reservation IDs/statuses remain null because that scenario is absent.
-
-## Cost model and traceable taxes
-
-- **Period subscription fees:** a standalone recurring Purchase is consumed in its
-  own charge period. EffectiveCost equals BilledCost; PricingCurrencyEffectiveCost
-  carries the corresponding amount. Its subscription offer has a stable synthetic
-  fee per provider/service/region, distinct from the underlying consumption SKU.
-- **Commitment discounts:** every represented hourly period has a recurring
-  Purchase with EffectiveCost zero and one Usage row, either Used or Unused.
-  Unused rows identify the commitment itself and have no ConsumedQuantity/Unit.
-  Per commitment and billing period, usage EffectiveCost equals purchase BilledCost.
-  Equality per charge period is an additional invariant of these fixtures.
-- **Separate discounts:** list price, negotiated price and commitment-adjusted
-  effective cost remain distinct. On Used rows, EffectiveCost < ContractedCost <= ListCost.
-- **Exact arithmetic:** ListCost and ContractedCost equal unit price times quantity
-  wherever unit pricing applies. Tax rows have no unit price/quantity and use the
-  source-cost calculation below instead. Derived costs are not rounded again.
-- **Synthetic taxes:** each tax is 10% of one earlier Standard Usage record, selected
-  at most once. ChargeDescription gives the one-based data-record number (excluding
-  the CSV header). Billing identity, service, charge period and pricing currency
-  match that source; each cost uses its corresponding source cost. The 10% rate is
-  pedagogical and does not model any jurisdiction. With no eligible source, the
-  generator emits usage instead of an orphan tax.
-- **Currency:** billing is USD; pricing can be USD or EUR, with the fixed synthetic
-  conversion EUR = USD x 0.92. Taxes copy their source's pricing currency.
-
-The following equality is a property of this closed-period synthetic model, not a
-universal FOCUS requirement for arbitrary exports:
-
-| Provider | Total BilledCost = total EffectiveCost (USD, exact) |
-|---|---:|
-| AWS | 35328.38867277753375 |
-| Microsoft Azure | 70832.811318230304 |
-| Google Cloud | 47524.7376918256860 |
-
-## Stable offers and identifiers
-
-SkuId derives from provider, service, meter, region, unit and SKU properties,
-independent of row number, RNG seed, billing account and PricingCategory. The same
-consumption offer has the same SKU for Standard and Committed usage. Subscription
-and commitment-purchase offers have different meters/properties and remain distinct.
-SkuPriceId adds list-price and currency information; no per-row price jitter remains.
-IDs are synthetic SHA-256-derived labels, not actual provider catalog IDs.
-
-Storage uses FOCUS `StorageClass` and `Redundancy` keys. The examples use AWS
-Standard/Zonal, Azure Hot/Local, and GCP Standard. `x_` is reserved for custom keys.
-The property-name checks are active rather than an unused list of constants.
-
-AWS ServiceName intentionally retains CUR-style product codes. Resource IDs are
-synthetic ARN-style illustrations, not a complete implementation of every service's
-native ARN grammar. Namespaces are explicit (including lambda and glue); resource
-ownership uses SubAccountId rather than the payer account, including committed usage.
-
-## Acceptance and regression checks
-
-```bash
 python generators/check_focus_1_2_samples.py
 python -m unittest discover -s generators -p 'test_focus_1_2_regressions.py'
+python generators/describe_focus_1_2_samples.py --write
 python generators/validate_focus_1_2_samples.py --check-existing
 ```
 
-The acceptance script checks the committed CSVs and byte-for-byte regeneration.
-Independent data checks cover exact schemas, mandatory values, subscriptions,
-source-linked taxes, stable SKU/price identities, resource ownership and complete
-commitment pairs.
+## Current data
 
-Regression tests exercise all three providers at sizes 1, 2, 11, 12, 23, 24, 25,
-1000 and 1001, using seeds 0, 1, 42 and 1202, with credits enabled and disabled.
-They force groups at and around their row budget, including a larger future group,
-and reject deliberate corruptions of costs, tax sources, SKU IDs/prices, mandatory
-values, AWS ownership and commitment pairs.
-Small files need not contain every scenario. Tests require applicability, not
-nonempty scenario sets that would make small valid files fail spuriously.
+<!-- BEGIN GENERATED STATISTICS -->
+| Provider | Usage | Purchase | Tax | Discounts | Used | Unused |
+|---|---:|---:|---:|---:|---:|---:|
+| aws | 687 | 232 | 81 | 20 | 144 | 37 |
+| azure | 690 | 220 | 90 | 18 | 124 | 38 |
+| gcp | 695 | 217 | 88 | 18 | 118 | 36 |
 
-## Official validation status
+| Provider | Billed = Effective cost (USD) | Commitment share | Utilization | Waste | Compute coverage |
+|---|---:|---:|---:|---:|---:|
+| aws | 41111.69488077753375 | 14.10% | 79.56% | 20.44% | 99.92% |
+| azure | 81185.248950230304 | 12.78% | 76.54% | 23.46% | 99.90% |
+| gcp | 54393.0794798256860 | 12.65% | 76.62% | 23.38% | 99.88% |
+<!-- END GENERATED STATISTICS -->
 
-The full before/after run uses **focus-validator 2.2.1**, model **1.2.0.1**,
-and **--applicability-criteria ALL**. See [validation evidence](validation/README.md)
-for exact versions, resource hashes, raw reports, per-rule explanations and commands.
-Skipped rules are not passes. The wrapper checks actual rule results because the
-official executable can exit zero even when rules fail.
+The committed files contain no Credit, marketplace or correction rows.
+`--include-credits` adds optional negative credit scenarios. Capacity reservations
+are not modeled; their identifiers and statuses remain null.
 
-| Dataset/provider | Failing rules before | Failing rules after | Skipped after |
-|---|---:|---:|---:|
-| costandusage_aws | 17 | 15 | 210 |
-| costandusage_azure | 13 | 11 | 210 |
-| costandusage_gcp | 13 | 11 | 210 |
+## Cost model, fleets and metrics
 
-The subscription correction exposes `EffectiveCost-C-005-C` (with a `CAU-` prefix
-in 1.3) and its parent composite: the model checks every Purchase, omitting the
-prose's condition that it covers future eligible charges. These two failures are
-explained model artifacts, not a reason to erase period subscription costs.
-The full failure inventory is linked above; no unknown failures are accepted.
+- Period subscription fees are recurring purchases consumed in their charge period:
+  EffectiveCost equals BilledCost, with the corresponding pricing-currency amount.
+- Each commitment covers 500 machine-equivalents per hourly period. Purchases cost
+  USD 32.016 for AWS, 64.032 for Azure, or 44.689 for GCP. Every represented period
+  has a purchase plus either fully Used or fully Unused usage. Unused allocation
+  expires; it is not carried to a later period. Group utilization is partial across
+  those periods. The example does not model partially used capacity within an hour.
+- Used rows represent an aggregate Compute Fleet, with a stable synthetic
+  `urn:focus-sample:...:compute-fleet:...` identity, owning SubAccountId and
+  SyntheticFleetSize tag. 500 machine-hours describe the fleet, not one VM running
+  500 hours in a one-hour period. Purchase/Unused rows identify the commitment.
+- Purchase EffectiveCost is zero only for future-covering commitments; their costs
+  reconcile exactly to Used plus Unused EffectiveCost per commitment and period.
+- List, negotiated and effective commitment prices remain distinct. All applicable
+  ListCost/ContractedCost products are exact Decimal arithmetic without a second rounding.
+- Commitment share = commitment-purchase BilledCost / total BilledCost. The default
+  fixture target is at least 5%, which is a pedagogical target, not a FOCUS rule.
+- Utilization and waste divide Used and Unused EffectiveCost by commitment-purchase
+  BilledCost. Coverage divides Used compute ListCost by all eligible compute Usage
+  ListCost, excluding Unused, taxes, subscriptions and other services. These samples
+  contain mostly covered fleet usage and a few individual public-price VMs, so
+  coverage is near 100%; it is not a representative enterprise coverage benchmark.
+- Every tax is 10% of one earlier Standard Usage record, at most once per source.
+  ChargeDescription identifies its one-based data-record number, excluding the header.
+  Identity, service, period and currency match the source; each cost derives from its
+  corresponding source cost. The rate is synthetic, not jurisdiction-specific.
+- Billing is USD; pricing may be EUR using the fixed illustrative conversion 0.92.
+  Required currency values are present on taxes and optional credits.
 
-Earlier results attributed to withdrawn version 2.2.0 are superseded by these
-recorded 2.2.1 runs. Numbers quoted in earlier reviews describe their revisions,
-not these regenerated files.
+The complete files and each account/period/currency bucket reconcile BilledCost and
+EffectiveCost exactly. This is a closed-period fixture property, not a universal
+FOCUS equality for arbitrary exports.
 
-## Deliberate limitations and deferred work
+## SKU and resource identity
 
-Commitment amounts illustrate a small single-unit scenario; these files are not
-representative fleet coverage/utilization benchmarks. Increasing that scale is
-deferred. The three provider generators remain separate and self-contained;
-extracting common code into a shared module is explicitly deferred.
+SkuId derives from provider, service, meter, region, unit and offer properties,
+independent of seed, row, account and PricingCategory. Standard and Committed usage
+share a consumption SKU. SkuPriceId adds list-price and currency information.
+No row-level price jitter remains; subscription fees have a separate stable offer.
+Storage uses FOCUS StorageClass/Redundancy keys: AWS Standard/Zonal, Azure Hot/Local,
+GCP Standard. The `x_` prefix is reserved for custom properties.
+
+AWS deliberately retains CUR-style ServiceName codes. Individual resource IDs use
+explicit namespaces and SubAccountId ownership, including lambda/glue and allocated
+workloads. They are synthetic ARN-style examples, not every service's exact native
+grammar. Aggregate fleet URNs are explicitly synthetic and checked separately.
+
+## Validation and limitations
+
+The acceptance and regression checks cover schemas, mandatory values, stable offers,
+tax lineage, resource ownership, complete commitment groups, fleet size and costs,
+and exact arithmetic. Tests include credits on/off, seeds 0/1/42/1202, row counts
+1/2/11/12/23/24/25/1000/1001, forced budget boundaries and deliberate corruptions.
+Small valid files need not contain every scenario. Statistics are recalculated from
+the CSVs by the documented describe command; running it without --write checks them.
+
+Official reference: focus-validator 2.2.1, model 1.2.0.1, applicability ALL.
+See [validation evidence](validation/README.md) for raw reports, all rule states,
+affected-record proofs and reproducible diagnostic snippets. Skipped rules are not
+passes; residual artifacts are documented, not silently suppressed.
+
+All three provider generators remain self-contained. Common-code extraction is
+explicitly deferred. The fleet correction is implemented; it is no longer deferred.

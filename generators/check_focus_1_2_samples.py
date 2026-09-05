@@ -170,6 +170,55 @@ def sku_errors(rows: list[dict[str, str]]) -> list[str]:
     return errors
 
 
+
+COMPUTE_SERVICE = {"aws": "AmazonEC2", "azure": "Virtual Machines", "gcp": "Compute Engine"}
+STORAGE_SERVICE = {"aws": "AmazonS3", "azure": "Azure Blob Storage", "gcp": "Cloud Storage"}
+HOURLY_COMMITMENT = {"aws": Decimal("32.016"), "azure": Decimal("64.032"), "gcp": Decimal("44.689")}
+
+
+def fixture_metrics(rows, provider):
+    """Ratios use only their stated populations; taxes/subscriptions never count as coverage."""
+    total = sum((Decimal(r["BilledCost"]) for r in rows), Decimal(0))
+    purchase = sum((Decimal(r["BilledCost"]) for r in rows
+                    if r["ChargeCategory"] == "Purchase" and r["CommitmentDiscountId"]), Decimal(0))
+    used = sum((Decimal(r["EffectiveCost"]) for r in rows if r["CommitmentDiscountStatus"] == "Used"), Decimal(0))
+    unused = sum((Decimal(r["EffectiveCost"]) for r in rows if r["CommitmentDiscountStatus"] == "Unused"), Decimal(0))
+    eligible = [r for r in rows if r["ChargeCategory"] == "Usage"
+                and r["ServiceName"] == COMPUTE_SERVICE[provider]
+                and r["CommitmentDiscountStatus"] != "Unused" and r["PricingUnit"] == "Hours"]
+    covered = sum((Decimal(r["ListCost"]) for r in eligible if r["CommitmentDiscountStatus"] == "Used"), Decimal(0))
+    eligible_cost = sum((Decimal(r["ListCost"]) for r in eligible), Decimal(0))
+    ratio = lambda a, b: str(a / b) if b else None
+    return {"billed_cost": str(total), "commitment_purchases": str(purchase),
+            "used_effective_cost": str(used), "unused_effective_cost": str(unused),
+            "eligible_list_cost": str(eligible_cost), "covered_list_cost": str(covered),
+            "commitment_share": ratio(purchase, total), "utilization": ratio(used, purchase),
+            "waste": ratio(unused, purchase), "coverage": ratio(covered, eligible_cost)}
+
+
+def fleet_errors(rows, provider):
+    errors, identifiers = [], {}
+    for number, row in enumerate(rows, 1):
+        if not row["CommitmentDiscountId"]:
+            continue
+        if row["ChargeCategory"] == "Purchase" and Decimal(row["BilledCost"]) != HOURLY_COMMITMENT[provider]:
+            errors.append(f"commitment: record {number} does not purchase the 500-unit hourly fleet")
+        quantity = HOURLY_COMMITMENT[provider] if row["CommitmentDiscountCategory"] == "Spend" else Decimal(500)
+        if Decimal(row["CommitmentDiscountQuantity"]) != quantity:
+            errors.append(f"commitment: record {number} has the wrong fleet drawdown")
+        if row["CommitmentDiscountStatus"] == "Used":
+            prefix = f"urn:focus-sample:{provider}:{row['RegionId']}:{row['SubAccountId']}:compute-fleet:"
+            if (not row["ResourceId"].startswith(prefix) or row["ResourceType"] != "Compute Fleet"
+                or json.loads(row["Tags"]).get("SyntheticFleetSize") != "500"
+                or identifiers.setdefault(row["CommitmentDiscountId"], row["ResourceId"]) != row["ResourceId"]):
+                errors.append(f"resource: record {number} has an invalid or unstable fleet identity")
+            if (Decimal(row["ConsumedQuantity"]) != 500 or Decimal(row["PricingQuantity"]) != 500
+                or row["ConsumedUnit"] != "Hours" or row["PricingUnit"] != "Hours"
+                or Decimal(row["EffectiveCost"]) != HOURLY_COMMITMENT[provider]):
+                errors.append(f"commitment: record {number} has the wrong fleet consumption")
+    return errors
+
+
 def audit_rows(rows: list[dict[str, str]], provider: str) -> list[str]:
     """Fixture invariants for arbitrary sizes/seeds; no scenario-presence assumption."""
     errors = []
@@ -227,7 +276,7 @@ def audit_rows(rows: list[dict[str, str]], provider: str) -> list[str]:
                        "ResourceType", "PricingQuantity", "PricingUnit", "ListUnitPrice", "ContractedUnitPrice",
                        "PricingCurrencyListUnitPrice", "PricingCurrencyContractedUnitPrice")):
                     errors.append(f"tax: record {number} populates inapplicable fields")
-            if provider == "aws" and row["ResourceId"] and row["ResourceId"] != row["CommitmentDiscountId"]:
+            if provider == "aws" and row["ResourceId"] and row["ResourceId"] != row["CommitmentDiscountId"] and row["ResourceType"] != "Compute Fleet":
                 arn = row["ResourceId"].split(":", 5)
                 if len(arn) != 6 or arn[2] != AWS_NAMESPACES[row["ServiceName"]] or arn[4] != row["SubAccountId"]:
                     errors.append(f"resource: record {number} has the wrong AWS namespace/owner")
@@ -245,6 +294,7 @@ def audit_rows(rows: list[dict[str, str]], provider: str) -> list[str]:
     if any(balances.values()):
         errors.append("cost: billed and effective totals do not reconcile per account/period/currency [fixture invariant]")
     errors.extend(sku_errors(rows))
+    errors.extend(fleet_errors(rows, provider))
     return errors
 
 
@@ -258,6 +308,12 @@ def check_provider(provider: str, checker: Checker) -> None:
     for category in ("required", "cost", "tax", "sku", "resource", "commitment"):
         found = [error for error in failures if error.startswith(category + ":")]
         checker.check(not found, f"independent {category} invariants", "; ".join(found[:5]))
+
+    metrics = fixture_metrics(rows, provider)
+    checker.check(Decimal(metrics["commitment_share"]) >= Decimal("0.05"),
+                  "default fleet commitments represent at least 5% of billed cost [fixture target]")
+    checker.check(all(Decimal(0) <= Decimal(metrics[k]) <= 1 for k in ("utilization", "waste", "coverage")),
+                  "fleet utilization, waste and eligible-compute coverage are bounded")
 
     checker.check(
         module.generate_csv_bytes(1000, 1202) == path.read_bytes(),

@@ -1,4 +1,4 @@
-focus_sample_costandusage_aws_1000.csv: 15 reviewed validator failures; 210 rules skipped
-focus_sample_costandusage_azure_1000.csv: 11 reviewed validator failures; 210 rules skipped
-focus_sample_costandusage_gcp_1000.csv: 11 reviewed validator failures; 210 rules skipped
-Evidence matches. Reviewed artifacts and skipped rules are NOT conformance passes.
+focus_sample_costandusage_aws_1000.csv: 15 failing, 353 passing, 210 skipped rules
+focus_sample_costandusage_azure_1000.csv: 11 failing, 357 passing, 210 skipped rules
+focus_sample_costandusage_gcp_1000.csv: 11 failing, 357 passing, 210 skipped rules
+Reviewed artifacts and skipped rules are NOT conformance passes.

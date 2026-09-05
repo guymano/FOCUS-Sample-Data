@@ -1,0 +1,45 @@
+{
+  "source": "focus_sample_costandusage_aws_1000.csv",
+  "source_data_record": 8,
+  "source_sha256": "dc489473400f14a098f4bbfee1b927a912704f7570f33f0ef2db5958fb1a5ff2",
+  "input_sha256": "d0c33b78288ab20903709a74d419a4a101fb549cfb0416dd9625a09a3addb6a2",
+  "target_rules": [
+    "EffectiveCost-C-005-C"
+  ],
+  "model": "1.2.0.1",
+  "model_sha256": "639b302ace9edd05922e3d15fcedf62723c92e7cf25e0a7a6684dd4fd4076fec",
+  "validator": "2.2.1",
+  "observed_target_failures": {
+    "EffectiveCost-C-005-C": 1
+  },
+  "model_rules": {
+    "EffectiveCost-C-005-C": {
+      "Function": "Validation",
+      "Reference": "EffectiveCost",
+      "EntityType": "Column",
+      "Notes": "",
+      "ModelVersionIntroduced": "1.2",
+      "Status": "Active",
+      "ApplicabilityCriteria": [],
+      "Type": "Static",
+      "ValidationCriteria": {
+        "MustSatisfy": "EffectiveCost MUST be 0 when ChargeCategory is \"Purchase\" and the purchase is intended to cover future eligible charges.",
+        "Keyword": "MUST",
+        "Requirement": {
+          "CheckFunction": "CheckValue",
+          "ColumnName": "EffectiveCost",
+          "Value": 0
+        },
+        "Condition": {
+          "CheckFunction": "CheckValue",
+          "ColumnName": "ChargeCategory",
+          "Value": "Purchase"
+        },
+        "Dependencies": [
+          "ChargeCategory-C-000-M"
+        ]
+      }
+    }
+  },
+  "command": "focus-validator --data-file period-subscription.csv --validate-version 1.2.0.1 --focus-dataset CostAndUsage --applicability-criteria ALL --show-violations --block-download"
+}
